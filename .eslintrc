@@ -1,0 +1,12 @@
+{
+  "root": true,
+  "extends": ["next", "next/core-web-vitals", "plugin:@typescript-eslint/recommended", "plugin:import/recommended", "plugin:prettier/recommended", "plugin:react-hooks/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "import"],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": ["error"],
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "react/display-name": 0,
+    "curly": ["error"]
+  }
+}
