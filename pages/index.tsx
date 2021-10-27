@@ -1,18 +1,24 @@
-import Footer from '../components/Footer/Footer';
-import Header from '../components/Header/Header';
-import BannerAddPlugin from '../components/Home/BannerAddPlugin/BannerAddPlugin';
-import BannerHero from '../components/Home/BannerHero/BannerHero';
-import BannerPricing from '../components/Home/BannerPricing/BannerPricing';
-import DatabaseSupport from '../components/Home/DatabaseSupport/DatabaseSupport';
-import Download from '../components/Home/Download/Download';
-import RunsOnEverySystem from '../components/Home/RunsOnEverySystem/RunsOnEverySystem';
-import Section from '../components/Home/Section/Section';
-import SyncTagoIO from '../components/Home/SyncTagoIO/SyncTagoIO';
-import globalCss from '../styles/Global';
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
+import BannerAddPlugin from "../components/Home/BannerAddPlugin/BannerAddPlugin";
+import BannerHero from "../components/Home/BannerHero/BannerHero";
+import BannerPricing from "../components/Home/BannerPricing/BannerPricing";
+import DatabaseSupport from "../components/Home/DatabaseSupport/DatabaseSupport";
+import Download from "../components/Home/Download/Download";
+import RunsOnEverySystem from "../components/Home/RunsOnEverySystem/RunsOnEverySystem";
+import Section from "../components/Home/Section/Section";
+import AlreadyACustomer from "../components/Home/AlreadyACustomer/AlreadyACustomer";
+import globalCss from "../styles/Global";
+import Head from "next/head";
+import themeCss from "../styles/Theme";
 
 export default function Home() {
   return (
     <div className="home">
+      <Head>
+        <title>TagoCore</title>
+      </Head>
+
       <Header />
 
       <Section id="hero" useSpaceBottom>
@@ -32,7 +38,7 @@ export default function Home() {
       </Section>
 
       <Section id="sync-tagoio" useSpaceTop useSpaceBottom backgroundColor="rgb(250, 250, 250)">
-        <SyncTagoIO />
+        <AlreadyACustomer />
       </Section>
 
       <Section id="runs-on-every-system" useSpaceTop useSpaceBottom>
@@ -45,7 +51,12 @@ export default function Home() {
 
       <Footer />
 
-      <style jsx global>{globalCss}</style>
+      <style jsx global>
+        {globalCss}
+      </style>
+      <style jsx global>
+        {themeCss}
+      </style>
     </div>
-  )
+  );
 }

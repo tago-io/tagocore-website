@@ -15,27 +15,18 @@ interface ISectionProps {
 }
 
 /**
+ * This is a single section in the home page of the application.
+ * A section is a division showing a specific functionality or feature of the application.
  */
 function Section(props: ISectionProps) {
-  const {
-    id,
-    useSpaceTop,
-    useSpaceBottom,
-    backgroundColor,
-    useBorderBottom,
-    useBorderTop,
-    children,
-  } = props;
+  const { id, useSpaceTop, useSpaceBottom, backgroundColor, useBorderBottom, useBorderTop, children } = props;
+
+  const className = ["home-section", useBorderTop ? "border-top" : "", useBorderBottom ? "border-bottom" : ""]
+    .filter((x) => x)
+    .join(" ");
 
   return (
-    <section
-      className={`
-        home-section
-        ${useBorderTop ? "border-top" : ""}
-        ${useBorderBottom ? "border-bottom" : ""}
-      `}
-      style={{ backgroundColor }}
-    >
+    <section className={className} style={{ backgroundColor }}>
       {id && <Element name={id}></Element>}
 
       {useSpaceTop && <div className="space" />}

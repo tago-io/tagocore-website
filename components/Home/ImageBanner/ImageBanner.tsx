@@ -30,8 +30,8 @@ function ImageBanner(props: IImageBannerProps) {
 
       <div className="picture-side">
         <div className="images">
-          {image1 && <img className="img1" src={image1} alt="banner-image1" />}
-          {image2 && <img className="img2" src={image2} alt="banner-image2" />}
+          {image1 && <img width="1043px" height="647px" className="img1" src={image1} alt="banner-image1" />}
+          {image2 && <img width="1043px" height="647px" className="img2" src={image2} alt="banner-image2" />}
         </div>
       </div>
 
@@ -83,7 +83,7 @@ function ImageBanner(props: IImageBannerProps) {
           height: 95%;
           width: auto;
           border-radius: 8px;
-          border: 1px solid rgba(0, 0, 0, 0.1)
+          border: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .image-banner .picture-side .img2 {
@@ -96,8 +96,7 @@ function ImageBanner(props: IImageBannerProps) {
           position: absolute;
           right: 0px;
           top: -20px;
-          background:
-            linear-gradient(to right, transparent,  white);
+          background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
           width: 350px;
           height: 110%;
         }
@@ -119,13 +118,13 @@ function ImageBanner(props: IImageBannerProps) {
         .image-banner.left .images {
           position: relative;
           right: 60px;
+          justify-content: flex-end;
         }
 
         .image-banner.left .fade {
           right: initial;
           left: 0px;
-          background:
-            linear-gradient(to right, white, transparent);
+          background: linear-gradient(to right, white, rgba(255, 255, 255, 0));
         }
 
         .image-banner.left .fade:after {

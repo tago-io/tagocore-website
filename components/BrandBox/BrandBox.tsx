@@ -106,15 +106,20 @@ const data = {
 };
 
 /**
+ * Props.
  */
 interface IBrandBoxProps {
   type: EBrandBox;
 }
 
+/**
+ * This component shows a logo of a brand inside of a box.
+ * The brand that will be shown can be customized via props.
+ */
 function BrandBox(props: IBrandBoxProps) {
   const { type } = props;
 
-  const item = (data as any)[type];
+  const item = data[type];
   const width = item.width;
   const height = item.height;
   const backgroundPosition = item.position;
@@ -123,16 +128,13 @@ function BrandBox(props: IBrandBoxProps) {
   return (
     <div className={`brand-box brand-${type}`}>
       <div className="stripe bg-primary" />
-      <div
-        className="img-container"
-        style={{ width, height, backgroundImage, backgroundPosition }}
-      />
+      <div className="img-container" style={{ width, height, backgroundImage, backgroundPosition }} />
 
       <style jsx>{`
         .brand-box {
           padding: 30px 0px;
           border-radius: 10px;
-          box-shadow: 0 5px 10px rgba(0,0,0,0.12);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
           display: flex;
           align-items: center;
           justify-content: center;

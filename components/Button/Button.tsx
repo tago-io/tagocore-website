@@ -3,9 +3,7 @@ import { ButtonHTMLAttributes } from "react";
 /**
  * Props.
  */
-interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  //
-}
+type IButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 /**
  * Simple HTML Button with a different style.
@@ -30,11 +28,14 @@ function Button(props: IButtonProps) {
           align-items: center;
         }
 
-        button:hover, button:hover *, button:active, button:active * {
+        button:hover,
+        button:hover *,
+        button:active,
+        button:active * {
           color: white !important;
           fill: white !important;
         }
-      `}</style>  
+      `}</style>
     </button>
   );
 }

@@ -3,22 +3,22 @@ import BrandBox, { EBrandBox } from "../../BrandBox/BrandBox";
 function DatabaseSupport() {
   return (
     <div className="database-support">
-      <div>
+      <div className="title">
         <h2>Out-of-the-box&nbsp;</h2>
         <h2 className="text-gradient-primary">Database Support</h2>
       </div>
 
       <div className="description">
-        Works out-of-the-box with a bunch of databases, and we have plugins for the rest!
+        These are a few of the databases that TagoCore supports, some are still in active development.
       </div>
 
       <div className="row">
         <BrandBox type={EBrandBox.mysql} />
         <BrandBox type={EBrandBox.postgres} />
         <BrandBox type={EBrandBox.mongoDB} />
-        <BrandBox type={EBrandBox.sqlServer} />
-        <BrandBox type={EBrandBox.amazonRedshift} />
         <BrandBox type={EBrandBox.sqlite} />
+        <BrandBox type={EBrandBox.amazonRedshift} />
+        <BrandBox type={EBrandBox.sqlServer} />
         <BrandBox type={EBrandBox.mariaDB} />
         <BrandBox type={EBrandBox.oracle} />
 
@@ -37,7 +37,7 @@ function DatabaseSupport() {
           position: relative;
         }
 
-        .database-support h2 {
+        .database-support .title {
           margin-bottom: 20px;
         }
 
@@ -65,7 +65,7 @@ function DatabaseSupport() {
           width: 500px;
           max-width: calc(100% - 40px);
           border-radius: 10px;
-          box-shadow: 0 5px 10px rgba(0,0,0,0.12);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
           display: flex;
           align-items: center;
           justify-content: center;

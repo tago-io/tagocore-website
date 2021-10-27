@@ -4,8 +4,8 @@ function RunsOnEverySystem() {
   return (
     <div className="section-runs-on">
       <div className="page-max-width">
-        <div>
-          <h2>Also, it runs on&nbsp;</h2>
+        <div className="title">
+          <h2>Also, it runs on pretty much&nbsp;</h2>
           <h2 className="text-gradient-primary">every system&nbsp;</h2>
           <h2>you know</h2>
         </div>
@@ -41,7 +41,7 @@ function RunsOnEverySystem() {
           position: relative;
         }
 
-        .section-runs-on h2 {
+        .section-runs-on .title {
           margin-bottom: 20px !important;
         }
 
@@ -87,7 +87,7 @@ function RunsOnEverySystem() {
           padding: 20px;
           margin: 0 auto;
           border-radius: 10px;
-          box-shadow: 0 5px 10px rgba(0,0,0,0.12);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
           display: flex;
           align-items: center;
           justify-content: center;

@@ -1,17 +1,17 @@
+import { memo } from "react";
 import imgTagoIOLogoColor from "../../assets/tagoio-logo-color.png";
 
 /**
  * Main footer of the application.
  */
 function Footer() {
+  const year = new Date().getFullYear();
   return (
     <footer className="page-footer">
-      <div className="stripe bg-primary" />
-
       <div className="page-max-width">
         <div className="copyright">
-          <img alt="tagoio-logo" src={imgTagoIOLogoColor.src} />
-          <div>Copyright © 2021 TagoIO, Inc. All rights reserved.</div>
+          <img alt="tagoio-logo" src={imgTagoIOLogoColor.src} width="107px" height="30px" />
+          <div>Copyright © {year} TagoIO, Inc. All rights reserved.</div>
         </div>
       </div>
 
@@ -22,45 +22,13 @@ function Footer() {
           position: relative;
         }
 
-        .page-footer .columns {
-          display: flex;
-          flex: 1;
-        }
-
-        .page-footer .column {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-        }
-
-        .page-footer .stripe {
-          height: 1px;
-          width: 100%;
-          position: absolute;
-          top: 0px;
-        }
-
-        .page-footer .column h4 {
-          margin-bottom: 15px;
-        }
-
-        .page-footer .column a {
-          display: inline-block;
-          color: rgba(0, 0, 0, 0.4);
-          text-decoration: none;
-          margin-bottom: 3px;
-        }
-
-        .page-footer .column a:hover {
-          color: rgba(0, 0, 0, 1);
-        }
-
         .page-footer .copyright {
           margin-top: 30px;
         }
 
         .page-footer .copyright img {
           height: 30px;
+          width: auto;
           margin-bottom: 5px;
           margin-right: 25px;
         }
@@ -68,10 +36,9 @@ function Footer() {
         .page-footer .copyright div {
           color: rgba(0, 0, 0, 0.4);
         }
-
       `}</style>
     </footer>
   );
 }
 
-export default Footer;
+export default memo(Footer);

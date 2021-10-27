@@ -1,5 +1,8 @@
 import css from "styled-jsx/css";
 
+/**
+ * Controls the global css for elements.
+ */
 const globalCss = css.global`
   body, html {
     margin: 0;
@@ -23,41 +26,6 @@ const globalCss = css.global`
     position: absolute;
     left: 0px;
     top: 0px;
-  }
-
-  .border-primary {
-    border: 1px solid rgb(113, 158, 255);
-  }
-
-  .border-primary-focus:focus {
-    border: 1px solid rgb(113, 158, 255);
-  }
-
-  .bg-primary {
-    background: linear-gradient(rgb(113, 158, 255), #297cc4);
-  }
-
-  .bg-primary-hover:hover {
-    background: linear-gradient(to right, rgb(113, 158, 255), #297cc4);
-    color: white;
-    fill: white;
-  }
-
-  .bg-primary-hover:hover * {
-    color: white;
-    fill: white;
-  }
-
-  .color-primary, .color-primary * {
-    color: rgb(113, 158, 255);
-    fill: rgb(113, 158, 255);
-  }
-
-  .text-gradient-primary {
-    background-image: linear-gradient(rgb(113, 158, 255), #297cc4);
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
   }
 
   .page-max-width {

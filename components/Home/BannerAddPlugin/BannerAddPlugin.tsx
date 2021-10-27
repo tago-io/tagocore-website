@@ -28,16 +28,14 @@ function BannerAddPlugin() {
     return (
       <>
         <div className="description">
-          With <b>TagoCore SDK</b>, you can build your very own plugins and perform any kind of task
-          in the system, such as adding different types of parsers, options, and screens.
+          With <b>TagoCore SDK</b>, you can build your very own plugins and perform any kind of task in the system, such
+          as adding different types of parsers, options, and screens.
         </div>
       </>
     );
   };
 
-  return (
-    <ImageBanner title={renderTitle()} description={renderDescription()} image1={imgAddPlugin.src} />
-  );
+  return <ImageBanner title={renderTitle()} description={renderDescription()} image1={imgAddPlugin.src} />;
 }
 
 export default BannerAddPlugin;
