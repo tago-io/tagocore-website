@@ -9,7 +9,7 @@ import imgAppleLogo from "../../../assets/apple-logo.svg";
 function Download() {
   return (
     <div className="download page-max-width">
-      <div className="inner-download">
+      <div className="inner-download" aria-disabled="true">
         <div>
           <h2>Download TagoCore</h2>
         </div>
@@ -227,7 +227,7 @@ function Download() {
           align-items: center;
           flex-direction: column;
           position: relative;
-          opacity: 0.5;
+          opacity: 0.4;
           pointer-events: none;
           z-index: 1;
         }

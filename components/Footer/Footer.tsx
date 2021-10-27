@@ -34,7 +34,7 @@ function Footer() {
         }
 
         .page-footer .copyright div {
-          color: rgba(0, 0, 0, 0.4);
+          color: rgba(0, 0, 0, 0.6);
         }
       `}</style>
     </footer>

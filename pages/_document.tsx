@@ -7,37 +7,37 @@ class MyDocument extends Document {
         <Head>
           <link rel="shortcut icon" href="/static/favicon.png" />
           <meta
-            key="description"
             name="description"
+            content="TagoCore is a free, fast, and open-source IoT platform for edge computing."
+          />
+          <meta name="theme-color" content="#093a63" />
+
+          <meta property="og:locale" name="og:locale" content="en_US" />
+          <meta property="og:type" name="og:type" content="website" />
+          <meta
+            property="og:description"
+            name="og:description"
             content="TagoCore is a free, fast, and open-source IoT platform for edge computing"
           />
-          {/*
+          <meta property="og:site_name" name="og:site_name" content="TagoCore" />
+          <meta property="og:title" name="og:title" content="TagoCore" />
+          <meta property="og:image" name="og:image" content="/static/logo.png" />
+          <meta property="og:image:type" name="og:image:type" content="image/png" />
+          <meta property="og:image:width" name="og:image:width" content="2275" />
+          <meta property="og:image:height" name="og:image:height" content="462" />
+          <meta property="og:url" name="og:url" content="/" />
+
+          <meta property="twitter:card" name="twitter:card" content="summary" />
+          <meta property="twitter:site" name="twitter:site" content="@tagoio" />
+          <meta property="twitter:creator" name="twitter:creator" content="@tagoio" />
           <meta
-            key="og:type"
-            name="og:type"
-            content={MY_SEO.openGraph.type}
+            property="twitter:description"
+            name="twitter:description"
+            content="TagoCore is a free, fast, and open-source IoT platform for edge computing."
           />
-          <meta
-            key="og:title"
-            name="og:title"
-            content={MY_SEO.openGraph.title}
-          />
-          <meta
-            key="og:description"
-            name="og:description"
-            content={MY_SEO.openGraph.description}
-          />
-          <meta
-            key="og:url"
-            name="og:url"
-            content={MY_SEO.openGraph.url}
-          />
-          <meta
-            key="og:image"
-            name="og:image"
-            content={MY_SEO.openGraph.image}
-          /> */}
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <meta property="twitter:title" name="twitter:title" content="TagoCore" />
+          <meta property="twitter:image" name="twitter:image" content="/static/logo.png" />
+          <meta property="twitter:url" name="twitter:url" content="/" />
         </Head>
 
         <body>
