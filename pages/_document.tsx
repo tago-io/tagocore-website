@@ -5,11 +5,13 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          {/* <meta
+          <link rel="shortcut icon" href="/static/favicon.png" />
+          <meta
             key="description"
             name="description"
-            content={MY_SEO.description}
+            content="TagoCore is a free, fast, and open-source IoT platform for edge computing"
           />
+          {/*
           <meta
             key="og:type"
             name="og:type"

@@ -87,6 +87,7 @@ function EarlyAccessButton() {
       <style jsx>{`
         .early-access-button {
           display: inline-flex;
+          max-width: 100%;
         }
 
         .early-access-button input {
