@@ -8,12 +8,12 @@ function RunsOnEverySystem() {
     <div className="runs-on-every-system">
       <div className="page-max-width">
         <div className="title">
-          <h2>Also, it runs on pretty much&nbsp;</h2>
+          <h2>It runs on pretty much&nbsp;</h2>
           <h2 className="text-gradient-primary">anything</h2>
         </div>
 
         <div className="description">
-          TagoCore&apos;s versatile framework allows it to run pretty much anywhere you want it to.
+          TagoCore&apos;s versatility allows it to run pretty much anywhere you want it to.
         </div>
 
         {/* OS */}
@@ -21,8 +21,8 @@ function RunsOnEverySystem() {
           <div className="data">
             <h3 className="color-primary">Operating systems</h3>
             <span>
-              TagoCore runs on all major operating systems available today. From linux to macOS, we&apos;ve got you
-              covered.
+              Run it on all major operating systems available today. Linux, Windows, or macOS: it doesn&apos;t matter,
+              we&apos;ve got you covered.
             </span>
           </div>
 
@@ -44,7 +44,8 @@ function RunsOnEverySystem() {
           <div className="data">
             <h3 className="color-primary">On the edge</h3>
             <span>
-              You can deploy a TagoCore instance and compute data on the edge. Quick and easy, just like that.
+              Deploy a TagoCore instance and compute data on the edge by using Raspberry Pi, Rock Pi, and many others!
+              Quick and easy, just like that.
             </span>
           </div>
         </div>
@@ -54,8 +55,8 @@ function RunsOnEverySystem() {
           <div className="data">
             <h3 className="color-primary">On the cloud</h3>
             <span>
-              You can also run TagoCore on any cloud provider. Deploy an instance and operate the platform from far
-              away!
+              Set up TagoCore on cloud providers such as AWS, Azure, Google Cloud, and others! Deploy an instance and
+              operate the platform from far far away.
             </span>
           </div>
 

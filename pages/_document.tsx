@@ -11,7 +11,6 @@ class MyDocument extends Document {
           <link rel="manifest" href="/site.webmanifest" />
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000" />
           <meta name="msapplication-TileColor" content="#000000" />
-          <meta name="theme-color" content="#ffffff" />
 
           <meta
             name="description"
@@ -29,7 +28,7 @@ class MyDocument extends Document {
           />
           <meta property="og:site_name" name="og:site_name" content="TagoCore" />
           <meta property="og:title" name="og:title" content="TagoCore" />
-          <meta property="og:image" name="og:image" content="https://d2jxrtj947npy5.cloudfront.net/logo.png" />
+          <meta property="og:image" name="og:image" content="https://d2jxrtj947npy5.cloudfront.net/logo-small.png" />
           <meta property="og:image:type" name="og:image:type" content="image/png" />
           <meta property="og:image:width" name="og:image:width" content="2275" />
           <meta property="og:image:height" name="og:image:height" content="462" />
@@ -47,7 +46,7 @@ class MyDocument extends Document {
           <meta
             property="twitter:image"
             name="twitter:image"
-            content="https://d2jxrtj947npy5.cloudfront.net/logo.png"
+            content="https://d2jxrtj947npy5.cloudfront.net/logo-small.png"
           />
           <meta property="twitter:url" name="twitter:url" content="https://d2jxrtj947npy5.cloudfront.net/" />
         </Head>
