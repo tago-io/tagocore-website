@@ -4,11 +4,11 @@ import css from "styled-jsx/css";
  * Controls the global css for elements.
  */
 const globalCss = css.global`
-  body, html {
+  body,
+  html {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+      "Droid Sans", "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -39,7 +39,12 @@ const globalCss = css.global`
     color: #323030;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin: 0;
     display: inline-block;
   }
@@ -50,6 +55,10 @@ const globalCss = css.global`
 
   h2 {
     font-size: 2.3rem;
+  }
+
+  h3 {
+    font-size: 1.6rem;
   }
 
   @media screen and (max-width: 1400px) {

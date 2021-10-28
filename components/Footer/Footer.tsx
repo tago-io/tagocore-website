@@ -27,8 +27,8 @@ function Footer() {
         }
 
         .page-footer .copyright img {
-          height: 30px;
-          width: auto;
+          height: auto;
+          width: 114px;
           margin-bottom: 5px;
           margin-right: 25px;
         }

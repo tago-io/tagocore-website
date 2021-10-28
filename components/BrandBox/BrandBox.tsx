@@ -1,4 +1,5 @@
 import imgBrands from "../../assets/brands.png";
+import brandsJSON from "../../assets/brands.json";
 
 /**
  * Types of brands to choose from.
@@ -15,95 +16,16 @@ export enum EBrandBox {
   aws = "aws",
   debian = "debian",
   linux = "linux",
-  raspberry = "raspberry",
+  raspberry = "raspberry-pi",
   redhat = "redhat",
   ubuntu = "ubuntu",
   windows = "windows",
   oracle = "oracle",
+  rockPI = "rock-pi",
+  azure = "azure",
+  googleCloud = "google-cloud",
+  gateway = "gateway",
 }
-
-const data = {
-  [EBrandBox.mysql]: {
-    width: `73px`,
-    height: `50px`,
-    position: `-329px -0px`,
-  },
-  [EBrandBox.postgres]: {
-    width: `137px`,
-    height: `50px`,
-    position: `-327px -50px`,
-  },
-  [EBrandBox.mongoDB]: {
-    width: `152px`,
-    height: `40px`,
-    position: `-0px -125px`,
-  },
-  [EBrandBox.sqlServer]: {
-    width: `93px`,
-    height: `75px`,
-    position: `-0px -50px`,
-  },
-  [EBrandBox.sqlite]: {
-    width: `106px`,
-    height: `50px`,
-    position: `-93px -50px`,
-  },
-  [EBrandBox.mariaDB]: {
-    width: `177px`,
-    height: `50px`,
-    position: `-307px -125px`,
-  },
-  [EBrandBox.amazonRedshift]: {
-    width: `128px`,
-    height: `50px`,
-    position: `-199px -50px`,
-  },
-  [EBrandBox.apple]: {
-    width: `42px`,
-    height: `50px`,
-    position: `-79px -0px`,
-  },
-  [EBrandBox.aws]: {
-    width: `84px`,
-    height: `50px`,
-    position: `-402px -0px`,
-  },
-  [EBrandBox.debian]: {
-    width: `40px`,
-    height: `50px`,
-    position: `-39px -0px`,
-  },
-  [EBrandBox.linux]: {
-    width: `42px`,
-    height: `50px`,
-    position: `-121px -0px`,
-  },
-  [EBrandBox.raspberry]: {
-    width: `39px`,
-    height: `50px`,
-    position: `-0px -0px`,
-  },
-  [EBrandBox.redhat]: {
-    width: `66px`,
-    height: `50px`,
-    position: `-263px -0px`,
-  },
-  [EBrandBox.windows]: {
-    width: `50px`,
-    height: `50px`,
-    position: `-213px -0px`,
-  },
-  [EBrandBox.ubuntu]: {
-    width: `50px`,
-    height: `50px`,
-    position: `-163px -0px`,
-  },
-  [EBrandBox.oracle]: {
-    width: `155px`,
-    height: `20px`,
-    position: `-152px -125px`,
-  },
-};
 
 /**
  * Props.
@@ -119,10 +41,11 @@ interface IBrandBoxProps {
 function BrandBox(props: IBrandBoxProps) {
   const { type } = props;
 
-  const item = data[type];
-  const width = item.width;
-  const height = item.height;
-  const backgroundPosition = item.position;
+  const brandFrame = brandsJSON.frames[type];
+
+  const width = `${brandFrame.frame.w}px`;
+  const height = `${brandFrame.frame.h}px`;
+  const backgroundPosition = `-${brandFrame.frame.x}px -${brandFrame.frame.y}px`;
   const backgroundImage = `url(${imgBrands.src})`;
 
   return (
@@ -138,7 +61,6 @@ function BrandBox(props: IBrandBoxProps) {
           display: flex;
           align-items: center;
           justify-content: center;
-          margin: 0px 10px;
           position: relative;
           overflow: hidden;
         }

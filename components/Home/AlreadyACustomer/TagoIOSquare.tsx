@@ -10,9 +10,9 @@ function TagoIOSquare() {
   return (
     <div className="tagoio-square">
       <div className="icon">
-        <SVGCog className="fill-primary cog" width="60px" />
-        <SVGCloud className="fill-primary cloud" width="100px" />
-        <SVGDatabase className="fill-primary database" width="30px" />
+        <SVGCog className="fill-tagoio cog" width="60px" />
+        <SVGCloud className="fill-tagoio cloud" width="100px" />
+        <SVGDatabase className="fill-tagoio database" width="30px" />
       </div>
 
       <div className="item">

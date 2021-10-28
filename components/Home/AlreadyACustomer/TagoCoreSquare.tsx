@@ -8,9 +8,9 @@ function TagoCoreSquare() {
   return (
     <div className="tagocore-square">
       <div className="icon">
-        <SVGMicroChip className="fill-primary chip1" width="40px" />
-        <SVGMicroChip className="fill-primary chip2" width="30px" />
-        <SVGMicroChip className="fill-primary chip3" width="80px" />
+        <SVGMicroChip className="chip1" width="40px" />
+        <SVGMicroChip className="chip2" width="30px" />
+        <SVGMicroChip className="chip3" width="80px" />
       </div>
 
       <div className="item">

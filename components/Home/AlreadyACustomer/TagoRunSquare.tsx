@@ -9,9 +9,9 @@ function TagoRunSquare() {
     <div className="tagoio-square">
       <div className="icon">
         <div className="users">
-          <SVGUser className="fill-primary" width="55px" />
-          <SVGUser className="fill-primary" width="55px" />
-          <SVGUser className="fill-primary" width="55px" />
+          <SVGUser className="fill-tagorun" width="55px" />
+          <SVGUser className="fill-tagorun" width="55px" />
+          <SVGUser className="fill-tagorun" width="55px" />
         </div>
       </div>
 

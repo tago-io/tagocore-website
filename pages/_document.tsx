@@ -5,12 +5,20 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="shortcut icon" href="/static/favicon.png" />
+          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+          <link rel="manifest" href="/site.webmanifest" />
+          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000" />
+          <meta name="msapplication-TileColor" content="#000000" />
+          <meta name="theme-color" content="#ffffff" />
+
           <meta
             name="description"
             content="TagoCore is a free, fast, and open-source IoT platform for edge computing."
           />
-          <meta name="theme-color" content="#093a63" />
+          <meta charSet="UTF-8" />
+          <meta name="theme-color" content="#000000" />
 
           <meta property="og:locale" name="og:locale" content="en_US" />
           <meta property="og:type" name="og:type" content="website" />
@@ -21,11 +29,11 @@ class MyDocument extends Document {
           />
           <meta property="og:site_name" name="og:site_name" content="TagoCore" />
           <meta property="og:title" name="og:title" content="TagoCore" />
-          <meta property="og:image" name="og:image" content="/static/logo.png" />
+          <meta property="og:image" name="og:image" content="https://d2jxrtj947npy5.cloudfront.net/logo.png" />
           <meta property="og:image:type" name="og:image:type" content="image/png" />
           <meta property="og:image:width" name="og:image:width" content="2275" />
           <meta property="og:image:height" name="og:image:height" content="462" />
-          <meta property="og:url" name="og:url" content="/" />
+          <meta property="og:url" name="og:url" content="https://d2jxrtj947npy5.cloudfront.net/" />
 
           <meta property="twitter:card" name="twitter:card" content="summary" />
           <meta property="twitter:site" name="twitter:site" content="@tagoio" />
@@ -36,8 +44,12 @@ class MyDocument extends Document {
             content="TagoCore is a free, fast, and open-source IoT platform for edge computing."
           />
           <meta property="twitter:title" name="twitter:title" content="TagoCore" />
-          <meta property="twitter:image" name="twitter:image" content="/static/logo.png" />
-          <meta property="twitter:url" name="twitter:url" content="/" />
+          <meta
+            property="twitter:image"
+            name="twitter:image"
+            content="https://d2jxrtj947npy5.cloudfront.net/logo.png"
+          />
+          <meta property="twitter:url" name="twitter:url" content="https://d2jxrtj947npy5.cloudfront.net/" />
         </Head>
 
         <body>

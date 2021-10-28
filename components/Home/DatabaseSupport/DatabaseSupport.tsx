@@ -57,6 +57,7 @@ function DatabaseSupport() {
           flex: none;
           height: 110px;
           width: 20%;
+          margin: 0px 10px;
           margin-bottom: 20px;
         }
 
@@ -74,7 +75,7 @@ function DatabaseSupport() {
         }
 
         @media screen and (max-width: 992px) {
-          .database-support .row .brand-box {
+          .database-support .row :global(.brand-box) {
             width: calc(33.3333% - 40px);
           }
           .database-support .your-own {
@@ -83,14 +84,15 @@ function DatabaseSupport() {
         }
 
         @media screen and (max-width: 768px) {
-          .database-support .row .brand-box {
-            width: calc(50% - 40px);
+          .database-support .row :global(.brand-box) {
+            width: calc(50% - 30px);
           }
         }
 
         @media screen and (max-width: 576px) {
-          .database-support .row .brand-box {
+          .database-support .row :global(.brand-box) {
             width: calc(100% - 40px);
+            height: 80px !important;
           }
         }
       `}</style>

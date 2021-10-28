@@ -1,9 +1,11 @@
 import css from "styled-jsx/css";
 
-const mainColor1 = "hsl(207, 79%, 35%)";
-const mainColor1Darker = "hsl(207, 79%, 30%)";
-const mainColor2 = "hsl(207, 79%, 47%)";
-const mainColor2Darker = "hsl(207, 79%, 40%)";
+const mainColor1 = "hsl(207, 79%, 30%)";
+const mainColor1Darker = "hsl(207, 79%, 20%)";
+const mainColor2 = "hsl(207, 79%, 45%)";
+const mainColor2Darker = "hsl(207, 79%, 35%)";
+const tagoIOColor = "hsl(207, 56%, 48%)";
+const tagoRunColor = "hsl(229, 100%, 23%)";
 
 /**
  * Controls the global css for themes.
@@ -16,9 +18,19 @@ const themeCss = css.global`
     border: 1px solid ${mainColor1} !important;
   }
 
-
-  .fill-primary, .fill-primary * {
+  .fill-primary,
+  .fill-primary * {
     fill: ${mainColor1};
+  }
+
+  .fill-tagoio,
+  .fill-tagoio * {
+    fill: ${tagoIOColor};
+  }
+
+  .fill-tagorun,
+  .fill-tagorun * {
+    fill: ${tagoRunColor};
   }
 
   .bg-primary {
@@ -41,11 +53,13 @@ const themeCss = css.global`
     fill: white;
   }
 
-  .color-primary, .color-primary * {
+  .color-primary,
+  .color-primary * {
     color: ${mainColor1};
     fill: ${mainColor1};
   }
-  .color-primary-hover:hover, .color-primary-hover:hover * {
+  .color-primary-hover:hover,
+  .color-primary-hover:hover * {
     color: ${mainColor1};
     fill: ${mainColor1};
   }

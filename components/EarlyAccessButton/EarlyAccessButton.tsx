@@ -101,6 +101,7 @@ function EarlyAccessButton() {
           max-width: 200px;
           display: inline-block;
           flex: 1;
+          height: 40px;
         }
 
         .early-access-button.error input {
@@ -111,6 +112,24 @@ function EarlyAccessButton() {
           padding-left: 15px;
           padding-right: 15px;
           white-space: nowrap;
+          text-align: center;
+          justify-content: center;
+        }
+
+        @media screen and (max-width: 576px) {
+          .early-access-button {
+            flex-direction: column;
+            width: 300px;
+          }
+
+          .early-access-button input {
+            flex: none;
+            margin-right: 0;
+            margin-bottom: 5px;
+            text-align: center;
+            width: 100%;
+            max-width: 100%;
+          }
         }
       `}</style>
     </div>

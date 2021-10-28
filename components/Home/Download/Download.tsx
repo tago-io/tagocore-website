@@ -159,9 +159,6 @@ function Download() {
                 <tr>
                   <td>.zip</td>
                   <td>
-                    <Button>Universal</Button>
-                  </td>
-                  <td>
                     <Button>Intel Chip</Button>
                   </td>
                   <td>
@@ -204,6 +201,10 @@ function Download() {
           flex-direction: column;
           width: 500px;
           max-width: 100%;
+        }
+
+        .download td:first-child {
+          padding-right: 10px;
         }
 
         .download .coming-soon .message {
