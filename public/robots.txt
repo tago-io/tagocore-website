@@ -1,3 +1,4 @@
 User-agent: *
-Disallow:
+Allow: /
+
 Sitemap: https://d2jxrtj947npy5.cloudfront.net/sitemap.xml
