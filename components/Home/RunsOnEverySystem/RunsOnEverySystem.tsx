@@ -56,7 +56,7 @@ function RunsOnEverySystem() {
             <h3 className="color-primary">On the cloud</h3>
             <span>
               Set up TagoCore on cloud providers such as AWS, Azure, Google Cloud, and others! Deploy an instance and
-              operate the platform from far far away.
+              operate the platform from far, far away.
             </span>
           </div>
 

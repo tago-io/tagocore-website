@@ -14,7 +14,7 @@ class MyDocument extends Document {
 
           <meta
             name="description"
-            content="TagoCore is a free, fast, and open-source IoT platform for edge computing."
+            content="TagoCore is a free, fast, and open-source IoT platform for edge computing that you can use to parse and analyze the data from your devices, and more!"
           />
           <meta charSet="UTF-8" />
           <meta name="theme-color" content="#000000" />
@@ -40,7 +40,7 @@ class MyDocument extends Document {
           <meta
             property="twitter:description"
             name="twitter:description"
-            content="TagoCore is a free, fast, and open-source IoT platform for edge computing."
+            content="TagoCore is a free, fast, and open-source IoT platform for edge computing that you can use to parse and analyze the data from your devices, and more!"
           />
           <meta property="twitter:title" name="twitter:title" content="TagoCore" />
           <meta

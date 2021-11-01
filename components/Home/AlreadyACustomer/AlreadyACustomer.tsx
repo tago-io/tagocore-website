@@ -16,8 +16,7 @@ function AlreadyACustomer() {
 
       <div className="description">
         <span>
-          TagoCore enables you to synchronize the data between the <b>TagoIO IoT cloud platform</b> and your{" "}
-          <b>TagoCore data</b>.
+          TagoCore enables you to synchronize the data between the <b>TagoIO IoT cloud platform</b> and <b>TagoCore</b>.
         </span>
         <br />
         <span>This means everything you see on your TagoCore is also safely stored on the cloud!</span>
