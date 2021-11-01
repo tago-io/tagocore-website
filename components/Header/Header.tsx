@@ -1,11 +1,13 @@
 import { useCallback, useEffect, useState } from "react";
 import { scroller } from "react-scroll";
-import logoColor from "../../assets/tagocore-logo-color.png";
+import imgLogoColor from "../../assets/tagocore-logo-color.png";
 import SVGGithub from "../SVG/SVGGithub";
 import Link from "next/link";
+import Image from "next/image";
 
 /**
- * Main header of the application.
+ * Main header of the application, it contains the logo on the left side and some
+ * links/anchors on the right side to direct the user.
  */
 function Header() {
   const [shadow, setShadow] = useState(false);
@@ -60,12 +62,12 @@ function Header() {
   }, [shadow]);
 
   return (
-    <header className={`page-header ${shadow ? "shadow" : ""}`}>
+    <header className={`header ${shadow ? "shadow" : ""}`}>
       <div className="page-max-width">
         <div className="left">
           <Link href="/">
             <a>
-              <img className="logo" src={logoColor.src} alt="logo" width="147px" height="30px" />
+              <Image alt="main-logo" src={imgLogoColor} layout="fixed" width={147} height={30} />
             </a>
           </Link>
         </div>
@@ -87,7 +89,7 @@ function Header() {
       </div>
 
       <style jsx>{`
-        .page-header {
+        .header {
           align-items: center;
           display: flex;
           height: 60px;
@@ -99,57 +101,57 @@ function Header() {
           z-index: 10;
         }
 
-        .page-header .page-max-width {
+        .header .page-max-width {
           display: flex;
           align-items: center;
           flex: 1;
         }
 
-        .page-header.shadow {
+        .header.shadow {
           background: white;
           box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.15);
         }
 
-        .page-header .logo {
+        .header .logo {
           height: 30px;
           width: auto;
         }
 
-        .page-header .left {
+        .header .left {
           display: flex;
           flex: 1;
         }
 
-        .page-header .right {
+        .header .right {
           display: flex;
           flex: none;
         }
 
-        .page-header .right .item {
+        .header .right .item {
           padding: 10px 25px;
           cursor: pointer;
         }
 
-        .page-header .right .item:last-child {
+        .header .right .item:last-child {
           margin-right: -25px;
         }
 
-        .page-header .right span {
+        .header .right span {
           display: flex;
           margin-left: 20px;
         }
 
-        .page-header .right :global(svg) {
+        .header .right :global(svg) {
           opacity: 0.3;
           pointer-events: none;
         }
 
         @media screen and (max-width: 768px) {
-          .page-header .right .item,
-          .page-header :global(svg) {
+          .header .right .item,
+          .header :global(svg) {
             display: none;
           }
-          .page-header .left {
+          .header .left {
             justify-content: center;
           }
         }

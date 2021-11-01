@@ -1,5 +1,3 @@
-import Footer from "../components/Footer/Footer";
-import Header from "../components/Header/Header";
 import BannerAddPlugin from "../components/Home/BannerAddPlugin/BannerAddPlugin";
 import BannerHero from "../components/Home/BannerHero/BannerHero";
 import BannerPricing from "../components/Home/BannerPricing/BannerPricing";
@@ -8,19 +6,15 @@ import Download from "../components/Home/Download/Download";
 import RunsOnEverySystem from "../components/Home/RunsOnEverySystem/RunsOnEverySystem";
 import Section from "../components/Home/Section/Section";
 import AlreadyACustomer from "../components/Home/AlreadyACustomer/AlreadyACustomer";
-import globalCss from "../styles/Global";
 import Head from "next/head";
-import themeCss from "../styles/Theme";
 
-export default function Home() {
+function Home() {
   return (
     <div className="home">
       <Head>
         <title>TagoCore</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-
-      <Header />
 
       <Section id="hero" useSpaceBottom>
         <BannerHero />
@@ -49,15 +43,8 @@ export default function Home() {
       <Section id="download" useBorderTop useSpaceTop useSpaceBottom>
         <Download />
       </Section>
-
-      <Footer />
-
-      <style jsx global>
-        {globalCss}
-      </style>
-      <style jsx global>
-        {themeCss}
-      </style>
     </div>
   );
 }
+
+export default Home;

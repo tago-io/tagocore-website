@@ -2,6 +2,9 @@ import SVGSearch from "../../SVG/SVGSearch";
 import PluginCard from "./Card";
 import Pagination from "./Pagination";
 
+/**
+ * List of plugins.
+ */
 function List() {
   return (
     <div className="plugin-list page-max-width">

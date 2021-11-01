@@ -1,13 +1,30 @@
+import SVGAngleRight from "../../SVG/SVGAngleRight";
+
 /**
  * Renders the resources section of the plugin details page.
  */
 function Resources() {
   return (
     <div className="resources">
-      <div className="item">Repository</div>
-      <div className="item">License</div>
-      <div className="item">Changelog</div>
-      <div className="item">Report abuse</div>
+      <div className="item">
+        <SVGAngleRight width="8px" />
+        Repository
+      </div>
+
+      <div className="item">
+        <SVGAngleRight width="8px" />
+        License
+      </div>
+
+      <div className="item">
+        <SVGAngleRight width="8px" />
+        Changelog
+      </div>
+
+      <div className="item">
+        <SVGAngleRight width="8px" />
+        Report abuse
+      </div>
 
       <style jsx>{`
         .resources {
@@ -21,6 +38,13 @@ function Resources() {
           color: #337ab7;
           font-size: 14px;
           cursor: pointer;
+          display: flex;
+          align-items: center;
+        }
+
+        .resources .item :global(svg) {
+          margin-right: 5px;
+          fill: #337ab7;
         }
       `}</style>
     </div>
