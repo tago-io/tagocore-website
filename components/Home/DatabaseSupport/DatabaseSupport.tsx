@@ -9,7 +9,7 @@ function DatabaseSupport() {
       </div>
 
       <div className="description">
-        These are a few of the databases that TagoCore supports, some are still in active development.
+        TagoCore supports a variety of databases such as those below, yet some are still in active development.
       </div>
 
       <div className="row">

@@ -12,7 +12,7 @@ function BannerAddPlugin() {
     return (
       <>
         <div>
-          <h2>Don&apos;t have it?</h2>
+          <h2>Missing something?</h2>
         </div>
         <div>
           <h2 className="text-gradient-primary">Build it.</h2>

@@ -29,8 +29,8 @@ function BannerHero() {
     return (
       <>
         <div className="description">
-          TagoCore is a <b>free</b>, <b>fast</b>, and <b>open-source</b> IoT platform for edge computing. Parse and
-          analyze the data from your devices and do everything you need with it.
+          TagoCore is a <b>free</b>, <b>fast</b>, and <b>open-source</b> IoT platform for edge computing that you can
+          use to parse and analyze the data from your devices, and more!
         </div>
 
         <div className="description">
