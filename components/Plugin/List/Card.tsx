@@ -1,4 +1,4 @@
-import SVGCog from "../SVG/SVGCog";
+import SVGCog from "../../SVG/SVGCog";
 import Link from "next/link";
 
 /**
@@ -50,6 +50,10 @@ function PluginCard(props) {
             min-width: calc(33.3333% - 10px);
             max-width: calc(33.3333% - 10px);
             border: 1px solid rgba(0, 0, 0, 0.1);
+          }
+
+          .plugin-card:hover {
+            box-shadow: 0px 16px 16px 0px rgba(0, 0, 0, 0.1);
           }
 
           .plugin-card .icon-container {

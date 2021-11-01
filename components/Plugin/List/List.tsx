@@ -1,6 +1,6 @@
 import SVGSearch from "../../SVG/SVGSearch";
-import PluginCard from "../Card";
-import Pagination from "../Pagination";
+import PluginCard from "./Card";
+import Pagination from "./Pagination";
 
 function List() {
   return (
