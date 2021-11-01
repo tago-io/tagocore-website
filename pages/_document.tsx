@@ -1,4 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import globalCss from "../styles/Global";
+import themeCss from "../styles/Theme";
 
 class MyDocument extends Document {
   render() {

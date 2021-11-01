@@ -61,6 +61,14 @@ const globalCss = css.global`
     font-size: 1.6rem;
   }
 
+  h4 {
+    font-size: 1.3rem;
+  }
+
+  h5 {
+    font-size: 1.1rem;
+  }
+
   @media screen and (max-width: 1400px) {
     .page-max-width {
       max-width: calc(100% - 60px);

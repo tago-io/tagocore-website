@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { scroller } from "react-scroll";
 import logoColor from "../../assets/tagocore-logo-color.png";
 import SVGGithub from "../SVG/SVGGithub";
+import Link from "next/link";
 
 /**
  * Main header of the application.
@@ -62,7 +63,11 @@ function Header() {
     <header className={`page-header ${shadow ? "shadow" : ""}`}>
       <div className="page-max-width">
         <div className="left">
-          <img className="logo" src={logoColor.src} alt="logo" width="147px" height="30px" />
+          <Link href="/">
+            <a>
+              <img className="logo" src={logoColor.src} alt="logo" width="147px" height="30px" />
+            </a>
+          </Link>
         </div>
 
         <div className="right">
