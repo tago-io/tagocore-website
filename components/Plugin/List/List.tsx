@@ -133,6 +133,48 @@ function List() {
           font-size: 15px;
           width: 100%;
         }
+
+        .plugin-list :global(.plugin-card) {
+          min-width: calc(33.3333% - 10px);
+          max-width: calc(33.3333% - 10px);
+        }
+
+        @media screen and (max-width: 1200px) {
+          .plugin-list :global(.plugin-card) {
+            min-width: calc(50% - 10px);
+            max-width: calc(50% - 10px);
+          }
+        }
+
+        @media screen and (max-width: 992px) {
+          .plugin-list .content {
+            flex-direction: column;
+          }
+
+          .plugin-list .inner-categories {
+            position: initial;
+            margin-bottom: 20px;
+          }
+
+          .plugin-list :global(.plugin-card) {
+            min-width: calc(33.3333% - 10px);
+            max-width: calc(33.3333% - 10px);
+          }
+        }
+
+        @media screen and (max-width: 768px) {
+          .plugin-list :global(.plugin-card) {
+            min-width: calc(50% - 10px);
+            max-width: calc(50% - 10px);
+          }
+        }
+
+        @media screen and (max-width: 576px) {
+          .plugin-list :global(.plugin-card) {
+            min-width: calc(100% - 10px);
+            max-width: calc(100% - 10px);
+          }
+        }
       `}</style>
     </div>
   );

@@ -47,8 +47,6 @@ function PluginCard(props) {
             transition: box-shadow 0.15s;
             flex: 1;
             margin: 5px;
-            min-width: calc(33.3333% - 10px);
-            max-width: calc(33.3333% - 10px);
             border: 1px solid rgba(0, 0, 0, 0.1);
           }
 
