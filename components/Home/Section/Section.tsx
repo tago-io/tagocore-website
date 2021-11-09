@@ -37,6 +37,7 @@ function Section(props: ISectionProps) {
         .home-section {
           position: relative;
           z-index: 1;
+          flex: 1;
         }
 
         .home-section.border-top {

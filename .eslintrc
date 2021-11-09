@@ -1,6 +1,6 @@
 {
   "root": true,
-  "extends": ["next", "next/core-web-vitals", "plugin:@typescript-eslint/recommended", "plugin:import/recommended", "plugin:prettier/recommended", "plugin:react-hooks/recommended"],
+  "extends": ["next", "next/core-web-vitals", "plugin:@typescript-eslint/recommended", "plugin:import/recommended", "plugin:prettier/recommended"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "import"],
   "rules": {

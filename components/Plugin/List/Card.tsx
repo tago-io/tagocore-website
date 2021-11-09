@@ -1,12 +1,23 @@
 import SVGCog from "../../SVG/SVGCog";
 import Link from "next/link";
+import SVGDownload from "../../SVG/SVGDownload";
+import SVGStar from "../../SVG/SVGStar";
+import Developer from "../../Developer/Developer";
+import { IPluginDeveloper } from "../Plugin.types";
+
+interface IPluginCardProps {
+  name: string;
+  rating: number;
+  downloads: number;
+  developer: IPluginDeveloper;
+}
 
 /**
  * A Single plugin card in the list of plugins. Clicking one of these plugin cards
  * will transfer you to the plugin details page.
  */
-function PluginCard(props) {
-  const { name } = props;
+function PluginCard(props: IPluginCardProps) {
+  const { name, rating, downloads, developer } = props;
 
   return (
     <Link href="/plugins/899a8e65132a1e384a6s84sa1q">
@@ -17,21 +28,24 @@ function PluginCard(props) {
 
         <div className="data">
           <h5>{name}</h5>
-          <span className="author">Developer</span>
+          <span className="developer">
+            <Developer name={developer?.name} verified={developer?.verified} domain={developer?.domain} />
+          </span>
           <span className="description">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
           </span>
+
           <span className="rating">
             <div className="info">
-              <SVGCog width="14px" />
-              <span>4.2</span>
+              <SVGStar width="14px" />
+              <span>{rating}</span>
             </div>
 
             <span className="separator" />
 
             <div className="info">
-              <SVGCog width="14px" />
-              <span>1,000,000+</span>
+              <SVGDownload width="14px" />
+              <span>{downloads}+</span>
             </div>
           </span>
         </div>
@@ -51,7 +65,7 @@ function PluginCard(props) {
           }
 
           .plugin-card:hover {
-            box-shadow: 0px 16px 16px 0px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.15);
           }
 
           .plugin-card .icon-container {
@@ -66,12 +80,6 @@ function PluginCard(props) {
           .plugin-card .data {
             display: flex;
             flex-direction: column;
-          }
-
-          .plugin-card .data .author {
-            color: rgba(0, 0, 0, 0.5);
-            font-size: 14px;
-            margin-top: 2px;
           }
 
           .plugin-card .data .description {

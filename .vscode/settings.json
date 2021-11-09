@@ -10,6 +10,7 @@
         "scroller",
         "tagocore",
         "tagoio",
-        "tagorun"
+        "tagorun",
+        "tcore"
     ]
 }

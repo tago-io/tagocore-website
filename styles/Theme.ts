@@ -8,6 +8,16 @@ const tagoIOColor = "hsl(207, 56%, 48%)";
 const tagoRunColor = "hsl(229, 100%, 23%)";
 
 /**
+ * Theme object, contains all color and font sizes.
+ */
+const theme = {
+  colors: {
+    // verified: "hsl(137, 66%, 30%)",
+    verified: "hsl(207, 56%, 48%)",
+  },
+};
+
+/**
  * Controls the global css for themes.
  */
 const themeCss = css.global`
@@ -72,4 +82,5 @@ const themeCss = css.global`
   }
 `;
 
+export { theme };
 export default themeCss;

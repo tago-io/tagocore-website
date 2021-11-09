@@ -43,7 +43,7 @@ function Details() {
 
         <div className="data">
           <h3>Plugin #1</h3>
-          <div className="author">Plugin Developer</div>
+          <div className="developer">Plugin Developer</div>
           <div className="small-description">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry
           </div>
@@ -166,7 +166,7 @@ function Details() {
           margin-right: 10px;
         }
 
-        .plugin-details .banner .data .author {
+        .plugin-details .banner .data .developer {
           margin-top: 5px;
           font-weight: 500;
           opacity: 0.7;

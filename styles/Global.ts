@@ -92,6 +92,13 @@ const globalCss = css.global`
   a {
     text-decoration: none;
   }
+
+  img {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+  }
 `;
 
 export default globalCss;
