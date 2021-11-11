@@ -1,6 +1,6 @@
 import Head from "next/head";
-import Section from "../../components/Home/Section/Section";
-import Details from "../../components/Plugin/Details/Details";
+import Section from "../../../components/Home/Section/Section";
+import Details from "../../../components/Plugins/Details/Details";
 
 export default function PluginDetailsPage() {
   return (

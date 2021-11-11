@@ -1,5 +1,6 @@
 import { memo } from "react";
 import imgTagoIOLogoColor from "../../assets/tagoio-logo-color.png";
+import Image from "next/image";
 
 /**
  * Main footer of the application.
@@ -10,7 +11,7 @@ function Footer() {
     <footer className="page-footer">
       <div className="page-max-width">
         <div className="copyright">
-          <img alt="tagoio-logo" src={imgTagoIOLogoColor.src} width="107px" height="30px" />
+          <Image alt="tagoio-logo" src={imgTagoIOLogoColor} width="107px" height="30px" />
           <div>Copyright © {year} TagoIO, Inc. All rights reserved.</div>
         </div>
       </div>

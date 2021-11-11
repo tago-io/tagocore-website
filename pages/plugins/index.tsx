@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Section from "../../components/Home/Section/Section";
-import PluginsList from "../../components/Plugin/List/List";
+import PluginsList from "../../components/Plugins/List/List";
 
 function PluginListPage() {
   return (

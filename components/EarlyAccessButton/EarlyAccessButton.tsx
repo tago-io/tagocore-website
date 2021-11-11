@@ -32,13 +32,11 @@ function EarlyAccessButton() {
         mail_list: ["core_news"],
       };
 
-      const response = await fetch("https://wkd7y6x1xi.execute-api.us-east-1.amazonaws.com/prod/mail-list/subscribe", {
+      await fetch("https://wkd7y6x1xi.execute-api.us-east-1.amazonaws.com/prod/mail-list/subscribe", {
         method: "POST",
         headers,
         body: JSON.stringify(body),
       }).then((r) => r.json());
-
-      console.log(response);
     } catch (ex) {
       console.error("Could not subscribe to mail list", ex.message || ex);
     }
@@ -88,6 +86,7 @@ function EarlyAccessButton() {
         .early-access-button {
           display: inline-flex;
           max-width: 100%;
+          width: 100%;
         }
 
         .early-access-button input {
@@ -98,7 +97,7 @@ function EarlyAccessButton() {
           margin-right: 8px;
           outline: 0;
           min-width: 0;
-          max-width: 200px;
+          max-width: 300px;
           display: inline-block;
           flex: 1;
           height: 40px;

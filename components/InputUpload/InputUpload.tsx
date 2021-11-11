@@ -1,27 +1,33 @@
-import { InputHTMLAttributes, useCallback, useRef, useState } from "react";
+import { useCallback, useRef } from "react";
 import Button from "../Button/Button";
 import SVGCheckCircle from "../SVG/SVGCheckCircle";
 
 /**
  * Props.
  */
-type IInputUploadProps = InputHTMLAttributes<HTMLButtonElement>;
+interface IInputUploadProps {
+  value: File;
+  onChange: (value: File) => void;
+  placeholder?: string;
+}
 
 /**
  * This component contains an input and a button and its design for the user to pick
  * a local file in their filesystem and upload it to the cloud.
  */
 function InputUpload(props: IInputUploadProps) {
-  const [file, setFile] = useState(null);
+  const { value, onChange, placeholder } = props;
   const refFile = useRef(null);
-  const { placeholder } = props;
 
   /**
    * Saves the file selected by the user.
    */
-  const onChangeFileInput = useCallback((e) => {
-    setFile(e.target?.files?.[0]);
-  }, []);
+  const onChangeFileInput = useCallback(
+    (e) => {
+      onChange(e.target?.files?.[0]);
+    },
+    [onChange]
+  );
 
   /**
    * Shows the file selector.
@@ -31,15 +37,15 @@ function InputUpload(props: IInputUploadProps) {
   }, []);
 
   return (
-    <div className={`input-upload ${file ? "with-file" : ""}`}>
+    <div className={`input-upload ${value ? "checked" : ""}`}>
       <input
         className="border-primary-focus"
         placeholder={placeholder || "Select a file or drag and drop a .tcore file here"}
-        value={file?.name || ""}
+        value={value?.name || ""}
         readOnly
       />
 
-      {file && (
+      {value && (
         <div className="check">
           <SVGCheckCircle width="17px" />
         </div>
@@ -63,7 +69,7 @@ function InputUpload(props: IInputUploadProps) {
           fill: hsl(121, 100%, 28%);
         }
 
-        .input-upload.with-file input {
+        .input-upload.checked input {
           background: hsl(121, 100%, 95%);
           border-color: hsl(121, 100%, 23%) !important;
         }
