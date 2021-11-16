@@ -20,6 +20,7 @@ const QUERY = gql`
     MACOS_X64: pluginUpload(platform: MACOS_X64)
     WINDOWS_ARM64: pluginUpload(platform: WINDOWS_ARM64)
     WINDOWS_X64: pluginUpload(platform: WINDOWS_X64)
+    ANY: pluginUpload(platform: ANY)
   }
 `;
 
@@ -35,18 +36,13 @@ function Publish() {
   });
 
   /**
+   * Does the actual request to upload the file.
    */
   const doRequestUpload = useCallback((url: string, file: File) => {
-    const formData = new FormData();
-    formData.append("file", file);
-
     return axios({
       url,
       method: "PUT",
-      data: formData,
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
+      data: file,
     });
   }, []);
 
@@ -81,15 +77,23 @@ function Publish() {
   }, [urls, step, publish]);
 
   return (
-    <div className="submit page-max-width">
+    <div className="publish page-max-width">
       <Form publishing={publishing} step={step} onPublish={startPublishProcess} />
 
       <AbstractDesign />
 
       <style jsx>{`
-        .submit {
+        .publish {
           display: flex;
           justify-content: center;
+          margin-top: 40px;
+          margin-bottom: 40px;
+        }
+
+        @media screen and (max-width: 1200px) {
+          .publish :global(.abstract-design) {
+            display: none;
+          }
         }
       `}</style>
     </div>

@@ -1,7 +1,7 @@
 import IconRadio from "../../IconRadio/IconRadio";
-import SVGStar from "../../SVG/SVGStar";
 import SVGDesktop from "../../SVG/SVGDesktop";
 import { TPluginPlatformType } from "../Plugin.types";
+import SVGMultipleDesktop from "../../SVG/SVGMultipleDesktop";
 
 /**
  * Props.
@@ -33,7 +33,7 @@ function PlatformRadio(props: IPlatformRadioProps) {
           {
             label: "Cross-platform",
             description: "Send a plugin file that works on all platforms",
-            svgElement: SVGStar,
+            svgElement: SVGMultipleDesktop,
             value: "cross-platform",
           },
           {

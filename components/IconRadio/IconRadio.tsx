@@ -1,5 +1,3 @@
-import SVGGithub from "../SVG/SVGGithub";
-
 interface IIconRadioOption {
   label: string;
   description: string;
@@ -62,7 +60,9 @@ function IconRadio(props: IIconRadioProps) {
         .icon-radio :global(.option) {
           display: flex;
           align-items: center;
+          cursor: pointer;
         }
+
         .icon-radio :global(.option:not(:last-child)) {
           margin-bottom: 15px;
         }

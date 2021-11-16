@@ -21,6 +21,7 @@ function Footer() {
           background: rgb(245, 245, 245);
           padding: 50px 0px;
           position: relative;
+          z-index: 100;
         }
 
         .page-footer .copyright {

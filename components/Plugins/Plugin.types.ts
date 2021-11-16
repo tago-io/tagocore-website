@@ -15,7 +15,7 @@ export interface IPlugin {
 export type TPluginPlatformType = "cross-platform" | "platform-specific";
 
 export interface IPluginPublishFiles {
-  any?: File;
+  ANY?: File;
   LINUX_X64?: File;
   LINUX_ARM64?: File;
   LINUX_ARM7?: File;

@@ -35,6 +35,20 @@ function Button(props: IButtonProps) {
           color: white !important;
           fill: white !important;
         }
+
+        button:disabled {
+          opacity: 0.5;
+          border-color: transparent;
+          background: rgba(0, 0, 0, 0.15);
+          pointer-events: none;
+          fill: rgba(0, 0, 0, 0.8) !important;
+          color: rgba(0, 0, 0, 0.8) !important;
+        }
+
+        button:disabled :global(*) {
+          fill: rgba(0, 0, 0, 0.8) !important;
+          color: rgba(0, 0, 0, 0.8) !important;
+        }
       `}</style>
     </button>
   );

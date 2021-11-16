@@ -1,13 +1,28 @@
 import { useCallback, useRef } from "react";
+import formatBytes from "../../helpers/formatBytes";
 import Button from "../Button/Button";
 import SVGCheckCircle from "../SVG/SVGCheckCircle";
+import SVGTimes from "../SVG/SVGTimes";
 
 /**
  * Props.
  */
 interface IInputUploadProps {
+  /**
+   * The selected file object.
+   */
   value: File;
+  /**
+   * Called when the file changes.
+   */
   onChange: (value: File) => void;
+  /**
+   * Called when the clear button is pressed.
+   */
+  onClear: () => void;
+  /**
+   * Placeholder for the input.
+   */
   placeholder?: string;
 }
 
@@ -16,7 +31,7 @@ interface IInputUploadProps {
  * a local file in their filesystem and upload it to the cloud.
  */
 function InputUpload(props: IInputUploadProps) {
-  const { value, onChange, placeholder } = props;
+  const { value, onChange, onClear, placeholder } = props;
   const refFile = useRef(null);
 
   /**
@@ -30,6 +45,14 @@ function InputUpload(props: IInputUploadProps) {
   );
 
   /**
+   * Called when the clear button is pressed by the user.
+   */
+  const clear = useCallback(() => {
+    refFile.current.value = "";
+    onClear();
+  }, [onClear]);
+
+  /**
    * Shows the file selector.
    */
   const showFileSelector = useCallback(() => {
@@ -40,10 +63,16 @@ function InputUpload(props: IInputUploadProps) {
     <div className={`input-upload ${value ? "checked" : ""}`}>
       <input
         className="border-primary-focus"
-        placeholder={placeholder || "Select a file or drag and drop a .tcore file here"}
-        value={value?.name || ""}
+        placeholder={placeholder || "Waiting for .tcore file"}
+        value={value?.name ? `${value?.name} (${formatBytes(value.size)})` : ""}
         readOnly
       />
+
+      {value && (
+        <div className="delete" onClick={clear}>
+          <SVGTimes width="12px" />
+        </div>
+      )}
 
       {value && (
         <div className="check">
@@ -59,6 +88,27 @@ function InputUpload(props: IInputUploadProps) {
         .input-upload {
           display: flex;
           position: relative;
+        }
+
+        .input-upload:hover .check {
+          display: none;
+        }
+
+        .input-upload:hover .delete {
+          display: flex;
+        }
+
+        .input-upload .delete {
+          position: absolute;
+          right: 141px;
+          top: 50%;
+          transform: translate(0%, -50%);
+          padding: 5px;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          display: none;
+          justify-content: center;
         }
 
         .input-upload .check :global(svg) {

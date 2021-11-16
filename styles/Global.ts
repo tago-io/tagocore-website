@@ -91,6 +91,11 @@ const globalCss = css.global`
 
   a {
     text-decoration: none;
+    color: #337ab7;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 
   img {
