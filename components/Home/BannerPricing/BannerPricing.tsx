@@ -46,7 +46,9 @@ function BannerPricing() {
     );
   };
 
-  return <ImageBanner title={renderTitle()} description={renderDescription()} image1={imgOpenSource.src} side="left" />;
+  return (
+    <ImageBanner title={renderTitle()} description={renderDescription()} imageSrc={imgOpenSource.src} side="left" />
+  );
 }
 
 export default BannerPricing;

@@ -1,12 +1,13 @@
 import imgTagoRunLogoColor from "../../../assets/tagorun-logo-color.png";
 import SVGUser from "../../SVG/SVGUser";
+import Image from "next/image";
 
 /**
  * This is the "TagoRun" square in the "Already a Customer?" section.
  */
 function TagoRunSquare() {
   return (
-    <div className="tagoio-square">
+    <div className="tagorun-square">
       <div className="icon">
         <div className="users">
           <SVGUser className="fill-tagorun" width="55px" />
@@ -16,16 +17,16 @@ function TagoRunSquare() {
       </div>
 
       <div className="item">
-        <img alt="logo-tagoio" src={imgTagoRunLogoColor.src} width="151px" height="38px" />
+        <Image alt="logo-tagorun" src={imgTagoRunLogoColor.src} width="151px" height="38px" />
       </div>
 
       <style jsx>{`
-        .tagoio-square {
+        .tagorun-square {
           display: flex;
           flex-direction: column;
         }
 
-        .tagoio-square .icon {
+        .tagorun-square .icon {
           display: flex;
           align-items: center;
           justify-content: center;
@@ -33,16 +34,16 @@ function TagoRunSquare() {
           height: 80px;
         }
 
-        .tagoio-square .icon .users {
+        .tagorun-square .icon .users {
           display: flex;
           margin-top: 25px;
         }
 
-        .tagoio-square .icon .users :global(svg) {
+        .tagorun-square .icon .users :global(svg) {
           margin: 0px 2px;
         }
 
-        .tagoio-square .item {
+        .tagorun-square .item {
           padding: 60px 0px;
           width: 200px;
           border-radius: 10px;
@@ -53,7 +54,7 @@ function TagoRunSquare() {
           overflow: hidden;
         }
 
-        .tagoio-square .item img {
+        .tagorun-square .item img {
           height: 35px;
           width: auto;
           max-width: 80%;

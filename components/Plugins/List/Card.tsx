@@ -1,9 +1,9 @@
-import SVGCog from "../../SVG/SVGCog";
 import Link from "next/link";
 import SVGDownload from "../../SVG/SVGDownload";
 import SVGStar from "../../SVG/SVGStar";
 import Developer from "../../Developer/Developer";
 import { IPluginDeveloper } from "../Plugin.types";
+import Image from "next/image";
 
 interface IPluginCardProps {
   name: string;
@@ -22,11 +22,10 @@ function PluginCard(props: IPluginCardProps) {
   const { name, description, rating, downloads, logoURL, developer } = props;
 
   return (
-    <Link href="/marketplace/899a8e65132a1e384a6s84sa1q">
+    <Link href="/marketplace/details/899a8e65132a1e384a6s84sa1q">
       <a className="plugin-card">
         <div className="icon-container">
-          <img src={logoURL} />
-          {/* <SVGCog width="40px" /> */}
+          <Image width="50px" height="50px" objectFit="contain" alt="plugin-logo" src={logoURL} />
         </div>
 
         <div className="data">
@@ -77,12 +76,6 @@ function PluginCard(props: IPluginCardProps) {
             justify-content: center;
             margin-left: 5px;
             width: 50px;
-          }
-
-          .plugin-card .icon-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
           }
 
           .plugin-card .data {

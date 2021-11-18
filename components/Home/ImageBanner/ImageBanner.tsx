@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import Image from "next/image";
 
 /**
  * Props.
@@ -6,8 +7,7 @@ import { ReactNode } from "react";
 interface IImageBannerProps {
   title?: ReactNode;
   description?: ReactNode;
-  image1?: string;
-  image2?: string;
+  imageSrc?: string;
   side?: "left" | "right";
 }
 
@@ -16,7 +16,7 @@ interface IImageBannerProps {
  * The side of the image can be configured.
  */
 function ImageBanner(props: IImageBannerProps) {
-  const { title, description, image1, image2 } = props;
+  const { title, description, imageSrc } = props;
   const side = props.side || "right";
 
   return (
@@ -29,9 +29,8 @@ function ImageBanner(props: IImageBannerProps) {
       </div>
 
       <div className="picture-side">
-        <div className="images">
-          {image1 && <img width="1043px" height="647px" className="img1" src={image1} alt="banner-image1" />}
-          {image2 && <img width="1043px" height="647px" className="img2" src={image2} alt="banner-image2" />}
+        <div className="image">
+          {imageSrc && <Image objectFit="cover" layout="fill" className="img1" src={imageSrc} alt="banner-image1" />}
         </div>
       </div>
 
@@ -69,22 +68,24 @@ function ImageBanner(props: IImageBannerProps) {
 
         .image-banner .picture-side {
           flex: 1;
-        }
-
-        .image-banner .picture-side .images {
           display: flex;
           align-items: center;
-          position: relative;
-          height: 100%;
         }
 
-        .image-banner .picture-side img {
-          box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.15);
+        .image-banner .picture-side .image {
           height: 95%;
-          width: auto;
-          object-fit: cover;
+          position: relative;
+          width: 100%;
+          box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.15);
           border-radius: 8px;
           border: 1px solid rgba(0, 0, 0, 0.1);
+          overflow: hidden;
+        }
+
+        .image-banner .picture-side :global(img) {
+          width: auto !important;
+          height: auto !important;
+          object-position: left;
         }
 
         .image-banner .picture-side .img2 {
@@ -116,10 +117,14 @@ function ImageBanner(props: IImageBannerProps) {
           flex-direction: row-reverse;
         }
 
-        .image-banner.left .images {
+        .image-banner.left .image {
           position: relative;
           right: 60px;
           justify-content: flex-end;
+        }
+
+        .image-banner.left .image :global(img) {
+          object-position: right;
         }
 
         .image-banner.left .fade {
@@ -171,11 +176,12 @@ function ImageBanner(props: IImageBannerProps) {
             display: none;
           }
 
-          .image-banner .images {
+          .image-banner .image {
             position: static !important;
+            height: 300px;
           }
 
-          .image-banner .picture-side img {
+          .image-banner .picture-side :global(img) {
             width: calc(100% - 20px);
             height: auto;
             margin: 0 auto;

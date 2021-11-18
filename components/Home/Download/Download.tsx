@@ -5,7 +5,11 @@ import EarlyAccessButton from "../../EarlyAccessButton/EarlyAccessButton";
 import imgWindowsLogo from "../../../assets/windows-logo.png";
 import imgLinuxLogo from "../../../assets/linux-logo.png";
 import imgAppleLogo from "../../../assets/apple-logo.svg";
+import Image from "next/image";
 
+/**
+ * Download section of the home page.
+ */
 function Download() {
   return (
     <div className="download page-max-width">
@@ -19,7 +23,14 @@ function Download() {
         <div className="row">
           <div className="column">
             <div className="logo-container">
-              <img alt="windows-logo" src={imgWindowsLogo.src} />
+              <Image
+                width="100px"
+                height="100px"
+                objectFit="contain"
+                layout="fixed"
+                alt="windows-logo"
+                src={imgWindowsLogo.src}
+              />
             </div>
 
             <div className="main-button-container">
@@ -76,7 +87,14 @@ function Download() {
 
           <div className="column">
             <div className="logo-container">
-              <img alt="linux-logo" src={imgLinuxLogo.src} />
+              <Image
+                width="100px"
+                height="100px"
+                objectFit="contain"
+                layout="fixed"
+                alt="linux-logo"
+                src={imgLinuxLogo.src}
+              />
             </div>
 
             <div className="main-button-container">
@@ -141,7 +159,14 @@ function Download() {
 
           <div className="column">
             <div className="logo-container">
-              <img alt="apple-logo" src={imgAppleLogo.src} />
+              <Image
+                width="100px"
+                height="100px"
+                objectFit="contain"
+                layout="fixed"
+                alt="apple-logo"
+                src={imgAppleLogo.src}
+              />
             </div>
 
             <div className="main-button-container">
@@ -199,7 +224,7 @@ function Download() {
           align-items: center;
           white-space: nowrap;
           flex-direction: column;
-          width: 500px;
+          width: 600px;
           max-width: 100%;
         }
 
@@ -228,7 +253,7 @@ function Download() {
           align-items: center;
           flex-direction: column;
           position: relative;
-          opacity: 0.4;
+          opacity: 0.3;
           pointer-events: none;
           z-index: 1;
         }

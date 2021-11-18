@@ -1,7 +1,8 @@
-import imgTagoIOLogoColor from "../../../assets/tagoio-logo-color.png";
+import imgTagoIOLogoColor from "../../../assets/tagoio-logo.svg";
 import SVGCog from "../../SVG/SVGCog";
 import SVGCloud from "../../SVG/SVGCloud";
 import SVGDatabase from "../../SVG/SVGDatabase";
+import Image from "next/image";
 
 /**
  * This is the "TagoIO" square in the "Already a Customer?" section.
@@ -16,7 +17,7 @@ function TagoIOSquare() {
       </div>
 
       <div className="item">
-        <img alt="logo-tagoio" src={imgTagoIOLogoColor.src} width="125px" height="35px" />
+        <Image alt="logo-tagoio" src={imgTagoIOLogoColor.src} width="125px" height="35px" />
       </div>
 
       <style jsx>{`

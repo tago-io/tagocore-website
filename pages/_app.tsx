@@ -5,6 +5,9 @@ import themeCss from "../styles/Theme";
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { ApolloProvider } from "@apollo/react-hooks";
 
+/**
+ * Apollo client to use queries in components.
+ */
 const apolloClient = new ApolloClient({
   uri: "http://localhost:4000/graphql",
   cache: new InMemoryCache(),
@@ -23,7 +26,6 @@ function App({ Component, pageProps }) {
       <style jsx global>
         {globalCss}
       </style>
-
       <style jsx global>
         {themeCss}
       </style>

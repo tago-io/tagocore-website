@@ -1,5 +1,5 @@
 import { memo } from "react";
-import imgTagoIOLogoColor from "../../assets/tagoio-logo-color.png";
+import imgTagoIOLogoColor from "../../assets/tagoio-logo.svg";
 import Image from "next/image";
 
 /**
@@ -11,7 +11,9 @@ function Footer() {
     <footer className="page-footer">
       <div className="page-max-width">
         <div className="copyright">
-          <Image alt="tagoio-logo" src={imgTagoIOLogoColor} width="107px" height="30px" />
+          <div className="image">
+            <Image alt="tagoio-logo" src={imgTagoIOLogoColor} width="107px" height="30px" />
+          </div>
           <div>Copyright © {year} TagoIO, Inc. All rights reserved.</div>
         </div>
       </div>
@@ -28,11 +30,8 @@ function Footer() {
           margin-top: 30px;
         }
 
-        .page-footer .copyright img {
-          height: auto;
-          width: 114px;
+        .page-footer .copyright .image {
           margin-bottom: 5px;
-          margin-right: 25px;
         }
 
         .page-footer .copyright div {
