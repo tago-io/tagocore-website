@@ -1,4 +1,5 @@
 import { ChangeEvent, useCallback } from "react";
+import Link from "next/link";
 
 /**
  * Props.
@@ -35,23 +36,33 @@ function CheckboxTerms(props: ICheckboxTermsProps) {
     <div className="checkbox-terms">
       <label>
         <input type="checkbox" checked={checked} onChange={onInputChange} />
-        <span>
-          I Agree with the Terms and Conditions of Publishing a plugin for TagoCore. I am responsible for the execution
-          of the code in this plugin and any damage that this particular code is responsible for is no responsibility of
-          TagoIO, only mine.
-        </span>
+        <div className="text">
+          <span>I Agree with the </span>
+          <Link href="/marketplace/terms-of-use">
+            <a target="_blank">Terms and Conditions</a>
+          </Link>
+          <span>&nbsp;of Publishing a plugin for TagoCore.</span>
+        </div>
       </label>
 
       <style jsx>{`
         .checkbox-terms label {
-          display: flex;
           align-items: center;
+          flex: none;
+          display: inline-flex;
+          cursor: pointer;
         }
 
-        .checkbox-terms span {
+        .checkbox-terms .text {
           font-size: 14px;
           color: rgba(0, 0, 0, 0.7);
           margin-left: 10px;
+          font-weight: normal;
+          color: rgba(0, 0, 0, 0.7);
+        }
+
+        .checkbox-terms .text :global(*) {
+          font-size: 14px;
           font-weight: normal;
         }
       `}</style>

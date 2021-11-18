@@ -33,8 +33,8 @@ function AbstractDesign() {
             Looking to test your Plugin? Read about our {renderLink("/", "best practices")}.
           </li>
           <li className="description" style={{ marginTop: "15px" }}>
-            Looking to publish your Plugin to the world? Fill the form on the left side or{" "}
-            {renderLink("/", "learn more")} about publishing Plugins.
+            Looking to publish your Plugin? Fill the form on the left side or {renderLink("/", "learn more")} about
+            publishing Plugins.
           </li>
         </ul>
       </h3>
@@ -62,7 +62,7 @@ function AbstractDesign() {
           font-weight: normal;
           flex-direction: column;
           z-index: 2;
-          margin-top: 30px;
+          margin-top: 25px;
         }
 
         .abstract-design .explanation ul {
@@ -85,7 +85,7 @@ function AbstractDesign() {
           top: calc(50% + 5px);
           left: calc(50% + 5px);
           position: absolute;
-          transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%) rotate(-5deg);
         }
 
         .abstract-design :global(svg:nth-child(2)) {
@@ -93,7 +93,7 @@ function AbstractDesign() {
           top: 50%;
           left: 50%;
           position: absolute;
-          transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%) rotate(-5deg);
         }
 
         .abstract-design .main-square {
@@ -101,13 +101,13 @@ function AbstractDesign() {
           background: black;
           width: 125%;
           height: 180px;
-          border-radius: 10px;
+          border-radius: 5px;
           display: flex;
           align-items: center;
           justify-content: center;
           position: relative;
           z-index: 10;
-          transform: rotate(1deg);
+          transform: rotate(2deg);
           box-shadow: 0px 8px 20px 10px rgba(0, 0, 0, 0.1);
         }
       `}</style>

@@ -3,7 +3,7 @@ import Section from "../../../components/Home/Section/Section";
 import Publish from "../../../components/Plugins/Publish/Publish";
 
 /**
- * `/plugins/publish` page component.
+ * `/marketplace/publish` page component.
  */
 function PluginsPublishPage() {
   return (

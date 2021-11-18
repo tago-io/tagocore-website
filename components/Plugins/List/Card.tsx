@@ -10,6 +10,8 @@ interface IPluginCardProps {
   rating: number;
   downloads: number;
   developer: IPluginDeveloper;
+  description: string;
+  logoURL: string;
 }
 
 /**
@@ -17,13 +19,14 @@ interface IPluginCardProps {
  * will transfer you to the plugin details page.
  */
 function PluginCard(props: IPluginCardProps) {
-  const { name, rating, downloads, developer } = props;
+  const { name, description, rating, downloads, logoURL, developer } = props;
 
   return (
-    <Link href="/plugins/899a8e65132a1e384a6s84sa1q">
+    <Link href="/marketplace/899a8e65132a1e384a6s84sa1q">
       <a className="plugin-card">
         <div className="icon-container">
-          <SVGCog width="40px" />
+          <img src={logoURL} />
+          {/* <SVGCog width="40px" /> */}
         </div>
 
         <div className="data">
@@ -31,9 +34,7 @@ function PluginCard(props: IPluginCardProps) {
           <span className="developer">
             <Developer name={developer?.name} verified={developer?.verified} domain={developer?.domain} />
           </span>
-          <span className="description">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          </span>
+          <span className="description">{description}.</span>
 
           <span className="rating">
             <div className="info">
@@ -45,7 +46,7 @@ function PluginCard(props: IPluginCardProps) {
 
             <div className="info">
               <SVGDownload width="14px" />
-              <span>{downloads}+</span>
+              <span>{downloads}</span>
             </div>
           </span>
         </div>
@@ -62,6 +63,7 @@ function PluginCard(props: IPluginCardProps) {
             flex: 1;
             margin: 5px;
             border: 1px solid rgba(0, 0, 0, 0.1);
+            text-decoration: none;
           }
 
           .plugin-card:hover {
@@ -74,7 +76,13 @@ function PluginCard(props: IPluginCardProps) {
             align-items: center;
             justify-content: center;
             margin-left: 5px;
-            opacity: 0.7;
+            width: 50px;
+          }
+
+          .plugin-card .icon-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
           }
 
           .plugin-card .data {

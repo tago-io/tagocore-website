@@ -8,7 +8,7 @@ function Breadcrumb() {
   return (
     <div className="breadcrumb">
       <span>
-        <Link href="/plugins">
+        <Link href="/marketplace">
           <a>App Marketplace</a>
         </Link>
       </span>

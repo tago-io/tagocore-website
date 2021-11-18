@@ -5,24 +5,28 @@ export interface IPluginDeveloper {
 }
 
 export interface IPlugin {
-  name: string;
-  id: string;
+  categories: string[];
+  description: string;
   developer: IPluginDeveloper;
-  rating: number;
   downloads: number;
+  id: string;
+  logo_url: string;
+  name: string;
+  platforms: string[];
+  rating: number;
 }
 
 export type TPluginPlatformType = "cross-platform" | "platform-specific";
 
 export interface IPluginPublishFiles {
-  ANY?: File;
-  LINUX_X64?: File;
-  LINUX_ARM64?: File;
-  LINUX_ARM7?: File;
-  ALPINE_X64?: File;
-  ALPINE_ARM64?: File;
-  WINDOWS_X64?: File;
-  WINDOWS_ARM64?: File;
-  MACOS_X64?: File;
-  MACOS_ARM64?: File;
+  "linux-x64"?: File;
+  "linux-arm64"?: File;
+  "linux-arm7"?: File;
+  "alpine-x64"?: File;
+  "alpine-arm64"?: File;
+  "windows-x64"?: File;
+  "windows-arm64"?: File;
+  "macos-x64"?: File;
+  "macos-arm64"?: File;
+  any?: File;
 }

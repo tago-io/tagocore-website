@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useState } from "react";
-import { scroller } from "react-scroll";
+import { useEffect, useState } from "react";
 import imgLogoColor from "../../assets/tagocore-logo-color.png";
 import SVGGithub from "../SVG/SVGGithub";
 import Link from "next/link";
 import Image from "next/image";
+import { theme } from "../../styles/Theme";
 
 /**
  * Main header of the application, it contains the logo on the left side and some
@@ -11,37 +11,6 @@ import Image from "next/image";
  */
 function Header() {
   const [shadow, setShadow] = useState(false);
-
-  /**
-   * Called when the plugin is clicked.
-   */
-  const onClickPlugins = useCallback(() => {
-    scroller.scrollTo("add-plugin", {
-      duration: 500,
-      smooth: true,
-    });
-  }, []);
-
-  /**
-   * Called when the pricing is clicked.
-   */
-  const onClickPricing = useCallback(() => {
-    scroller.scrollTo("pricing", {
-      duration: 500,
-      smooth: true,
-    });
-  }, []);
-
-  /**
-   * Called when the download is clicked.
-   */
-  const onClickDownload = useCallback(() => {
-    scroller.scrollTo("download", {
-      duration: 500,
-      smooth: true,
-      offset: -60,
-    });
-  }, []);
 
   /**
    * Controls if the shadow should appear or not based on the scroll event
@@ -73,16 +42,19 @@ function Header() {
         </div>
 
         <div className="right">
-          <span onClick={onClickPlugins} className="item color-primary-hover">
-            Plugins
-          </span>
-          <span onClick={onClickPricing} className="item color-primary-hover">
-            Pricing
-          </span>
-          <span onClick={onClickDownload} className="item color-primary-hover">
-            Download
-          </span>
-          <span title="Coming soon">
+          <Link href="/marketplace">
+            <a className="item color-primary-hover">Marketplace</a>
+          </Link>
+
+          <Link href="/marketplace/publish">
+            <a className="item color-primary-hover">Publish</a>
+          </Link>
+
+          <Link href="/#download">
+            <a className="item color-primary-hover">Download</a>
+          </Link>
+
+          <span className="github-container" title="Coming soon">
             <SVGGithub width="22px" />
           </span>
         </div>
@@ -136,9 +108,14 @@ function Header() {
           margin-right: -25px;
         }
 
-        .header .right span {
+        .header .right .github-container {
           display: flex;
           margin-left: 20px;
+        }
+
+        .header .right :global(a) {
+          margin-left: 20px;
+          color: ${theme.colors.body};
         }
 
         .header .right :global(svg) {

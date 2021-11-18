@@ -22,6 +22,8 @@ const QUERY = gql`
     pluginList(name: $name, category: $category) {
       name
       id
+      description
+      logo_url
       developer {
         name
         verified
@@ -59,7 +61,17 @@ function List() {
    * Renders a single plugin card.
    */
   const renderCard = (x: IPlugin) => {
-    return <PluginCard key={x.id} developer={x.developer} downloads={x.downloads} rating={x.rating} name={x.name} />;
+    return (
+      <PluginCard
+        key={x.id}
+        logoURL={x.logo_url}
+        developer={x.developer}
+        description={x.description}
+        downloads={x.downloads}
+        rating={x.rating}
+        name={x.name}
+      />
+    );
   };
 
   /**
@@ -100,8 +112,8 @@ function List() {
           <div className="inner-categories">
             <h3>Categories</h3>
             <div className="list">
-              {renderCategoryLink("/plugins", undefined, "All categories")}
-              {categories.map((x) => renderCategoryLink(`/plugins?category=${x.id}`, x.id, x.name))}
+              {renderCategoryLink("/marketplace", undefined, "All categories")}
+              {categories.map((x) => renderCategoryLink(`/marketplace?category=${x.id}`, x.id, x.name))}
             </div>
           </div>
         </div>
@@ -195,6 +207,8 @@ function List() {
         .plugin-list .categories :global(a) {
           cursor: pointer;
           padding: 12px 0px;
+          color: #323030;
+          text-decoration: none;
         }
 
         .plugin-list .categories :global(a):first-child {

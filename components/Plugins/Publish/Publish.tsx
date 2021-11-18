@@ -5,22 +5,14 @@ import AbstractDesign from "./AbstractDesign";
 import Form from "./Form";
 import { gql } from "apollo-boost";
 import axios from "axios";
+import JSZip from "jszip";
 
 /**
  * Query to fetch the url to upload plugins.
  */
 const QUERY = gql`
   query {
-    ALPINE_ARM64: pluginUpload(platform: ALPINE_ARM64)
-    ALPINE_X64: pluginUpload(platform: ALPINE_X64)
-    LINUX_ARM64: pluginUpload(platform: LINUX_ARM64)
-    LINUX_ARM7: pluginUpload(platform: LINUX_ARM7)
-    LINUX_X64: pluginUpload(platform: LINUX_X64)
-    MACOS_ARM64: pluginUpload(platform: MACOS_ARM64)
-    MACOS_X64: pluginUpload(platform: MACOS_X64)
-    WINDOWS_ARM64: pluginUpload(platform: WINDOWS_ARM64)
-    WINDOWS_X64: pluginUpload(platform: WINDOWS_X64)
-    ANY: pluginUpload(platform: ANY)
+    pluginUpload
   }
 `;
 
@@ -31,36 +23,47 @@ function Publish() {
   const [publishing, setPublishing] = useState(false);
   const [files, setFiles] = useState<IPluginPublishFiles>({});
   const [step, setStep] = useState(0);
-  const { data: urls } = useQuery(QUERY, {
-    skip: !publishing,
-  });
+  const { data } = useQuery<{ pluginUpload: string }>(QUERY, { skip: !publishing });
+
+  const url = data?.pluginUpload;
 
   /**
    * Does the actual request to upload the file.
    */
-  const doRequestUpload = useCallback((url: string, file: File) => {
-    return axios({
-      url,
-      method: "PUT",
-      data: file,
-    });
-  }, []);
+  const upload = useCallback(
+    (file: Blob) => {
+      return axios({
+        url,
+        method: "PUT",
+        data: file,
+      });
+    },
+    [url]
+  );
 
   /**
    */
-  const publish = useCallback(async () => {
-    const promises = [];
-
-    for (const key in files) {
-      promises.push(doRequestUpload(urls[key], files[key]));
-    }
-
-    await Promise.all(promises);
-
-    setStep(3);
-  }, [urls, files, doRequestUpload]);
+  const onBundleProgress = useCallback(({ percent }) => {
+    console.log(percent);
+  }, []);
 
   /**
+   * Organizes all the files into a single bundle then sends that bundle.
+   * After this, the step is increased.
+   */
+  const publish = useCallback(async () => {
+    const zip = new JSZip();
+    zip.file("any", files.any);
+
+    zip.generateAsync({ type: "blob" }, onBundleProgress).then((blob) => {
+      upload(blob);
+      setStep(3);
+    });
+  }, [files, upload, onBundleProgress]);
+
+  /**
+   * Starts the publishing process. This will set a state that will
+   * in turn fetch the data from the graphql server and get the upload urls.
    */
   const startPublishProcess = useCallback((files: IPluginPublishFiles) => {
     setPublishing(true);
@@ -68,13 +71,14 @@ function Publish() {
   }, []);
 
   /**
+   * Starts uploading the files once the urls are valid.
    */
   useEffect(() => {
-    if (urls && step === 0) {
+    if (url && step === 0) {
       publish();
       setStep(1);
     }
-  }, [urls, step, publish]);
+  }, [url, step, publish]);
 
   return (
     <div className="publish page-max-width">
