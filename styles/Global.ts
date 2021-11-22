@@ -1,4 +1,5 @@
 import css from "styled-jsx/css";
+import { theme } from "./Theme";
 
 /**
  * Controls the global css for elements.
@@ -36,7 +37,7 @@ const globalCss = css.global`
 
   body * {
     font-size: 16px;
-    color: #323030;
+    color: ${theme.colors.body};
   }
 
   h1,
@@ -61,6 +62,14 @@ const globalCss = css.global`
     font-size: 1.6rem;
   }
 
+  h4 {
+    font-size: 1.3rem;
+  }
+
+  h5 {
+    font-size: 1.1rem;
+  }
+
   @media screen and (max-width: 1400px) {
     .page-max-width {
       max-width: calc(100% - 60px);
@@ -83,6 +92,18 @@ const globalCss = css.global`
 
   a {
     text-decoration: none;
+    color: ${theme.colors.link};
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  img {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
   }
 `;
 

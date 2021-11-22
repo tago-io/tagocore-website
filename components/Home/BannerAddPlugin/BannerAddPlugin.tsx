@@ -35,7 +35,7 @@ function BannerAddPlugin() {
     );
   };
 
-  return <ImageBanner title={renderTitle()} description={renderDescription()} image1={imgAddPlugin.src} />;
+  return <ImageBanner title={renderTitle()} description={renderDescription()} imageSrc={imgAddPlugin.src} />;
 }
 
 export default BannerAddPlugin;

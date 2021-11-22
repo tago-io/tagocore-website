@@ -42,16 +42,12 @@ function BannerHero() {
 
   return (
     <div className="banner-hero">
-      <ImageBanner title={renderTitle()} description={renderDescription()} image1={imgHeroBanner.src} />
+      <ImageBanner title={renderTitle()} description={renderDescription()} imageSrc={imgHeroBanner.src} />
 
       <style jsx>{`
-        .banner-hero {
-          margin-top: 60px;
-        }
-
         @media screen and (max-width: 768px) {
           .banner-hero {
-            margin-top: 80px;
+            margin-top: 40px;
           }
         }
       `}</style>

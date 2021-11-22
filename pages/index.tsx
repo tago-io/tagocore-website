@@ -8,7 +8,10 @@ import Section from "../components/Home/Section/Section";
 import AlreadyACustomer from "../components/Home/AlreadyACustomer/AlreadyACustomer";
 import Head from "next/head";
 
-function Home() {
+/**
+ * `/` (Home) page.
+ */
+function HomePage() {
   return (
     <div className="home">
       <Head>
@@ -24,7 +27,7 @@ function Home() {
         <DatabaseSupport />
       </Section>
 
-      <Section id="add-plugin" useSpaceTop useSpaceBottom>
+      <Section id="plugin" useSpaceTop useSpaceBottom>
         <BannerAddPlugin />
       </Section>
 
@@ -47,4 +50,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomePage;

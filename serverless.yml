@@ -1,6 +1,4 @@
-# serverless.yml
-
 TagoCoreWebsite:
-  component: "@sls-next/serverless-component@3.5.2" # it is recommended you pin the latest stable version of serverless-next.js
+  component: "@sls-next/serverless-component@3.5.2"
   inputs:
     bucketRegion: "us-east-1"
