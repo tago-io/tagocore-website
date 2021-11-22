@@ -1,5 +1,6 @@
 import SVGAngleRight from "../../SVG/SVGAngleRight";
 import Link from "next/link";
+import { theme } from "../../../styles/Theme";
 
 /**
  * Renders the breadcrumbs above the plugin details.
@@ -8,8 +9,8 @@ function Breadcrumb() {
   return (
     <div className="breadcrumb">
       <span>
-        <Link href="/marketplace">
-          <a>App Marketplace</a>
+        <Link href="/pluginstore">
+          <a>Plugin Store</a>
         </Link>
       </span>
 
@@ -39,7 +40,7 @@ function Breadcrumb() {
         }
 
         .breadcrumb span:hover * {
-          color: #337ab7;
+          color: ${theme.colors.link};
         }
       `}</style>
     </div>

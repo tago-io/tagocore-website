@@ -8,12 +8,10 @@ export interface IPlugin {
   categories: string[];
   description: string;
   developer: IPluginDeveloper;
-  downloads: number;
   id: string;
-  logo_url: string;
+  logo: string;
   name: string;
   platforms: string[];
-  rating: number;
 }
 
 export type TPluginPlatformType = "cross-platform" | "platform-specific";

@@ -27,7 +27,7 @@ function HomePage() {
         <DatabaseSupport />
       </Section>
 
-      <Section id="add-plugin" useSpaceTop useSpaceBottom>
+      <Section id="plugin" useSpaceTop useSpaceBottom>
         <BannerAddPlugin />
       </Section>
 

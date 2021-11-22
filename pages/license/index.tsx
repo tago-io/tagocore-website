@@ -16,13 +16,6 @@ function LicensePage() {
       <Section>
         <License />
       </Section>
-
-      <style jsx>{`
-        .license-page {
-          display: flex;
-          margin-top: 60px;
-        }
-      `}</style>
     </div>
   );
 }

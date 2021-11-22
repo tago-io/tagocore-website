@@ -1,4 +1,5 @@
 import css from "styled-jsx/css";
+import { theme } from "./Theme";
 
 /**
  * Controls the global css for elements.
@@ -36,7 +37,7 @@ const globalCss = css.global`
 
   body * {
     font-size: 16px;
-    color: #323030;
+    color: ${theme.colors.body};
   }
 
   h1,
@@ -91,7 +92,7 @@ const globalCss = css.global`
 
   a {
     text-decoration: none;
-    color: #337ab7;
+    color: ${theme.colors.link};
   }
 
   a:hover {

@@ -81,7 +81,7 @@ function InputUpload(props: IInputUploadProps) {
         </div>
       )}
 
-      <input ref={refFile} type="file" className="file" onChange={onChangeFileInput} />
+      <input accept=".tcore" ref={refFile} type="file" className="file" onChange={onChangeFileInput} />
 
       <Button onClick={showFileSelector}>Select file</Button>
 

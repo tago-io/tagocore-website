@@ -9,6 +9,7 @@ import Link from "next/link";
 import { IPlugin } from "../Plugin.types";
 import SVGCog from "../../SVG/SVGCog";
 import { useRouter } from "next/router";
+import { theme } from "../../../styles/Theme";
 
 /**
  * Query to fetch the categories and plugins.
@@ -22,15 +23,13 @@ const QUERY = gql`
     pluginList(name: $name, category: $category) {
       name
       id
-      description
-      logo_url
-      developer {
+      short_description
+      logo
+      publisher {
         name
         verified
         domain
       }
-      downloads
-      rating
     }
   }
 `;
@@ -61,17 +60,7 @@ function List() {
    * Renders a single plugin card.
    */
   const renderCard = (x: IPlugin) => {
-    return (
-      <PluginCard
-        key={x.id}
-        logoURL={x.logo_url}
-        developer={x.developer}
-        description={x.description}
-        downloads={x.downloads}
-        rating={x.rating}
-        name={x.name}
-      />
-    );
+    return <PluginCard key={x.id} logoURL={x.logo} developer={x.developer} description={x.description} name={x.name} />;
   };
 
   /**
@@ -112,8 +101,8 @@ function List() {
           <div className="inner-categories">
             <h3>Categories</h3>
             <div className="list">
-              {renderCategoryLink("/marketplace", undefined, "All categories")}
-              {categories.map((x) => renderCategoryLink(`/marketplace?category=${x.id}`, x.id, x.name))}
+              {renderCategoryLink("/pluginstore", undefined, "All categories")}
+              {categories.map((x) => renderCategoryLink(`/pluginstore?category=${x.id}`, x.id, x.name))}
             </div>
           </div>
         </div>
@@ -137,7 +126,10 @@ function List() {
                 <span>No plugins found. Try looking in another category.</span>
               </div>
             ) : (
-              slicedList.slice(0, amountPerPage).map(renderCard)
+              <>
+                {slicedList.slice(0, amountPerPage).map(renderCard)}
+                {slicedList.slice(0, amountPerPage).map(renderCard)}
+              </>
             )}
           </div>
 
@@ -153,8 +145,7 @@ function List() {
       <style jsx>{`
         .plugin-list {
           display: flex;
-          margin-top: 60px;
-          padding-top: 40px;
+          margin-top: 40px;
           flex-direction: column;
         }
 
@@ -216,11 +207,11 @@ function List() {
         }
 
         .plugin-list .categories :global(a):hover {
-          color: #337ab7;
+          color: ${theme.colors.link};
         }
 
         .plugin-list .categories :global(a.selected) {
-          color: #337ab7;
+          color: ${theme.colors.link};
           font-weight: bold;
         }
 
@@ -276,7 +267,7 @@ function List() {
         }
 
         .plugin-list .search input:focus {
-          border-color: #337ab7;
+          border-color: ${theme.colors.link};
         }
 
         .plugin-list :global(.plugin-card) {

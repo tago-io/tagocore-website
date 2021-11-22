@@ -38,7 +38,7 @@ function CheckboxTerms(props: ICheckboxTermsProps) {
         <input type="checkbox" checked={checked} onChange={onInputChange} />
         <div className="text">
           <span>I Agree with the </span>
-          <Link href="/marketplace/terms-of-use">
+          <Link href="/pluginstore/terms-of-use">
             <a target="_blank">Terms and Conditions</a>
           </Link>
           <span>&nbsp;of Publishing a plugin for TagoCore.</span>

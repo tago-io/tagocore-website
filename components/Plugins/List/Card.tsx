@@ -1,14 +1,10 @@
 import Link from "next/link";
-import SVGDownload from "../../SVG/SVGDownload";
-import SVGStar from "../../SVG/SVGStar";
 import Developer from "../../Developer/Developer";
 import { IPluginDeveloper } from "../Plugin.types";
 import Image from "next/image";
 
 interface IPluginCardProps {
   name: string;
-  rating: number;
-  downloads: number;
   developer: IPluginDeveloper;
   description: string;
   logoURL: string;
@@ -19,10 +15,10 @@ interface IPluginCardProps {
  * will transfer you to the plugin details page.
  */
 function PluginCard(props: IPluginCardProps) {
-  const { name, description, rating, downloads, logoURL, developer } = props;
+  const { name, description, logoURL, developer } = props;
 
   return (
-    <Link href="/marketplace/details/899a8e65132a1e384a6s84sa1q">
+    <Link href="/pluginstore/details/899a8e65132a1e384a6s84sa1q">
       <a className="plugin-card">
         <div className="icon-container">
           <Image width="50px" height="50px" objectFit="contain" alt="plugin-logo" src={logoURL} />
@@ -34,20 +30,6 @@ function PluginCard(props: IPluginCardProps) {
             <Developer name={developer?.name} verified={developer?.verified} domain={developer?.domain} />
           </span>
           <span className="description">{description}.</span>
-
-          <span className="rating">
-            <div className="info">
-              <SVGStar width="14px" />
-              <span>{rating}</span>
-            </div>
-
-            <span className="separator" />
-
-            <div className="info">
-              <SVGDownload width="14px" />
-              <span>{downloads}</span>
-            </div>
-          </span>
         </div>
 
         <style jsx>{`
@@ -89,25 +71,6 @@ function PluginCard(props: IPluginCardProps) {
             color: rgba(0, 0, 0, 0.5);
             flex: 1;
             display: flex;
-          }
-
-          .plugin-card .data .rating {
-            display: flex;
-            align-items: center;
-            opacity: 0.6;
-          }
-
-          .plugin-card .data .rating .info {
-            display: flex;
-            align-items: center;
-          }
-
-          .plugin-card .data .rating .info span {
-            font-size: 13px;
-          }
-
-          .plugin-card .data .rating :global(svg) {
-            margin-right: 5px;
           }
 
           .plugin-card .data .separator {

@@ -4,6 +4,9 @@ import Link from "next/link";
  * Software license terms component.
  */
 function License() {
+  /**
+   * Renders a link.
+   */
   const renderLink = (href: string, text?: string) => (
     <Link href={href}>
       <a target="_blank">{text || href}</a>
@@ -69,7 +72,7 @@ function License() {
                   extension marketplace or package managers. Those packages are under their own licenses, and not this
                   agreement. TagoIO does not distribute, license or provide any warranties for any of the third party
                   packages. By accessing or using our marketplace, you agree to the marketplace terms located at&nbsp;
-                  {renderLink("/marketplace/terms-of-use", "https://tagocore.com/marketplace/terms-of-use")}.
+                  {renderLink("/pluginstore/terms-of-use", "https://tagocore.com/marketplace/terms-of-use")}.
                 </span>
               </li>
             </ol>
@@ -104,9 +107,7 @@ function License() {
               The software may periodically check for updates and download and install them for you. You may obtain
               updates only from TagoIO or authorized sources. TagoIO may need to update your system to provide you with
               updates. You agree to receive these automatic updates without any additional notice. Updates may not
-              include or support all existing software features, services, or peripheral devices. If you do not want
-              automatic updates, you may turn them off by following the instructions in the documentation at&nbsp;
-              {renderLink("/faq", "https://tagocore.com/faq")}.
+              include or support all existing software features, services, or peripheral devices.
             </p>
           </li>
 

@@ -3,28 +3,21 @@ import Section from "../../../components/Home/Section/Section";
 import TermsAndConditions from "../../../components/Plugins/TermsAndConditions/TermsAndConditions";
 
 /**
- * Page component for the marketplace terms of use.
+ * Page component for the plugin store terms of use.
  */
-function TermsOfUsePage() {
+function PluginStoreTermsOfUse() {
   return (
-    <div className="terms-of-use-page">
+    <div>
       <Head>
-        <title>Marketplace Terms of Use | TagoCore</title>
+        <title>Plugin Store Terms of Use | TagoCore</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
       <Section>
         <TermsAndConditions />
       </Section>
-
-      <style jsx>{`
-        .terms-of-use-page {
-          display: flex;
-          margin-top: 60px;
-        }
-      `}</style>
     </div>
   );
 }
 
-export default TermsOfUsePage;
+export default PluginStoreTermsOfUse;

@@ -176,15 +176,12 @@ function ImageBanner(props: IImageBannerProps) {
             display: none;
           }
 
-          .image-banner .image {
-            position: static !important;
-            height: 300px;
+          .image-banner.left .image {
+            right: 0px;
           }
 
-          .image-banner .picture-side :global(img) {
-            width: calc(100% - 20px);
-            height: auto;
-            margin: 0 auto;
+          .image-banner .image :global(*) {
+            position: relative !important;
           }
         }
       `}</style>

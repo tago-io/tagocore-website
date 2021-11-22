@@ -1,3 +1,4 @@
+import { theme } from "../../../styles/Theme";
 import SVGAngleRight from "../../SVG/SVGAngleRight";
 
 /**
@@ -35,7 +36,7 @@ function Resources() {
 
         .resources .item {
           margin-bottom: 3px;
-          color: #337ab7;
+          color: ${theme.colors.link};
           font-size: 14px;
           cursor: pointer;
           display: flex;
@@ -44,7 +45,7 @@ function Resources() {
 
         .resources .item :global(svg) {
           margin-right: 5px;
-          fill: #337ab7;
+          fill: ${theme.colors.link};
         }
       `}</style>
     </div>

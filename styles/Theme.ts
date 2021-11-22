@@ -12,8 +12,8 @@ const tagoRunColor = "hsl(229, 100%, 23%)";
  */
 const theme = {
   colors: {
-    // verified: "hsl(137, 66%, 30%)",
     verified: "hsl(207, 56%, 48%)",
+    link: "hsl(207, 56%, 48%)",
     primary: mainColor1,
     body: "#323030",
   },

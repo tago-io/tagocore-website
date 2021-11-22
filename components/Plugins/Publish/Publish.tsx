@@ -31,12 +31,13 @@ function Publish() {
    * Does the actual request to upload the file.
    */
   const upload = useCallback(
-    (file: Blob) => {
-      return axios({
+    async (file: Blob) => {
+      await axios({
         url,
         method: "PUT",
         data: file,
       });
+      setStep(3);
     },
     [url]
   );
@@ -53,12 +54,12 @@ function Publish() {
    */
   const publish = useCallback(async () => {
     const zip = new JSZip();
-    zip.file("any", files.any);
 
-    zip.generateAsync({ type: "blob" }, onBundleProgress).then((blob) => {
-      upload(blob);
-      setStep(3);
-    });
+    for (const key in files) {
+      zip.file(key, files[key]);
+    }
+
+    zip.generateAsync({ type: "blob" }, onBundleProgress).then(upload);
   }, [files, upload, onBundleProgress]);
 
   /**

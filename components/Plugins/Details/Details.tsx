@@ -85,7 +85,6 @@ function Details() {
       <style jsx>{`
         .plugin-details {
           display: flex;
-          margin-top: 60px;
           padding-top: 40px;
           flex-direction: column;
         }
