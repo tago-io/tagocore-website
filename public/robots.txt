@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://d2jxrtj947npy5.cloudfront.net/sitemap.xml
+Sitemap: https://dcq0x5ztsejuu.cloudfront.net/sitemap.xml

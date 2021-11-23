@@ -31,11 +31,11 @@ class MyDocument extends Document {
           />
           <meta property="og:site_name" name="og:site_name" content="TagoCore" />
           <meta property="og:title" name="og:title" content="TagoCore" />
-          <meta property="og:image" name="og:image" content="https://d2jxrtj947npy5.cloudfront.net/logo-small.png" />
+          <meta property="og:image" name="og:image" content="https://dcq0x5ztsejuu.cloudfront.net/logo-small.png" />
           <meta property="og:image:type" name="og:image:type" content="image/png" />
           <meta property="og:image:width" name="og:image:width" content="2275" />
           <meta property="og:image:height" name="og:image:height" content="462" />
-          <meta property="og:url" name="og:url" content="https://d2jxrtj947npy5.cloudfront.net/" />
+          <meta property="og:url" name="og:url" content="https://dcq0x5ztsejuu.cloudfront.net/" />
 
           <meta property="twitter:card" name="twitter:card" content="summary" />
           <meta property="twitter:site" name="twitter:site" content="@tagoio" />
@@ -49,9 +49,9 @@ class MyDocument extends Document {
           <meta
             property="twitter:image"
             name="twitter:image"
-            content="https://d2jxrtj947npy5.cloudfront.net/logo-small.png"
+            content="https://dcq0x5ztsejuu.cloudfront.net/logo-small.png"
           />
-          <meta property="twitter:url" name="twitter:url" content="https://d2jxrtj947npy5.cloudfront.net/" />
+          <meta property="twitter:url" name="twitter:url" content="https://dcq0x5ztsejuu.cloudfront.net/" />
         </Head>
 
         <body>

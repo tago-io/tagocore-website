@@ -1,4 +1,4 @@
-TagoCoreWebsite:
-  component: "@sls-next/serverless-component@3.5.2"
+tagocore-website:
+  component: "@sls-next/serverless-component@3.6.0"
   inputs:
     bucketRegion: "us-east-1"
