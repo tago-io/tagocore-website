@@ -1,4 +1,5 @@
 tagocore-website:
   component: "@sls-next/serverless-component@3.6.0"
   inputs:
+    domain: "tagocore.com"
     bucketRegion: "us-east-1"
