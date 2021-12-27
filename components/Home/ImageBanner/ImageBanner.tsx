@@ -30,7 +30,9 @@ function ImageBanner(props: IImageBannerProps) {
 
       <div className="picture-side">
         <div className="image">
-          {imageSrc && <Image objectFit="cover" layout="fill" className="img1" src={imageSrc} alt="banner-image1" />}
+          {imageSrc && (
+            <Image priority objectFit="cover" layout="fill" className="img1" src={imageSrc} alt="banner-image1" />
+          )}
         </div>
       </div>
 
@@ -78,7 +80,6 @@ function ImageBanner(props: IImageBannerProps) {
           width: 100%;
           box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.15);
           border-radius: 8px;
-          border: 1px solid rgba(0, 0, 0, 0.1);
           overflow: hidden;
         }
 

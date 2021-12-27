@@ -1,8 +1,8 @@
-import imgTagoIOLogoColor from "../../../assets/tagoio-logo.svg";
+import SVGTagoIO from "../../../assets/logos/tagoio-logo.svg";
 import SVGCog from "../../SVG/SVGCog";
 import SVGCloud from "../../SVG/SVGCloud";
 import SVGDatabase from "../../SVG/SVGDatabase";
-import Image from "next/image";
+import { theme } from "../../../styles/Theme";
 
 /**
  * This is the "TagoIO" square in the "Already a Customer?" section.
@@ -11,13 +11,13 @@ function TagoIOSquare() {
   return (
     <div className="tagoio-square">
       <div className="icon">
-        <SVGCog className="fill-tagoio cog" width="60px" />
-        <SVGCloud className="fill-tagoio cloud" width="100px" />
-        <SVGDatabase className="fill-tagoio database" width="30px" />
+        <SVGCog className="cog" width="60px" />
+        <SVGCloud className="cloud" width="100px" />
+        <SVGDatabase className="database" width="30px" />
       </div>
 
       <div className="item">
-        <Image alt="logo-tagoio" src={imgTagoIOLogoColor.src} width="125px" height="35px" />
+        <SVGTagoIO width="125px" height="35px" />
       </div>
 
       <style jsx>{`
@@ -32,6 +32,10 @@ function TagoIOSquare() {
           justify-content: center;
           position: relative;
           height: 80px;
+        }
+
+        .tagoio-square .icon :global(svg) {
+          fill: ${theme.colors.tagoIO};
         }
 
         .tagoio-square .icon :global(.database) {

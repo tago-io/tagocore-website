@@ -1,6 +1,7 @@
 import imgTagoRunLogoColor from "../../../assets/tagorun-logo-color.png";
 import SVGUser from "../../SVG/SVGUser";
 import Image from "next/image";
+import { theme } from "../../../styles/Theme";
 
 /**
  * This is the "TagoRun" square in the "Already a Customer?" section.
@@ -10,9 +11,9 @@ function TagoRunSquare() {
     <div className="tagorun-square">
       <div className="icon">
         <div className="users">
-          <SVGUser className="fill-tagorun" width="55px" />
-          <SVGUser className="fill-tagorun" width="55px" />
-          <SVGUser className="fill-tagorun" width="55px" />
+          <SVGUser width="55px" />
+          <SVGUser width="55px" />
+          <SVGUser width="55px" />
         </div>
       </div>
 
@@ -41,6 +42,7 @@ function TagoRunSquare() {
 
         .tagorun-square .icon .users :global(svg) {
           margin: 0px 2px;
+          fill: ${theme.colors.tagoRun};
         }
 
         .tagorun-square .item {

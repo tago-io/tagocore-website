@@ -1,16 +1,24 @@
 import { useEffect, useState } from "react";
-import imgLogoColor from "../../assets/tagocore-logo-color.png";
-import SVGGithub from "../SVG/SVGGithub";
-import Link from "next/link";
-import Image from "next/image";
+import SVGTagoCoreBlack from "../../assets/logos/tagocore-black.svg";
 import { theme } from "../../styles/Theme";
+import AccountDropdown from "./AccountDropdown/AccountDropdown";
+import Link from "../Link/Link";
+import { AccountInfo } from "@tago-io/sdk/out/modules/Account/account.types";
+
+/**
+ * Props.
+ */
+interface IHeaderProps {
+  account: AccountInfo;
+}
 
 /**
  * Main header of the application, it contains the logo on the left side and some
  * links/anchors on the right side to direct the user.
  */
-function Header() {
+function Header(props: IHeaderProps) {
   const [shadow, setShadow] = useState(false);
+  const { account } = props;
 
   /**
    * Controls if the shadow should appear or not based on the scroll event
@@ -36,36 +44,34 @@ function Header() {
         <div className="page-max-width">
           <div className="left">
             <Link href="/">
-              <a>
-                <Image alt="main-logo" src={imgLogoColor} layout="fixed" width={147} height={30} />
-              </a>
+              <SVGTagoCoreBlack width="147px" />
             </Link>
           </div>
 
-          <div className="right">
-            <Link href="/#plugin">
-              <a className="item color-primary-hover">Plugins</a>
-            </Link>
+          {account ? (
+            <AccountDropdown account={account} />
+          ) : (
+            <div className="right">
+              <Link className="item color-primary-hover" href="/#plugin">
+                Plugins
+              </Link>
 
-            <Link href="/#pricing">
-              <a className="item color-primary-hover">Pricing</a>
-            </Link>
+              <Link className="item color-primary-hover" href="/#pricing">
+                Pricing
+              </Link>
 
-            <Link href="/#download">
-              <a className="item color-primary-hover">Download</a>
-            </Link>
-
-            <span className="github-container" title="Coming soon">
-              <SVGGithub width="22px" />
-            </span>
-          </div>
+              <Link className="item color-primary-hover" href="/#download">
+                Download
+              </Link>
+            </div>
+          )}
         </div>
 
         <style jsx>{`
           .header {
             align-items: center;
             display: flex;
-            height: 60px;
+            height: ${theme.sizes.headerHeight}px;
             justify-content: space-between;
             position: fixed;
             top: 0px;
@@ -100,23 +106,17 @@ function Header() {
             flex: none;
           }
 
-          .header .right .item {
+          .header .right :global(.item) {
             padding: 10px 25px;
             cursor: pointer;
           }
 
-          .header .right .item:last-child {
+          .header .right :global(.item):last-child {
             margin-right: -25px;
           }
 
-          .header .right .github-container {
-            display: flex;
-            margin-left: 20px;
-          }
-
           .header .right :global(a) {
-            margin-left: 20px;
-            color: ${theme.colors.body};
+            color: ${theme.colors.primary};
           }
 
           .header .right :global(svg) {
@@ -136,10 +136,10 @@ function Header() {
         `}</style>
       </header>
 
-      <div>
+      <div className="invisible-header">
         <style jsx>{`
-          div {
-            height: 60px;
+          .invisible-header {
+            height: ${theme.sizes.headerHeight}px;
           }
         `}</style>
       </div>

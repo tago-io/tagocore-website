@@ -2,10 +2,10 @@ import { useCallback, useState } from "react";
 import Button from "../../Button/Button";
 import InputUpload from "../../InputUpload/InputUpload";
 import OSAccordion from "./OSAccordion";
-import imgWindows from "../../../assets/windows-logo.png";
-import imgLinux from "../../../assets/linux-logo.png";
-import imgAlpine from "../../../assets/alpine-logo.svg";
-import imgApple from "../../../assets/apple-logo.svg";
+import SVGWindows from "../../../assets/logos/windows.svg";
+import SVGLinux from "../../../assets/logos/linux.svg";
+import SVGAlpine from "../../../assets/logos/alpine.svg";
+import SVGApple from "../../../assets/logos/apple.svg";
 import PlatformRadio from "./PlatformRadio";
 import { IPluginPublishFiles, TPluginPlatformType } from "../Plugin.types";
 import FormGroup from "../../FormGroup/FormGroup";
@@ -83,40 +83,9 @@ function Form(props: IFormProps) {
             <>
               <FormGroup>
                 <OSAccordion
-                  checked={!!(files["linux-x64"] && files["linux-arm64"] && files["linux-arm7"])}
-                  description="Upload the files that will work on Linux"
-                  imgSrc={imgLinux}
-                  title="Linux"
-                >
-                  <FormGroup label="x64 File">
-                    <InputUpload
-                      value={files["linux-x64"]}
-                      onChange={(file) => setFiles({ ...files, ["linux-x64"]: file })}
-                      onClear={() => clearFile("linux-x64")}
-                    />
-                  </FormGroup>
-
-                  <FormGroup label="ARM64 File">
-                    <InputUpload
-                      value={files["linux-arm64"]}
-                      onChange={(file) => setFiles({ ...files, "linux-arm64": file })}
-                      onClear={() => clearFile("linux-arm64")}
-                    />
-                  </FormGroup>
-
-                  <FormGroup label="ARM7 File" addMarginBottom={false}>
-                    <InputUpload
-                      value={files["linux-arm7"]}
-                      onChange={(file) => setFiles({ ...files, "linux-arm7": file })}
-                      onClear={() => clearFile("linux-arm7")}
-                    />
-                  </FormGroup>
-                </OSAccordion>
-
-                <OSAccordion
                   checked={!!(files["alpine-arm64"] && files["alpine-x64"])}
                   description="Upload the files that will work on Alpine"
-                  imgSrc={imgAlpine}
+                  imgSrc={SVGAlpine}
                   title="Alpine"
                 >
                   <FormGroup label="x64 File">
@@ -135,49 +104,63 @@ function Form(props: IFormProps) {
                     />
                   </FormGroup>
                 </OSAccordion>
-
                 <OSAccordion
-                  checked={!!(files["windows-arm64"] && files["windows-x64"])}
-                  description="Upload the files that will work on Windows"
-                  imgSrc={imgWindows}
-                  title="Windows"
+                  checked={!!(files["linux-x64"] && files["linux-arm64"] && files["linux-armv7"])}
+                  description="Upload the files that will work on Linux"
+                  imgSrc={SVGLinux}
+                  title="Linux"
                 >
                   <FormGroup label="x64 File">
                     <InputUpload
-                      value={files["windows-x64"]}
-                      onChange={(file) => setFiles({ ...files, ["windows-x64"]: file })}
-                      onClear={() => clearFile("windows-x64")}
+                      value={files["linux-x64"]}
+                      onChange={(file) => setFiles({ ...files, ["linux-x64"]: file })}
+                      onClear={() => clearFile("linux-x64")}
                     />
                   </FormGroup>
 
-                  <FormGroup label="ARM64 File" addMarginBottom={false}>
+                  <FormGroup label="ARM64 File">
                     <InputUpload
-                      value={files["windows-arm64"]}
-                      onChange={(file) => setFiles({ ...files, ["windows-arm64"]: file })}
-                      onClear={() => clearFile("windows-arm64")}
+                      value={files["linux-arm64"]}
+                      onChange={(file) => setFiles({ ...files, "linux-arm64": file })}
+                      onClear={() => clearFile("linux-arm64")}
+                    />
+                  </FormGroup>
+
+                  <FormGroup label="ARMV7 File" addMarginBottom={false}>
+                    <InputUpload
+                      value={files["linux-armv7"]}
+                      onChange={(file) => setFiles({ ...files, "linux-armv7": file })}
+                      onClear={() => clearFile("linux-armv7")}
                     />
                   </FormGroup>
                 </OSAccordion>
 
                 <OSAccordion
-                  checked={!!(files["macos-arm64"] && files["macos-x64"])}
+                  checked={!!files["mac-x64"]}
                   description="Upload the files that will work on MacOS"
-                  imgSrc={imgApple}
+                  imgSrc={SVGApple}
                   title="MacOS"
                 >
-                  <FormGroup label="x64 File">
+                  <FormGroup addMarginBottom={false} label="x64 File">
                     <InputUpload
-                      value={files["macos-x64"]}
-                      onChange={(file) => setFiles({ ...files, "macos-x64": file })}
-                      onClear={() => clearFile("macos-x64")}
+                      value={files["mac-x64"]}
+                      onChange={(file) => setFiles({ ...files, "mac-x64": file })}
+                      onClear={() => clearFile("mac-x64")}
                     />
                   </FormGroup>
+                </OSAccordion>
 
-                  <FormGroup label="ARM64 File" addMarginBottom={false}>
+                <OSAccordion
+                  checked={!!files["win-x64"]}
+                  description="Upload the files that will work on Windows"
+                  imgSrc={SVGWindows}
+                  title="Windows"
+                >
+                  <FormGroup addMarginBottom={false} label="x64 File">
                     <InputUpload
-                      value={files["macos-arm64"]}
-                      onChange={(file) => setFiles({ ...files, "macos-arm64": file })}
-                      onClear={() => clearFile("macos-arm64")}
+                      value={files["win-x64"]}
+                      onChange={(file) => setFiles({ ...files, ["win-x64"]: file })}
+                      onClear={() => clearFile("win-x64")}
                     />
                   </FormGroup>
                 </OSAccordion>

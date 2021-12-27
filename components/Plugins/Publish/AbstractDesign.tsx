@@ -21,7 +21,6 @@ function AbstractDesign() {
     <div className="abstract-design">
       <div className="main-square">
         <SVGPuzzlePiece width="110px" />
-        <SVGPuzzlePiece width="110px" />
       </div>
 
       <h3 className="explanation">
@@ -55,6 +54,7 @@ function AbstractDesign() {
           padding: 0px 30px;
           padding-bottom: 20px;
           background: rgba(0, 0, 0, 0.04);
+          overflow: hidden;
         }
 
         .abstract-design .explanation {
@@ -80,26 +80,18 @@ function AbstractDesign() {
           margin: 0 auto;
         }
 
-        .abstract-design :global(svg:nth-child(1)) {
-          fill: ${theme.colors.primary};
-          top: calc(50% + 5px);
-          left: calc(50% + 5px);
-          position: absolute;
-          transform: translate(-50%, -50%) rotate(-5deg);
-        }
-
-        .abstract-design :global(svg:nth-child(2)) {
+        .abstract-design :global(svg) {
           fill: white;
           top: 50%;
           left: 50%;
           position: absolute;
-          transform: translate(-50%, -50%) rotate(-5deg);
+          transform: translate(-50%, -50%);
         }
 
         .abstract-design .main-square {
           flex: none;
           background: black;
-          width: 125%;
+          width: 120%;
           height: 180px;
           border-radius: 5px;
           display: flex;
@@ -107,8 +99,8 @@ function AbstractDesign() {
           justify-content: center;
           position: relative;
           z-index: 10;
-          transform: rotate(2deg);
-          box-shadow: 0px 8px 20px 10px rgba(0, 0, 0, 0.1);
+          transform: (2deg);
+          box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.1);
         }
       `}</style>
     </div>

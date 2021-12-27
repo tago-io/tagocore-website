@@ -2,10 +2,9 @@ import SVGClock from "../../SVG/SVGClock";
 import SVGDownload from "../../SVG/SVGDownload";
 import Button from "../../Button/Button";
 import EarlyAccessButton from "../../EarlyAccessButton/EarlyAccessButton";
-import imgWindowsLogo from "../../../assets/windows-logo.png";
-import imgLinuxLogo from "../../../assets/linux-logo.png";
-import imgAppleLogo from "../../../assets/apple-logo.svg";
-import Image from "next/image";
+import SVGLinux from "../../../assets/logos/linux.svg";
+import SVGWindows from "../../../assets/logos/windows.svg";
+import SVGApple from "../../../assets/logos/apple.svg";
 
 /**
  * Download section of the home page.
@@ -23,14 +22,7 @@ function Download() {
         <div className="row">
           <div className="column">
             <div className="logo-container">
-              <Image
-                width="100px"
-                height="100px"
-                objectFit="contain"
-                layout="fixed"
-                alt="windows-logo"
-                src={imgWindowsLogo.src}
-              />
+              <SVGWindows height="100px" />
             </div>
 
             <div className="main-button-container">
@@ -53,9 +45,6 @@ function Download() {
                   <td>
                     <Button>32 bit</Button>
                   </td>
-                  <td>
-                    <Button>ARM</Button>
-                  </td>
                 </tr>
                 <tr>
                   <td>System Installer</td>
@@ -64,9 +53,6 @@ function Download() {
                   </td>
                   <td>
                     <Button>32 bit</Button>
-                  </td>
-                  <td>
-                    <Button>ARM</Button>
                   </td>
                 </tr>
                 <tr>
@@ -77,9 +63,6 @@ function Download() {
                   <td>
                     <Button>32 bit</Button>
                   </td>
-                  <td>
-                    <Button>ARM</Button>
-                  </td>
                 </tr>
               </tbody>
             </table>
@@ -87,14 +70,7 @@ function Download() {
 
           <div className="column">
             <div className="logo-container">
-              <Image
-                width="100px"
-                height="100px"
-                objectFit="contain"
-                layout="fixed"
-                alt="linux-logo"
-                src={imgLinuxLogo.src}
-              />
+              <SVGLinux height="100px" />
             </div>
 
             <div className="main-button-container">
@@ -159,14 +135,7 @@ function Download() {
 
           <div className="column">
             <div className="logo-container">
-              <Image
-                width="100px"
-                height="100px"
-                objectFit="contain"
-                layout="fixed"
-                alt="apple-logo"
-                src={imgAppleLogo.src}
-              />
+              <SVGApple width="100px" height="100px" />
             </div>
 
             <div className="main-button-container">
@@ -196,7 +165,7 @@ function Download() {
         </div>
       </div>
 
-      <div className="coming-soon border-primary">
+      <div className="coming-soon">
         <div className="message">
           <SVGClock width="12px" height="12px" />
           <span>&nbsp;Downloads coming soon</span>
@@ -219,13 +188,15 @@ function Download() {
           padding: 20px 60px;
           background: white;
           z-index: 2;
-          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.05);
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
           display: flex;
           align-items: center;
           white-space: nowrap;
           flex-direction: column;
           width: 600px;
           max-width: 100%;
+          border: 1px solid black;
         }
 
         .download td:first-child {

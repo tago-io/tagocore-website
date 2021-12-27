@@ -1,6 +1,5 @@
 import SVGMicroChip from "../../SVG/SVGMicroChip";
-import imgTagoCoreLogoColor from "../../../assets/tagocore-logo-color.png";
-import Image from "next/image";
+import SVGTagoCoreBlack from "../../../assets/logos/tagocore-black.svg";
 
 /**
  * This is the "TagoCore" square in the "Already a Customer?" section.
@@ -15,7 +14,7 @@ function TagoCoreSquare() {
       </div>
 
       <div className="item">
-        <Image alt="tagocore-logo" src={imgTagoCoreLogoColor} width="160px" height="35px" />
+        <SVGTagoCoreBlack width="160px" height="35px" />
       </div>
 
       <style jsx>{`

@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dcq0x5ztsejuu.cloudfront.net/sitemap.xml
+User-agent: *
+Disallow: /account/*
+
+User-agent: *
+Disallow: /pluginstore/*
+
+Sitemap: https://tagocore.com/sitemap.xml

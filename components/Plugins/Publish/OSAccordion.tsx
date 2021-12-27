@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ReactElement, useCallback, useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import SVGAngleDown from "../../SVG/SVGAngleDown";
 import SVGCheckCircle from "../../SVG/SVGCheckCircle";
 
@@ -37,7 +36,7 @@ interface IOSAccordionProps {
 function OSAccordion(props: IOSAccordionProps) {
   const [open, setOpen] = useState(false);
   const lastChecked = useRef(null);
-  const { imgSrc, title, checked, description } = props;
+  const { title, checked, description } = props;
 
   /**
    * Toggles the open state.
@@ -65,7 +64,7 @@ function OSAccordion(props: IOSAccordionProps) {
   return (
     <div className={`os-accordion ${open ? "open" : ""} ${checked ? "checked" : ""}`}>
       <div className="title" onClick={toggleOpen}>
-        <Image layout="fixed" width="40px" height="40px" objectFit="contain" src={imgSrc} alt="logo" />
+        <props.imgSrc height="40px" width="50px" />
 
         <div className="info">
           <div className="label">

@@ -1,23 +1,31 @@
-import Head from "next/head";
-import Section from "../../../components/Home/Section/Section";
+import { AccountInfo } from "@tago-io/sdk/out/modules/Account/account.types";
+import { GetServerSideProps } from "next";
+import Page from "../../../components/Page/Page";
 import TermsAndConditions from "../../../components/Plugins/TermsAndConditions/TermsAndConditions";
+import getAccountServerSideProps from "../../../helpers/getAccountServerSideProps";
+
+/**
+ * Props.
+ */
+interface IPluginStoreTermsOfUseProps {
+  account: AccountInfo;
+}
 
 /**
  * Page component for the plugin store terms of use.
  */
-function PluginStoreTermsOfUse() {
+function PluginStoreTermsOfUse(props: IPluginStoreTermsOfUseProps) {
   return (
-    <div>
-      <Head>
-        <title>Plugin Store Terms of Use | TagoCore</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
-
-      <Section>
-        <TermsAndConditions />
-      </Section>
-    </div>
+    <Page title="Plugin Store - Terms Of Use" account={props.account}>
+      <TermsAndConditions />
+    </Page>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => ({
+  props: {
+    account: await getAccountServerSideProps(ctx),
+  },
+});
 
 export default PluginStoreTermsOfUse;

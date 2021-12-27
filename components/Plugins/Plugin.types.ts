@@ -19,12 +19,10 @@ export type TPluginPlatformType = "cross-platform" | "platform-specific";
 export interface IPluginPublishFiles {
   "linux-x64"?: File;
   "linux-arm64"?: File;
-  "linux-arm7"?: File;
+  "linux-armv7"?: File;
   "alpine-x64"?: File;
   "alpine-arm64"?: File;
-  "windows-x64"?: File;
-  "windows-arm64"?: File;
-  "macos-x64"?: File;
-  "macos-arm64"?: File;
+  "win-x64"?: File;
+  "mac-x64"?: File;
   any?: File;
 }

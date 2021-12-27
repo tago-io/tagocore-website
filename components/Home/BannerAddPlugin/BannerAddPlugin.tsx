@@ -15,7 +15,7 @@ function BannerAddPlugin() {
           <h2>Missing something?</h2>
         </div>
         <div>
-          <h2 className="text-gradient-primary">Build it.</h2>
+          <h2 className="accent">Build it.</h2>
         </div>
       </>
     );

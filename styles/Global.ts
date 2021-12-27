@@ -5,6 +5,15 @@ import { theme } from "./Theme";
  * Controls the global css for elements.
  */
 const globalCss = css.global`
+  input:focus {
+    border: 1px solid black !important;
+  }
+
+  .accent {
+    color: ${theme.colors.accent};
+    font-weight: 700;
+  }
+
   body,
   html {
     margin: 0;
@@ -14,30 +23,23 @@ const globalCss = css.global`
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     overflow-y: auto;
-  }
-
-  * {
     box-sizing: border-box;
   }
 
-  .stripe {
-    height: 2px;
-    width: 100%;
-    content: "";
-    position: absolute;
-    left: 0px;
-    top: 0px;
+  html {
+    min-height: 100%;
+    position: relative;
+  }
+
+  body * {
+    font-size: 16px;
+    box-sizing: border-box;
   }
 
   .page-max-width {
     width: 100%;
     margin: 0 auto;
     max-width: 1340px;
-  }
-
-  body * {
-    font-size: 16px;
-    color: ${theme.colors.body};
   }
 
   h1,

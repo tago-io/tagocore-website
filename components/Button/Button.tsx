@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes } from "react";
+import { theme } from "../../styles/Theme";
 
 /**
  * Props.
@@ -10,7 +11,7 @@ type IButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
  */
 function Button(props: IButtonProps) {
   const { children, className } = props;
-  const classNames = [className, "color-primary", "border-primary", "bg-primary-hover"].filter((x) => x).join(" ");
+  const classNames = [className].filter((x) => x).join(" ");
 
   return (
     <button {...props} className={classNames}>
@@ -18,22 +19,30 @@ function Button(props: IButtonProps) {
       <style jsx>{`
         button {
           padding: 10px 30px;
-          outline: 0;
           border-radius: 3px;
           background: transparent;
           cursor: pointer;
-          background: white;
+          background: ${theme.colors.secondary};
           position: relative;
           display: inline-flex;
           align-items: center;
+          outline: 0;
+          border: 1px solid black;
+        }
+
+        button:hover,
+        button:active {
+          background: ${theme.colors.primary};
+          color: ${theme.colors.secondary} !important;
+          fill: ${theme.colors.secondary} !important;
         }
 
         button:hover,
         button:hover *,
         button:active,
         button:active * {
-          color: white !important;
-          fill: white !important;
+          color: ${theme.colors.secondary} !important;
+          fill: ${theme.colors.secondary} !important;
         }
 
         button:disabled {

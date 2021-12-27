@@ -6,19 +6,24 @@ import Download from "../components/Home/Download/Download";
 import RunsOnEverySystem from "../components/Home/RunsOnEverySystem/RunsOnEverySystem";
 import Section from "../components/Home/Section/Section";
 import AlreadyACustomer from "../components/Home/AlreadyACustomer/AlreadyACustomer";
-import Head from "next/head";
+import getAccountServerSideProps from "../helpers/getAccountServerSideProps";
+import { GetServerSideProps } from "next";
+import Page from "../components/Page/Page";
+import { AccountInfo } from "@tago-io/sdk/out/modules/Account/account.types";
+
+/**
+ * Props.
+ */
+interface IHomePageProps {
+  account: AccountInfo;
+}
 
 /**
  * `/` (Home) page.
  */
-function HomePage() {
+function HomePage(props: IHomePageProps) {
   return (
-    <div className="home">
-      <Head>
-        <title>TagoCore</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
-
+    <Page title="TagoCore" account={props.account}>
       <Section id="hero" useSpaceBottom>
         <BannerHero />
       </Section>
@@ -46,8 +51,14 @@ function HomePage() {
       <Section id="download" useBorderTop useSpaceTop useSpaceBottom>
         <Download />
       </Section>
-    </div>
+    </Page>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => ({
+  props: {
+    account: await getAccountServerSideProps(ctx),
+  },
+});
 
 export default HomePage;

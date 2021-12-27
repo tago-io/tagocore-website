@@ -74,7 +74,6 @@ function EarlyAccessButton() {
         onChange={(e) => setValue(e.target.value)}
         type="email"
         placeholder="Email"
-        className="border-primary-focus"
       />
 
       <Button onClick={submit}>

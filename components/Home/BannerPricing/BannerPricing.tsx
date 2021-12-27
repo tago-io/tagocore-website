@@ -20,7 +20,7 @@ function BannerPricing() {
             <h2>There aren&apos;t any.</h2>
           </div>
           <div>
-            <h2 className="text-gradient-primary">It&apos;s free and open source.</h2>
+            <h2 className="accent">It&apos;s free and open source.</h2>
           </div>
         </div>
       </>

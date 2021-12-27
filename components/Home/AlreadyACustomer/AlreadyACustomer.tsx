@@ -1,3 +1,4 @@
+import { theme } from "../../../styles/Theme";
 import TagoCoreSquare from "./TagoCoreSquare";
 import TagoIOSquare from "./TagoIOSquare";
 import TagoRunSquare from "./TagoRunSquare";
@@ -10,7 +11,7 @@ function AlreadyACustomer() {
     <div className="sync-tagoio">
       <div className="title">
         <h2>Already a&nbsp;</h2>
-        <h2 className="text-gradient-primary">TagoIO Customer</h2>
+        <h2 className="accent">TagoIO Customer</h2>
         <h2>?</h2>
       </div>
 
@@ -49,11 +50,15 @@ function AlreadyACustomer() {
         }
 
         .sync-tagoio .title {
-          margin-bottom: 20px !important;
+          margin-bottom: 10px !important;
         }
 
         .sync-tagoio .description {
           padding-bottom: 40px;
+        }
+
+        .sync-tagoio .description span {
+          color: rgba(0, 0, 0, 0.6);
         }
 
         .sync-tagoio .data {

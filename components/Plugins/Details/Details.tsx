@@ -4,8 +4,7 @@ import SVGAngleRight from "../../SVG/SVGAngleRight";
 import AdditionalInfo from "./AdditionalInfo";
 import Categories from "./Categories";
 import Resources from "./Resources";
-import Image from "next/image";
-import imgMqtt from "../../../assets/apple-logo.svg";
+// import imgMqtt from "../../../assets/apple-logo.svg";
 import { readableColor } from "polished";
 import Breadcrumb from "./Breadcrumbs";
 
@@ -37,7 +36,7 @@ function Details() {
       <div className={`banner color-${bannerTextColor}`} style={{ backgroundColor }}>
         <div className="image-container">
           <div className="inner-image">
-            <Image alt="plugin-logo" src={imgMqtt} layout="fill" objectFit="contain" />
+            {/* <Image alt="plugin-logo" src={imgMqtt} layout="fill" objectFit="contain" /> */}
           </div>
         </div>
 

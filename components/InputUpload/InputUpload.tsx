@@ -63,7 +63,6 @@ function InputUpload(props: IInputUploadProps) {
   return (
     <div className={`input-upload ${value ? "checked" : ""}`}>
       <input
-        className="border-primary-focus"
         placeholder={placeholder || "Waiting for .tcore file"}
         value={value?.name ? `${value?.name} (${formatBytes(value.size)})` : ""}
         readOnly

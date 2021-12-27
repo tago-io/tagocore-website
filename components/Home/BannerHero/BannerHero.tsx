@@ -13,7 +13,7 @@ function BannerHero() {
     return (
       <>
         <div>
-          <h1 className="text-gradient-primary">Relentlessly fast&nbsp;</h1>
+          <h1 className="accent">Relentlessly fast&nbsp;</h1>
         </div>
         <div>
           <h1>Edge computing</h1>

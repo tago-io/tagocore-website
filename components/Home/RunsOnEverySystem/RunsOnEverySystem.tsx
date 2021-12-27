@@ -1,4 +1,13 @@
-import BrandBox, { EBrandBox } from "../../BrandBox/BrandBox";
+import BrandBox from "../../BrandBox/BrandBox";
+import SVGLinux from "../../../assets/logos/linux.svg";
+import SVGWindows from "../../../assets/logos/windows.svg";
+import SVGApple from "../../../assets/logos/apple.svg";
+import SVGRaspberryPi from "../../../assets/logos/raspberrypi.svg";
+import SVGRockPi from "../../../assets/logos/rockpi.svg";
+import SVGHd from "../../../assets/logos/hdd.svg";
+import SVGAws from "../../../assets/logos/aws.svg";
+import SVGAzure from "../../../assets/logos/azure.svg";
+import SVGGoogleCloud from "../../../assets/logos/googlecloud.svg";
 
 /**
  * Section indicating how TagoCore can run on pretty much any system the user wants it to.
@@ -9,7 +18,7 @@ function RunsOnEverySystem() {
       <div className="page-max-width">
         <div className="title">
           <h2>It runs on pretty much&nbsp;</h2>
-          <h2 className="text-gradient-primary">anything</h2>
+          <h2 className="accent">anything</h2>
         </div>
 
         <div className="description">
@@ -19,7 +28,7 @@ function RunsOnEverySystem() {
         {/* OS */}
         <div className="row">
           <div className="data">
-            <h3 className="color-primary">Operating systems</h3>
+            <h3>Operating systems</h3>
             <span>
               Run it on all major operating systems available today. Linux, Windows, or macOS: it doesn&apos;t matter,
               we&apos;ve got you covered.
@@ -27,22 +36,38 @@ function RunsOnEverySystem() {
           </div>
 
           <div className="brands" style={{ marginLeft: "30px" }}>
-            <BrandBox type={EBrandBox.linux} />
-            <BrandBox type={EBrandBox.windows} />
-            <BrandBox type={EBrandBox.apple} />
+            <BrandBox>
+              <SVGLinux height="40px" />
+            </BrandBox>
+
+            <BrandBox>
+              <SVGWindows height="40px" />
+            </BrandBox>
+
+            <BrandBox>
+              <SVGApple height="40px" />
+            </BrandBox>
           </div>
         </div>
 
         {/* EDGE */}
         <div className="row">
           <div className="brands" style={{ marginRight: "30px" }}>
-            <BrandBox type={EBrandBox.raspberry} />
-            <BrandBox type={EBrandBox.rockPI} />
-            <BrandBox type={EBrandBox.gateway} />
+            <BrandBox>
+              <SVGRaspberryPi height="40px" />
+            </BrandBox>
+
+            <BrandBox>
+              <SVGRockPi height="40px" />
+            </BrandBox>
+
+            <BrandBox>
+              <SVGHd height="40px" />
+            </BrandBox>
           </div>
 
           <div className="data">
-            <h3 className="color-primary">On the edge</h3>
+            <h3>On the edge</h3>
             <span>
               Deploy a TagoCore instance and compute data on the edge by using Raspberry Pi, Rock Pi, and many others!
               Quick and easy, just like that.
@@ -53,7 +78,7 @@ function RunsOnEverySystem() {
         {/* Cloud */}
         <div className="row">
           <div className="data">
-            <h3 className="color-primary">On the cloud</h3>
+            <h3>On the cloud</h3>
             <span>
               Set up TagoCore on cloud providers such as AWS, Azure, Google Cloud, and others! Deploy an instance and
               operate the platform from far, far away.
@@ -61,15 +86,22 @@ function RunsOnEverySystem() {
           </div>
 
           <div className="brands" style={{ marginLeft: "30px" }}>
-            <BrandBox type={EBrandBox.aws} />
-            <BrandBox type={EBrandBox.azure} />
-            <BrandBox type={EBrandBox.googleCloud} />
+            <BrandBox>
+              <SVGAws height="30px" />
+            </BrandBox>
+
+            <BrandBox>
+              <SVGAzure height="40px" />
+            </BrandBox>
+
+            <BrandBox>
+              <SVGGoogleCloud height="40px" />
+            </BrandBox>
           </div>
         </div>
       </div>
 
       <div className="many-more">
-        <div className="stripe bg-primary" />
         <span>...and many more!</span>
       </div>
 
@@ -84,11 +116,12 @@ function RunsOnEverySystem() {
         }
 
         .runs-on-every-system .title {
-          margin-bottom: 20px !important;
+          margin-bottom: 10px !important;
         }
 
         .runs-on-every-system .description {
-          margin-bottom: 60px;
+          margin-bottom: 40px;
+          color: rgba(0, 0, 0, 0.6);
         }
 
         .runs-on-every-system .row {
@@ -97,6 +130,7 @@ function RunsOnEverySystem() {
           max-width: 800px;
           margin: 0 auto;
           margin-bottom: 70px;
+          align-items: center;
         }
 
         .runs-on-every-system .row .data {
@@ -113,7 +147,7 @@ function RunsOnEverySystem() {
         }
 
         .runs-on-every-system .row .data h3 {
-          margin-bottom: 10px;
+          margin-bottom: 5px;
         }
 
         .runs-on-every-system :global(.brand-box) {
@@ -156,8 +190,9 @@ function RunsOnEverySystem() {
           justify-content: center;
           position: relative;
           overflow: hidden;
-          width: 500px;
+          width: 800px;
           max-width: calc(100% - 40px);
+          border: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         @media screen and (max-width: 768px) {

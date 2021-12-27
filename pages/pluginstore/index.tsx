@@ -1,23 +1,31 @@
-import Head from "next/head";
-import Section from "../../components/Home/Section/Section";
+import { AccountInfo } from "@tago-io/sdk/out/modules/Account/account.types";
+import { GetServerSideProps } from "next";
+import Page from "../../components/Page/Page";
 import PluginsList from "../../components/Plugins/List/List";
+import getAccountServerSideProps from "../../helpers/getAccountServerSideProps";
 
 /**
- * Page for the plugin store.
+ * Props.
  */
-function PluginListPage() {
-  return (
-    <div className="plugins">
-      <Head>
-        <title>Plugin Store | TagoCore</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
+interface IPluginListPageProps {
+  account: AccountInfo;
+}
 
-      <Section>
-        <PluginsList />
-      </Section>
-    </div>
+/**
+ * Login page.
+ */
+function PluginListPage(props: IPluginListPageProps) {
+  return (
+    <Page title="Grafana" account={props.account}>
+      <PluginsList />
+    </Page>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => ({
+  props: {
+    account: await getAccountServerSideProps(ctx),
+  },
+});
 
 export default PluginListPage;

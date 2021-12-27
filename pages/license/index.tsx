@@ -1,23 +1,31 @@
-import Head from "next/head";
-import Section from "../../components/Home/Section/Section";
+import { AccountInfo } from "@tago-io/sdk/out/modules/Account/account.types";
+import { GetServerSideProps } from "next";
 import License from "../../components/License/License";
+import Page from "../../components/Page/Page";
+import getAccountServerSideProps from "../../helpers/getAccountServerSideProps";
 
 /**
- * Page component for the software license of TagoCore.
+ * Props.
  */
-function LicensePage() {
-  return (
-    <div className="license-page">
-      <Head>
-        <title>Software License Terms | TagoCore</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
+interface ILicensePageProps {
+  account: AccountInfo;
+}
 
-      <Section>
-        <License />
-      </Section>
-    </div>
+/**
+ * Login page.
+ */
+function LicensePage(props: ILicensePageProps) {
+  return (
+    <Page title="Software License Terms" account={props.account}>
+      <License />
+    </Page>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => ({
+  props: {
+    account: await getAccountServerSideProps(ctx),
+  },
+});
 
 export default LicensePage;

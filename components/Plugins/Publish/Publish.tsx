@@ -17,7 +17,7 @@ const QUERY = gql`
 `;
 
 /**
- * Component that handles publishing/submitting a plugin.
+ * Component that handles publishing a plugin.
  */
 function Publish() {
   const [publishing, setPublishing] = useState(false);

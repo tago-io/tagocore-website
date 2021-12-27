@@ -49,7 +49,7 @@ function Section(props: ISectionProps) {
         }
 
         .home-section .space {
-          height: 60px;
+          height: 80px;
         }
       `}</style>
     </section>
