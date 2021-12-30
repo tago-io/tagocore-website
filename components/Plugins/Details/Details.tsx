@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
-import SVGAngleRight from "../../SVG/SVGAngleRight";
+import SVGAngleRight from "../../../assets/icons/angle-right.svg";
 import AdditionalInfo from "./AdditionalInfo";
 import Categories from "./Categories";
 import Resources from "./Resources";

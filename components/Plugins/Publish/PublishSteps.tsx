@@ -1,6 +1,6 @@
-import SVGCheckCircle from "../../SVG/SVGCheckCircle";
-import SVGPuzzlePiece from "../../SVG/SVGPuzzlePiece";
-import SVGSyncAlt from "../../SVG/SVGSyncAlt";
+import SVGCheckCircle from "../../../assets/icons/check-circle.svg";
+import SVGPuzzlePiece from "../../../assets/icons/puzzle-piece.svg";
+import SVGSyncAlt from "../../../assets/icons/sync-alt.svg";
 
 interface IPublishStepsProps {
   step?: number;

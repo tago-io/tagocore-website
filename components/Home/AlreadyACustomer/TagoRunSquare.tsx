@@ -1,5 +1,5 @@
 import imgTagoRunLogoColor from "../../../assets/tagorun-logo-color.png";
-import SVGUser from "../../SVG/SVGUser";
+import SVGUser from "../../../assets/icons/user-alt.svg";
 import Image from "next/image";
 import { theme } from "../../../styles/Theme";
 

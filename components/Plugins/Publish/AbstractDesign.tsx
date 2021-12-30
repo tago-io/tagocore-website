@@ -1,5 +1,4 @@
-import SVGPuzzlePiece from "../../SVG/SVGPuzzlePiece";
-import { theme } from "../../../styles/Theme";
+import SVGPuzzlePiece from "../../../assets/icons/puzzle-piece.svg";
 import Link from "next/link";
 
 /**

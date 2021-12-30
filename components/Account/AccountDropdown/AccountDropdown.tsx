@@ -2,9 +2,9 @@ import { AccountInfo } from "@tago-io/sdk/out/modules/Account/account.types";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import Dropdown from "../../Common/Dropdown/Dropdown";
-import SVGArrow from "../../SVG/SVGArrow";
-import SVGPuzzlePiece from "../../SVG/SVGPuzzlePiece";
-import SVGUserCircle from "../../SVG/SVGUserCircle";
+import SVGArrow from "../../../assets/icons/sign-out-alt.svg";
+import SVGPuzzlePiece from "../../../assets/icons/puzzle-piece.svg";
+import SVGUserCircle from "../../../assets/icons/user-circle.svg";
 
 /**
  * Props.

@@ -1,5 +1,5 @@
 import Button from "../Common/Button/Button";
-import SVGArrow from "../SVG/SVGArrow";
+import SVGArrow from "../../assets/icons/arrow-right.svg";
 import isEmail from "validator/lib/isEmail";
 import { KeyboardEvent, useCallback, useState } from "react";
 

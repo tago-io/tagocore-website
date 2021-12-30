@@ -8,25 +8,40 @@ import OtpPicker from "./OtpPicker/OtpPicker";
 import { useRouter } from "next/router";
 
 /**
+ * Login component.
  */
 function Login() {
   const [loading, setLoading] = useState(false);
+  const [animating, setAnimating] = useState(false);
   const [email, setEmail] = useState("benachio@tago.io");
   const [password, setPassword] = useState("tagodev14");
   const [content, setContent] = useState("credentials");
   const [otpType, setOtpType] = useState<TOtpType>("authenticator");
-  const [otpPhone, setOtpPhone] = useState("");
+  // const [otpPhone, setOtpPhone] = useState("");
   const [invalidCredentials, setInvalidCredentials] = useState(false);
   const [otpTypesEnabled, setOtpTypesEnabled] = useState<TOtpType[]>(["authenticator", "email", "sms"]);
 
   const router = useRouter();
 
   /**
+   * Logs in.
    */
-  const onLogin = useCallback(
+  const login = useCallback(
     async (pinCode?: string) => {
       try {
+        if (loading) {
+          // prevent user clicking enter multiple times while focusing an input
+          return;
+        }
+
         setLoading(true);
+        setAnimating(true);
+        setInvalidCredentials(false);
+
+        if (!pinCode) {
+          // wait a bit for the banner animation
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+        }
 
         // logs in and gets the account
         const account = await Account.login(
@@ -62,13 +77,18 @@ function Login() {
         if (error.otp_enabled && error.otp_autosend) {
           setOtpType(error.otp_autosend);
           setOtpTypesEnabled(error.otp_enabled);
-          setOtpPhone(error.phone);
+          // setOtpPhone(error.phone);
           setContent("otp");
+          setLoading(false);
         } else {
           setInvalidCredentials(true);
+          setLoading(false);
+
+          if (!pinCode) {
+            setAnimating(false);
+          }
         }
       } finally {
-        // setLoading(false);
       }
     },
     [email, password, router, otpType]
@@ -79,37 +99,38 @@ function Login() {
    */
   const switchOtpType = useCallback(
     async (newType: TOtpType) => {
-      try {
-        setOtpType(newType);
-        setContent("otp");
+      setOtpType(newType);
+      setContent("otp");
 
-        if (newType !== "authenticator") {
-          await Account.requestLoginPINCode({ email, password }, newType, "usa-1");
-        }
-      } catch (ex) {
-        //
+      if (newType !== "authenticator") {
+        await Account.requestLoginPINCode({ email, password }, newType, "usa-1");
       }
     },
     [email, password]
   );
 
   /**
+   * Switches to the OTP picker content.
    */
-  const activateOtpPicker = useCallback(() => {
+  const activateOtpPickerContent = useCallback(() => {
     setContent("otp-picker");
   }, []);
 
   /**
+   * Switches to the OTP content.
    */
-  const activateOtp = useCallback(() => {
+  const activateOtpContent = useCallback(() => {
     setContent("otp");
   }, []);
 
   /**
+   * Switches to the credentials content.
    */
   const activateCredentialsContent = useCallback(() => {
     setLoading(false);
     setContent("credentials");
+    setInvalidCredentials(false);
+    setAnimating(false);
   }, []);
 
   return (
@@ -122,24 +143,26 @@ function Login() {
           loading={loading}
           onChangeEmail={setEmail}
           onChangePassword={setPassword}
-          onLogin={onLogin}
+          onLogin={login}
           password={password}
         />
       ) : content === "otp-picker" ? (
         // types available of otp
-        <OtpPicker types={otpTypesEnabled} onGoBack={activateOtp} onPick={switchOtpType} />
+        <OtpPicker types={otpTypesEnabled} onGoBack={activateOtpContent} onPick={switchOtpType} />
       ) : content === "otp" ? (
         // currently selected otp
         <Otp
+          onGoToCredentials={activateCredentialsContent}
+          onGoToOtpTypes={activateOtpPickerContent}
+          onLogin={login}
           type={otpType}
           typesEnabled={otpTypesEnabled}
-          onGoToOtpTypes={activateOtpPicker}
-          onGoToCredentials={activateCredentialsContent}
-          onLogin={onLogin}
+          loading={loading}
+          invalidCredentials={invalidCredentials}
         />
       ) : null}
 
-      <Banner animate={loading} />
+      <Banner animate={animating} />
 
       <style jsx>{`
         .login {
@@ -150,7 +173,8 @@ function Login() {
           display: flex;
           margin-top: 40px;
           margin-bottom: 40px;
-          height: 500px;
+          height: calc(100vh - 290px);
+          min-height: 500px;
           overflow: hidden;
           align-items: center;
         }

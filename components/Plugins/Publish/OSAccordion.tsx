@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ReactElement, useCallback, useEffect, useRef, useState } from "react";
-import SVGAngleDown from "../../SVG/SVGAngleDown";
-import SVGCheckCircle from "../../SVG/SVGCheckCircle";
+import SVGAngleDown from "../../../assets/icons/angle-down.svg";
+import SVGCheckCircle from "../../../assets/icons/check-circle.svg";
 
 /**
  * Props.

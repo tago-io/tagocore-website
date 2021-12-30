@@ -1,4 +1,4 @@
-import SVGSearch from "../../SVG/SVGSearch";
+import SVGSearch from "../../../assets/icons/search.svg";
 import PluginCard from "./Card";
 import Pagination from "./Pagination";
 import { useQuery } from "@apollo/react-hooks";
@@ -7,7 +7,7 @@ import Loading from "../../Common/Loading/Loading";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { IPlugin } from "../Plugin.types";
-import SVGCog from "../../SVG/SVGCog";
+import SVGCog from "../../../assets/icons/cog.svg";
 import { useRouter } from "next/router";
 import { theme } from "../../../styles/Theme";
 

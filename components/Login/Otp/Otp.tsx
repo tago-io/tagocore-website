@@ -12,6 +12,8 @@ interface IOtpProps {
   type: TOtpType;
   typesEnabled: TOtpType[];
   phone?: string;
+  loading?: boolean;
+  invalidCredentials?: boolean;
   onGoToOtpTypes: () => void;
   onGoToCredentials: () => void;
   onLogin: (pinCode?: string) => void;
@@ -21,8 +23,7 @@ interface IOtpProps {
  */
 function Otp(props: IOtpProps) {
   const [pinCode, setPinCode] = useState("");
-  const { type, typesEnabled, onGoToCredentials, onLogin, onGoToOtpTypes, phone } = props;
-  const loading = false;
+  const { type, invalidCredentials, loading, typesEnabled, onGoToCredentials, onLogin, onGoToOtpTypes, phone } = props;
 
   /**
    * Renders the description of the selected type.
@@ -81,7 +82,7 @@ function Otp(props: IOtpProps) {
 
   return (
     <div className="otp">
-      <div className="inner-otp">
+      <div className={`inner-otp ${loading ? "loading" : ""}`}>
         <div className="title-container">
           <div>
             <h3>Two-factor Authentication</h3>
@@ -96,7 +97,13 @@ function Otp(props: IOtpProps) {
         </div>
 
         <FormGroup>
-          <Input autoFocus value={pinCode} onChange={(e) => setPinCode(e.target.value)} placeholder="6-digit code" />
+          <Input
+            autoFocus
+            error={invalidCredentials}
+            onChange={(e) => setPinCode(e.target.value)}
+            placeholder="6-digit code"
+            value={pinCode}
+          />
         </FormGroup>
 
         <FormGroup>

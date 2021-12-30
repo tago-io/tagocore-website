@@ -2,7 +2,7 @@ import globalCss from "../styles/Global";
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { ApolloProvider } from "@apollo/react-hooks";
 import Head from "next/head";
-import Meta from "../components/Meta/Meta";
+import Meta from "../components/Page/Meta/Meta";
 import PageProgressBar from "../components/Page/ProgressBar/ProgressBar";
 
 /**

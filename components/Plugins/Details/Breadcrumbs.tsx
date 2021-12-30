@@ -1,4 +1,4 @@
-import SVGAngleRight from "../../SVG/SVGAngleRight";
+import SVGAngleRight from "../../../assets/icons/angle-right.svg";
 import Link from "next/link";
 import { theme } from "../../../styles/Theme";
 

@@ -1,7 +1,7 @@
 import IconRadio from "../../IconRadio/IconRadio";
-import SVGDesktop from "../../SVG/SVGDesktop";
+import SVGDesktop from "../../../assets/icons/desktop.svg";
 import { TPluginPlatformType } from "../Plugin.types";
-import SVGMultipleDesktop from "../../SVG/SVGMultipleDesktop";
+import SVGMultipleDesktop from "../../../assets/icons/multiple-desktop.svg";
 
 /**
  * Props.

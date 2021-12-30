@@ -1,7 +1,7 @@
 import SVGTagoIO from "../../../assets/logos/tagoio-logo.svg";
-import SVGCog from "../../SVG/SVGCog";
-import SVGCloud from "../../SVG/SVGCloud";
-import SVGDatabase from "../../SVG/SVGDatabase";
+import SVGCog from "../../../assets/icons/cog.svg";
+import SVGCloud from "../../../assets/icons/cloud.svg";
+import SVGDatabase from "../../../assets/icons/database.svg";
 import { theme } from "../../../styles/Theme";
 
 /**

@@ -1,10 +1,5 @@
 User-agent: *
 Allow: /
-
-User-agent: *
 Disallow: /account/*
-
-User-agent: *
 Disallow: /pluginstore/*
-
 Sitemap: https://tagocore.com/sitemap.xml

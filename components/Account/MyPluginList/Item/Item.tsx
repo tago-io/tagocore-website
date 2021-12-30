@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 import PluginImage from "../../../Plugins/Image/PluginImage";
 import SVGCaretDown from "../../../../assets/icons/caret-down.svg";
 import Version from "../Version";
-import PublishStatus from "../../../PublishStatus/PublishStatus";
+import PublishStatus from "../../../Plugin/PublishStatus/PublishStatus";
 
 /**
  */
@@ -69,7 +69,7 @@ function PublisherPluginItem(props: IPublisherPluginItemProps) {
                 <th>Publish Date</th>
                 <th>Name</th>
                 <th>Version</th>
-                <th>Publish Status</th>
+                <th>Status</th>
                 <th>Visible</th>
               </tr>
 

@@ -1,17 +1,27 @@
-import SVGExclamationTriangle from "../../assets/icons/exclamation-triangle.svg";
-import SVGCheckCircle from "../../assets/icons/check-circle.svg";
-import Link from "../Common/Link/Link";
-import { theme } from "../../styles/Theme";
+import SVGExclamationTriangle from "../../../assets/icons/exclamation-triangle.svg";
+import SVGCheckCircle from "../../../assets/icons/check-circle.svg";
+import Link from "../../Common/Link/Link";
+import { theme } from "../../../styles/Theme";
 import { useCallback } from "react";
 
 /**
+ * Publishing error of a plugin.
+ */
+interface IPublishError {
+  code: number;
+  message: number;
+}
+
+/**
+ * Props.
  */
 interface IPublishStatusProps {
-  publishError: any;
+  publishError?: IPublishError;
   version?: string;
 }
 
 /**
+ * Renders the publishing status of the plugin.
  */
 function PublishStatus(props: IPublishStatusProps) {
   const { version, publishError } = props;
@@ -50,7 +60,7 @@ function PublishStatus(props: IPublishStatusProps) {
           width: 100%;
         }
 
-        .publish-status * {
+        .publish-status :global(*) {
           font-size: 0.88rem;
         }
 

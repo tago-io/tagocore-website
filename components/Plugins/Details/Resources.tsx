@@ -1,5 +1,5 @@
 import { theme } from "../../../styles/Theme";
-import SVGAngleRight from "../../SVG/SVGAngleRight";
+import SVGAngleRight from "../../../assets/icons/angle-right.svg";
 
 /**
  * Renders the resources section of the plugin details page.

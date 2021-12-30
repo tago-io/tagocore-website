@@ -31,7 +31,7 @@ function Banner(props: IBannerProps) {
 
       <div className="text">Sign in to start managing Plugins.</div>
 
-      <div className="puzzle">
+      <div className="puzzle" style={{ transform: "scale(0)" }}>
         <SVGPuzzle fill="black" />
         <div className="spin" />
       </div>
@@ -53,13 +53,14 @@ function Banner(props: IBannerProps) {
           text-align: center;
           font-weight: bold;
           font-size: 1.6rem;
+          transition: opacity 0.5s;
         }
 
         .banner .puzzle {
           left: 50%;
           top: 50%;
           position: absolute;
-          transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0) !important;
           background: white;
           border-radius: 50%;
           width: 190px;
@@ -68,6 +69,7 @@ function Banner(props: IBannerProps) {
           display: flex;
           align-items: center;
           justify-content: center;
+          transition: transform 0.3s;
         }
 
         .banner .puzzle :global(svg) {
@@ -75,18 +77,20 @@ function Banner(props: IBannerProps) {
         }
 
         .banner .plug-in {
-          bottom: 0px;
+          bottom: calc(50% - 50px);
           left: 50%;
           position: absolute;
-          transform: translate(-50%, 0%);
+          transform: translate(-50%, 100%);
           z-index: 1;
+          transition: bottom 0.305s;
         }
 
         .banner .plug-out {
           position: absolute;
           left: 50%;
-          transform: translate(-50%, 0%);
-          top: 60px;
+          transform: translate(-50%, -100%);
+          top: calc(50% + 20px);
+          transition: top 0.305s;
         }
 
         .banner .plug-out::after {
@@ -110,6 +114,7 @@ function Banner(props: IBannerProps) {
           background: white;
           width: 25.5px;
           height: 100%;
+          transition: width 0.3s;
         }
 
         .banner .panel {
@@ -120,18 +125,21 @@ function Banner(props: IBannerProps) {
           background: black;
           width: 100%;
           height: 270px;
+          transition: height 0.305s;
         }
 
         /* Animation: */
 
         .banner.animate .plug-in {
-          bottom: 115px;
+          bottom: calc(50% + 70px);
+          transform: translate(-50%, 100%);
           transition: bottom 0.677s;
           transition-timing-function: cubic-bezier(0.81, -1.04, 0.58, 0.8);
         }
 
         .banner.animate .plug-out {
-          top: 120px;
+          top: calc(50% + 73px);
+          transform: translate(-50%, -100%);
           transition: top 0.677s;
           transition-timing-function: cubic-bezier(0.81, -1.04, 0.58, 0.8);
         }
@@ -143,7 +151,7 @@ function Banner(props: IBannerProps) {
         }
 
         .banner.animate .puzzle {
-          transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1) !important;
           transition: transform 0.3s;
           transition-delay: 0.5s;
           transition-timing-function: cubic-bezier(0.06, 0.99, 0.39, 1.16);
@@ -151,7 +159,6 @@ function Banner(props: IBannerProps) {
 
         .banner.animate .text {
           opacity: 0;
-          transition: opacity 0.5s;
         }
 
         @keyframes a {

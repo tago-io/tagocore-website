@@ -1,5 +1,5 @@
 import { theme } from "../../styles/Theme";
-import SVGVerified from "../SVG/SVGVerified";
+import VerifiedMark from "../Plugin/VerifiedMark/VerifiedMark";
 
 /**
  * Props.
@@ -19,7 +19,7 @@ function Developer(props: IDeveloperProps) {
     <div className={`developer ${verified ? "verified" : ""}`}>
       <span>{name}</span>
 
-      {verified && <SVGVerified color={theme.colors.verified} width="12px" />}
+      {verified && <VerifiedMark />}
 
       <style jsx>{`
         .developer {

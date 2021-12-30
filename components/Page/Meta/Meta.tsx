@@ -1,5 +1,8 @@
-import { theme } from "../../styles/Theme";
+import { theme } from "../../../styles/Theme";
 
+/**
+ * Renders meta tags.
+ */
 function Meta() {
   return (
     <>

@@ -1,4 +1,4 @@
-import SVGMicroChip from "../../SVG/SVGMicroChip";
+import SVGMicroChip from "../../../assets/icons/microchip.svg";
 import SVGTagoCoreBlack from "../../../assets/logos/tagocore-black.svg";
 
 /**

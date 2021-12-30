@@ -26,7 +26,8 @@ function Button(props: ButtonHTMLAttributes<HTMLButtonElement>) {
         }
 
         button:hover,
-        button:active {
+        button:active,
+        button:focus {
           background: ${theme.colors.primary};
           color: ${theme.colors.secondary} !important;
           fill: ${theme.colors.secondary} !important;
@@ -34,6 +35,8 @@ function Button(props: ButtonHTMLAttributes<HTMLButtonElement>) {
 
         button:hover,
         button:hover *,
+        button:focus,
+        button:focus *,
         button:active,
         button:active * {
           color: ${theme.colors.secondary} !important;

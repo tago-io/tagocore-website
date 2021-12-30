@@ -68,6 +68,7 @@ function Credentials(props: ICredentialsProps) {
 
         <FormGroup label="Email">
           <Input
+            autoFocus
             error={invalidCredentials}
             onChange={(e) => onChangeEmail(e.target.value)}
             onKeyDown={onEmailKeyDown}

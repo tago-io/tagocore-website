@@ -111,6 +111,7 @@ function Dropdown(props: IDropdownProps) {
           top: calc(100% + 10px);
           right: 0px;
           width: 100%;
+          min-width: 200px;
           background: white;
           padding: 10px 0px;
           flex-direction: column;

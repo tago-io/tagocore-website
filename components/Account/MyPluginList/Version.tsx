@@ -2,7 +2,7 @@ import { useMutation } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 import { useCallback, useState } from "react";
 import Link from "../../Common/Link/Link";
-import PublishStatus from "../../PublishStatus/PublishStatus";
+import PublishStatus from "../../Plugin/PublishStatus/PublishStatus";
 
 /**
  * Query to fetch the categories and plugins.

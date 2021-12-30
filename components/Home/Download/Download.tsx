@@ -1,5 +1,5 @@
-import SVGClock from "../../SVG/SVGClock";
-import SVGDownload from "../../SVG/SVGDownload";
+import SVGClock from "../../../assets/icons/clock.svg";
+import SVGDownload from "../../../assets/icons/download.svg";
 import Button from "../../Common/Button/Button";
 import EarlyAccessButton from "../../EarlyAccessButton/EarlyAccessButton";
 import SVGLinux from "../../../assets/logos/linux.svg";
