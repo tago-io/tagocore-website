@@ -1,8 +1,8 @@
-import FormGroup from "../../Common/FormGroup/FormGroup";
-import Button from "../../Common/Button/Button";
-import SVGTagoIO from "../../../assets/logos/tagoio-logo.svg";
-import Input from "../../Common/Input/Input";
-import Link from "../../Common/Link/Link";
+import FormGroup from "../../../Common/FormGroup/FormGroup";
+import Button from "../../../Common/Button/Button";
+import SVGTagoIO from "../../../../assets/logos/tagoio-logo.svg";
+import Input from "../../../Common/Input/Input";
+import Link from "../../../Common/Link/Link";
 import { KeyboardEvent, useCallback, useRef } from "react";
 
 /**

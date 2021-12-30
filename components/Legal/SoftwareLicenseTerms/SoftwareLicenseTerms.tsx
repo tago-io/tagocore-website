@@ -3,7 +3,7 @@ import Link from "next/link";
 /**
  * Software license terms component.
  */
-function License() {
+function SoftwareLicenseTerms() {
   /**
    * Renders a link.
    */
@@ -14,7 +14,7 @@ function License() {
   );
 
   return (
-    <div className="terms-and-conditions page-max-width">
+    <div className="software-license page-max-width">
       <p>
         <i>
           <span>This license applies to the TagoCore product. Source Code for TagoCore is available at </span>
@@ -209,39 +209,39 @@ function License() {
       </section>
 
       <style jsx>{`
-        .terms-and-conditions {
+        .software-license {
           display: flex;
           margin-top: 40px;
           margin-bottom: 40px;
           flex-direction: column;
         }
 
-        .terms-and-conditions p {
+        .software-license p {
           margin: 0;
           margin-bottom: 1.5rem;
         }
 
-        .terms-and-conditions .number {
+        .software-license .number {
           margin-right: 10px;
         }
 
-        .terms-and-conditions .main-item:not(:last-child) {
+        .software-license .main-item:not(:last-child) {
           margin-bottom: 1.5rem;
         }
 
-        .terms-and-conditions h1 {
+        .software-license h1 {
           font-size: 1.6rem;
           display: block;
         }
 
-        .terms-and-conditions h2 {
+        .software-license h2 {
           font-size: 1.3rem;
           display: block;
           margin-bottom: 10px;
           margin-top: 1rem;
         }
 
-        .terms-and-conditions h3 {
+        .software-license h3 {
           font-size: 16px;
         }
       `}</style>
@@ -249,4 +249,4 @@ function License() {
   );
 }
 
-export default License;
+export default SoftwareLicenseTerms;

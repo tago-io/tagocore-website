@@ -13,11 +13,10 @@ import { useRouter } from "next/router";
 function Login() {
   const [loading, setLoading] = useState(false);
   const [animating, setAnimating] = useState(false);
-  const [email, setEmail] = useState("benachio@tago.io");
-  const [password, setPassword] = useState("tagodev14");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [content, setContent] = useState("credentials");
   const [otpType, setOtpType] = useState<TOtpType>("authenticator");
-  // const [otpPhone, setOtpPhone] = useState("");
   const [invalidCredentials, setInvalidCredentials] = useState(false);
   const [otpTypesEnabled, setOtpTypesEnabled] = useState<TOtpType[]>(["authenticator", "email", "sms"]);
 
@@ -68,7 +67,7 @@ function Login() {
           "usa-1"
         );
 
-        document.cookie = `tagoio-account-token=${tokenData.token}; Path=/; expires=Sun, 1 Jan 2023 00:00:00 UTC; path=/`;
+        document.cookie = `token=${tokenData.token}; Path=/; expires=Sun, 1 Jan 2023 00:00:00 UTC; path=/`;
 
         router.push("/account/plugins");
       } catch (ex) {
@@ -77,7 +76,6 @@ function Login() {
         if (error.otp_enabled && error.otp_autosend) {
           setOtpType(error.otp_autosend);
           setOtpTypesEnabled(error.otp_enabled);
-          // setOtpPhone(error.phone);
           setContent("otp");
           setLoading(false);
         } else {
@@ -88,10 +86,9 @@ function Login() {
             setAnimating(false);
           }
         }
-      } finally {
       }
     },
-    [email, password, router, otpType]
+    [email, password, router, loading, otpType]
   );
 
   /**
@@ -177,6 +174,12 @@ function Login() {
           min-height: 500px;
           overflow: hidden;
           align-items: center;
+        }
+
+        @media screen and (max-width: 768px) {
+          .login :global(.banner) {
+            display: none;
+          }
         }
       `}</style>
     </div>

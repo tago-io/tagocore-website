@@ -20,7 +20,7 @@ function PluginPublishPage(props: IPluginPublishPage) {
   const { account, profiles } = props;
   return (
     <Page title="Publish Plugin" account={account}>
-      <Publish profiles={profiles} />
+      <Publish account={account} profiles={profiles} />
     </Page>
   );
 }
@@ -29,7 +29,7 @@ function PluginPublishPage(props: IPluginPublishPage) {
  * Retrieves the information about the account and the profiles.
  */
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const token = ctx?.req?.cookies?.["tagoio-account-token"];
+  const token = ctx?.req?.cookies?.["token"];
   if (!token) {
     return {
       redirect: { permanent: true, destination: "/auth/login" },
@@ -44,7 +44,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     };
   }
 
-  const account = { id: data[0].id, name: data[0].name };
+  const account = { id: data[0].id, email: data[0].email, name: data[0].name };
   const profiles = data[1];
 
   return { props: { account, profiles } };

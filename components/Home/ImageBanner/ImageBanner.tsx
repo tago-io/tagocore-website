@@ -42,7 +42,7 @@ function ImageBanner(props: IImageBannerProps) {
         .image-banner {
           height: calc(100vh - 60px);
           display: flex;
-          max-height: 750px;
+          max-height: 950px;
           position: relative;
         }
 

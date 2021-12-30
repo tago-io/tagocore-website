@@ -1,7 +1,7 @@
 import { AccountInfo } from "@tago-io/sdk/out/modules/Account/account.types";
 import { GetServerSideProps } from "next";
 import Page from "../../../components/Page/Page";
-import TermsAndConditions from "../../../components/Plugins/TermsAndConditions/TermsAndConditions";
+import TermsAndConditions from "../../../components/Legal/PluginStoreTerms/PluginStoreTerms";
 import getAccountServerSideProps from "../../../helpers/getAccountServerSideProps";
 
 /**

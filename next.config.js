@@ -1,5 +1,6 @@
 const nextConfig = {
   target: "serverless",
+  swcMinify: true,
   images: {
     domains: ["tagocore-plugins.s3.us-east-1.amazonaws.com", "avatars1.githubusercontent.com"],
   },

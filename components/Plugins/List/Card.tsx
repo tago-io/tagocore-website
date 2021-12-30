@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Developer from "../../Developer/Developer";
 import { IPluginDeveloper } from "../Plugin.types";
 import Image from "next/image";
 
@@ -15,7 +14,7 @@ interface IPluginCardProps {
  * will transfer you to the plugin details page.
  */
 function PluginCard(props: IPluginCardProps) {
-  const { name, description, logoURL, developer } = props;
+  const { name, description, logoURL } = props;
 
   return (
     <Link href="/pluginstore/details/899a8e65132a1e384a6s84sa1q">
@@ -27,7 +26,7 @@ function PluginCard(props: IPluginCardProps) {
         <div className="data">
           <h5>{name}</h5>
           <span className="developer">
-            <Developer name={developer?.name} verified={developer?.verified} domain={developer?.domain} />
+            {/* <Developer name={developer?.name} verified={developer?.verified} domain={developer?.domain} /> */}
           </span>
           <span className="description">{description}.</span>
         </div>

@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { Element } from "react-scroll";
 
 /**
  * Props.
@@ -27,7 +26,7 @@ function Section(props: ISectionProps) {
 
   return (
     <section className={className} style={{ backgroundColor }}>
-      {id && <Element name={id}></Element>}
+      {id && <div id={id}></div>}
 
       {useSpaceTop && <div className="space" />}
       {children}

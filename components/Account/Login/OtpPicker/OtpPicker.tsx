@@ -1,11 +1,11 @@
-import Link from "../../Common/Link/Link";
+import Link from "../../../Common/Link/Link";
 import { TOtpType } from "../Login.types";
 import { MouseEvent, ReactNode, useCallback } from "react";
-import FormGroup from "../../Common/FormGroup/FormGroup";
-import SVGKey from "../../../assets/icons/key.svg";
-import SVGMobile from "../../../assets/icons/mobile-alt.svg";
-import SVGEnvelope from "../../../assets/icons/envelope.svg";
-import SVGAngleRight from "../../../assets/icons/angle-right.svg";
+import FormGroup from "../../../Common/FormGroup/FormGroup";
+import SVGKey from "../../../../assets/icons/key.svg";
+import SVGMobile from "../../../../assets/icons/mobile-alt.svg";
+import SVGEnvelope from "../../../../assets/icons/envelope.svg";
+import SVGAngleRight from "../../../../assets/icons/angle-right.svg";
 
 /**
  * Props.
@@ -23,32 +23,35 @@ function OtpPicker(props: IOtpPickerProps) {
 
   /**
    */
-  const renderType = useCallback((type: TOtpType) => {
-    let svg: ReactNode = null;
-    let text: string = null;
+  const renderType = useCallback(
+    (type: TOtpType) => {
+      let svg: ReactNode = null;
+      let text: string = null;
 
-    if (type === "authenticator") {
-      svg = <SVGKey width="12px" />;
-      text = "Authenticator";
-    } else if (type === "sms") {
-      svg = <SVGMobile width="10px" />;
-      text = "SMS";
-    } else if (type === "email") {
-      svg = <SVGEnvelope width="13px" />;
-      text = "Email";
-    }
+      if (type === "authenticator") {
+        svg = <SVGKey width="12px" />;
+        text = "Authenticator";
+      } else if (type === "sms") {
+        svg = <SVGMobile width="10px" />;
+        text = "SMS";
+      } else if (type === "email") {
+        svg = <SVGEnvelope width="13px" />;
+        text = "Email";
+      }
 
-    return (
-      <div key={type} onClick={() => onPick(type)} className="item">
-        <div className="data">
-          <div className="icon-container">{svg}</div>
-          <span>{text}</span>
+      return (
+        <div key={type} onClick={() => onPick(type)} className="item">
+          <div className="data">
+            <div className="icon-container">{svg}</div>
+            <span>{text}</span>
+          </div>
+
+          <SVGAngleRight width="10px" />
         </div>
-
-        <SVGAngleRight width="10px" />
-      </div>
-    );
-  }, []);
+      );
+    },
+    [onPick]
+  );
 
   /**
    * Goes back to the OTP page.

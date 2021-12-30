@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import Dropdown from "../../Common/Dropdown/Dropdown";
 import SVGArrow from "../../../assets/icons/sign-out-alt.svg";
 import SVGPuzzlePiece from "../../../assets/icons/puzzle-piece.svg";
+import SVGUpload from "../../../assets/icons/upload.svg";
 import SVGUserCircle from "../../../assets/icons/user-circle.svg";
 
 /**
@@ -26,7 +27,7 @@ function AccountDropdown(props: IHeaderProps) {
    * Logs the user out.
    */
   const logout = useCallback(() => {
-    document.cookie = "tagoio-account-token=; Path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT";
+    document.cookie = "token=; Path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT";
     router.push("/auth/login");
   }, [router]);
 
@@ -67,7 +68,7 @@ function AccountDropdown(props: IHeaderProps) {
           open={open}
           onClose={closeDropdown}
           items={[
-            { svg: SVGPuzzlePiece, label: "Publish plugin", link: "/pluginstore/publish" },
+            { svg: SVGUpload, label: "Publish plugin", link: "/pluginstore/publish" },
             { svg: SVGPuzzlePiece, label: "My plugins", link: "/account/plugins" },
             { svg: SVGArrow, label: "Sign out", onClick: logout },
           ]}

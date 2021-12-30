@@ -6,7 +6,7 @@ const cache = {};
 /**
  */
 async function getAccountServerSideProps(ctx: GetServerSidePropsContext) {
-  const token = ctx?.req?.cookies?.["tagoio-account-token"];
+  const token = ctx?.req?.cookies?.["token"];
 
   // console.log(token, cache[token]?.email);
 
@@ -17,7 +17,7 @@ async function getAccountServerSideProps(ctx: GetServerSidePropsContext) {
   if (token) {
     const account = new Account({ region: "usa-1", token });
     const data = await account.info();
-    cache[token] = { id: data.id, name: data.name };
+    cache[token] = { id: data.id, email: data.email, name: data.name };
     return cache[token];
   }
 

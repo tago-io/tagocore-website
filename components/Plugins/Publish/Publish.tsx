@@ -1,89 +1,164 @@
-import { useQuery } from "@apollo/client";
-import { useCallback, useEffect, useState } from "react";
+import { useQuery, gql } from "@apollo/client";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { IPluginPublishFiles } from "../Plugin.types";
 import AbstractDesign from "./AbstractDesign";
 import Form from "./Form";
-import { gql } from "apollo-boost";
+import cookie from "cookie";
+
 import axios from "axios";
 import JSZip from "jszip";
+import PublishProgress from "./PublishProgress";
+import { AccountInfo } from "@tago-io/sdk/out/modules/Account/account.types";
+import { ProfileListInfo } from "@tago-io/sdk/out/modules/Account/profile.types";
+import { apolloClient } from "../../../pages/_app";
 
 /**
  * Query to fetch the url to upload plugins.
  */
 const QUERY = gql`
-  query {
-    pluginUpload
+  query ($profileID: String!) {
+    pluginUpload(profileID: $profileID)
   }
 `;
 
 /**
+ * Props.
+ */
+interface IPublishProps {
+  account: AccountInfo;
+  profiles: ProfileListInfo[];
+}
+
+/**
  * Component that handles publishing a plugin.
  */
-function Publish(props) {
+function Publish(props: IPublishProps) {
+  const [profileID, setProfileID] = useState("");
   const [publishing, setPublishing] = useState(false);
-  const [files, setFiles] = useState<IPluginPublishFiles>({});
-  const [step, setStep] = useState(0);
-  const { data } = useQuery<{ pluginUpload: string }>(QUERY, { skip: !publishing });
+  const [publishingError, setPublishingError] = useState("");
+  const [publishingProgress, setPublishingProgress] = useState(0);
+  const abortController = useRef<AbortController>(null);
+  const lastPercentage = useRef(0);
 
-  const url = data?.pluginUpload;
+  const { account, profiles } = props;
 
   /**
    * Does the actual request to upload the file.
    */
-  const upload = useCallback(
-    async (file: Blob) => {
+  const upload = useCallback(async (url: string, file: Blob) => {
+    try {
+      if (abortController.current?.signal?.aborted) {
+        console.log("Aborted before reaching upload request.");
+        return;
+      }
+
+      if (file.size > 100000000) {
+        // > 100mb
+        throw new Error("Compressed file size should be at most 100 MB.");
+      }
+
       await axios({
         url,
         method: "PUT",
         data: file,
+        signal: abortController.current.signal,
+        onUploadProgress: (e) => {
+          const percent = Math.min(50 + ((e.loaded / e.total) * 100) / 2, 99);
+          setPublishingProgress(percent);
+        },
       });
-      setStep(3);
+
+      setPublishingProgress(100);
+    } catch (ex) {
+      setPublishingError(ex?.message);
+    }
+  }, []);
+
+  /**
+   * Cancels the publish.
+   */
+  const cancelPublish = useCallback(() => {
+    setPublishing(false);
+    setPublishingProgress(0);
+    setPublishingError("");
+    lastPercentage.current = 0;
+    abortController.current.abort();
+  }, [abortController]);
+
+  /**
+   * Fetches the upload URL from the server.
+   */
+  const fetchUploadURL = useCallback(async (profileID: string) => {
+    const { data } = await apolloClient.query({
+      query: QUERY,
+      variables: { profileID },
+      context: { headers: { token: cookie.parse(document.cookie)?.token } },
+    });
+
+    const url = data.pluginUpload;
+    return url;
+  }, []);
+
+  /**
+   * Called when the zip bundling makes progress.
+   */
+  const onZipBundleProgress = useCallback(({ percent }) => {
+    const shouldOutput = percent === 100 || percent > lastPercentage.current + 5;
+    if (shouldOutput) {
+      // only outputs every 5% or at 100% to not overwhelm the client
+      lastPercentage.current = percent;
+      setPublishingProgress(percent / 2);
+    }
+  }, []);
+
+  /**
+   * Generates and returns a .zip file blob.
+   */
+  const generateZip = useCallback(
+    async (files: IPluginPublishFiles): Promise<Blob> => {
+      const zip = new JSZip();
+      for (const key in files) {
+        zip.file(key, files[key]);
+      }
+      return await zip.generateAsync({ type: "blob" }, onZipBundleProgress);
     },
-    [url]
+    [onZipBundleProgress]
   );
 
   /**
+   * Publishes the plugin version.
    */
-  const onBundleProgress = useCallback(({ percent }) => {
-    console.log(percent);
-  }, []);
+  const publish = useCallback(
+    async (files: IPluginPublishFiles, profileID: string) => {
+      setPublishing(true);
+      setProfileID(profileID);
 
-  /**
-   * Organizes all the files into a single bundle then sends that bundle.
-   * After this, the step is increased.
-   */
-  const publish = useCallback(async () => {
-    const zip = new JSZip();
+      abortController.current = new AbortController();
 
-    for (const key in files) {
-      zip.file(key, files[key]);
-    }
+      const url = await fetchUploadURL(profileID);
+      const blob = await generateZip(files);
 
-    zip.generateAsync({ type: "blob" }, onBundleProgress).then(upload);
-  }, [files, upload, onBundleProgress]);
-
-  /**
-   * Starts the publishing process. This will set a state that will
-   * in turn fetch the data from the graphql server and get the upload urls.
-   */
-  const startPublishProcess = useCallback((files: IPluginPublishFiles) => {
-    setPublishing(true);
-    setFiles(files);
-  }, []);
-
-  /**
-   * Starts uploading the files once the urls are valid.
-   */
-  useEffect(() => {
-    if (url && step === 0) {
-      publish();
-      setStep(1);
-    }
-  }, [url, step, publish]);
+      await upload(url, blob);
+    },
+    [fetchUploadURL, upload, generateZip]
+  );
 
   return (
     <div className="publish page-max-width">
-      <Form profiles={props.profiles} publishing={publishing} step={step} onPublish={startPublishProcess} />
+      <div className="left-side">
+        {publishing ? (
+          <PublishProgress
+            account={account}
+            error={publishingError}
+            onCancel={cancelPublish}
+            profileID={profileID}
+            profiles={profiles}
+            progress={publishingProgress}
+          />
+        ) : (
+          <Form profiles={profiles} onPublish={publish} />
+        )}
+      </div>
 
       <AbstractDesign />
 
@@ -91,8 +166,18 @@ function Publish(props) {
         .publish {
           display: flex;
           justify-content: center;
-          margin-top: 40px;
           margin-bottom: 40px;
+          margin-top: 40px;
+        }
+
+        .publish .left-side {
+          display: flex;
+          flex-direction: column;
+          background: rgba(0, 0, 0, 0.04);
+          border-radius: 7px;
+          padding: 20px;
+          flex: 1;
+          min-height: 400px;
         }
 
         @media screen and (max-width: 1200px) {

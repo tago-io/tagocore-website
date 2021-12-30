@@ -42,7 +42,7 @@ function Header(props: IHeaderProps) {
       <header className={`header ${shadow ? "shadow" : ""}`}>
         <div className="page-max-width">
           <div className="left">
-            <Link href="/">
+            <Link className="logo-container" href="/">
               <SVGTagoCoreBlack width="147px" />
             </Link>
           </div>
@@ -100,6 +100,10 @@ function Header(props: IHeaderProps) {
             flex: 1;
           }
 
+          .header .logo-container {
+            display: flex;
+          }
+
           .header .right {
             display: flex;
             flex: none;
@@ -124,8 +128,7 @@ function Header(props: IHeaderProps) {
           }
 
           @media screen and (max-width: 768px) {
-            .header .right .item,
-            .header :global(svg) {
+            .header .right :global(.item) {
               display: none;
             }
             .header .left {

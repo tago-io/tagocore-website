@@ -1,5 +1,5 @@
 import { GetServerSideProps } from "next";
-import Login from "../../../components/Login/Login";
+import Login from "../../../components/Account/Login/Login";
 import Page from "../../../components/Page/Page";
 import getAccountServerSideProps from "../../../helpers/getAccountServerSideProps";
 import { AccountInfo } from "@tago-io/sdk/out/modules/Account/account.types";

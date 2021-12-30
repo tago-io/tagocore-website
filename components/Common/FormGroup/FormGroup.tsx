@@ -1,5 +1,4 @@
 import { ReactElement } from "react";
-import Link from "../Link/Link";
 
 /**
  * Props.

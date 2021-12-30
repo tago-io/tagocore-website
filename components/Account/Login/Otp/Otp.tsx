@@ -1,7 +1,7 @@
-import FormGroup from "../../Common/FormGroup/FormGroup";
-import Button from "../../Common/Button/Button";
-import Input from "../../Common/Input/Input";
-import Link from "../../Common/Link/Link";
+import FormGroup from "../../../Common/FormGroup/FormGroup";
+import Button from "../../../Common/Button/Button";
+import Input from "../../../Common/Input/Input";
+import Link from "../../../Common/Link/Link";
 import { TOtpType } from "../Login.types";
 import { MouseEvent, useCallback, useState } from "react";
 

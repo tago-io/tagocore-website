@@ -1,5 +1,5 @@
 import { AccountInfo } from "@tago-io/sdk/out/modules/Account/account.types";
-import { gql } from "apollo-boost";
+import { gql } from "@apollo/client";
 import { GetServerSideProps } from "next";
 import Page from "../../../components/Page/Page";
 import MyPluginList from "../../../components/Account/MyPluginList/MyPluginList";

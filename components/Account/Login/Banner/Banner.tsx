@@ -1,6 +1,6 @@
 import { memo } from "react";
-import SVGPlug from "../../../assets/icons/plug.svg";
-import SVGPuzzle from "../../../assets/icons/puzzle-piece.svg";
+import SVGPlug from "../../../../assets/icons/plug.svg";
+import SVGPuzzle from "../../../../assets/icons/puzzle-piece.svg";
 
 /**
  * Props.
@@ -54,6 +54,8 @@ function Banner(props: IBannerProps) {
           font-weight: bold;
           font-size: 1.6rem;
           transition: opacity 0.5s;
+          width: 100%;
+          max-width: 270px;
         }
 
         .banner .puzzle {

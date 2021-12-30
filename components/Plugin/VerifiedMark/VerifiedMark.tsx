@@ -2,15 +2,8 @@ import SVGCertificate from "../../../assets/icons/certificate.svg";
 import SVGCheck from "../../../assets/icons/check.svg";
 
 /**
- * Props.
  */
-interface IVerifiedMarkProps {
-  domain?: string;
-}
-
-/**
- */
-function VerifiedMark(props: IVerifiedMarkProps) {
+function VerifiedMark() {
   // const { domain } = props;
 
   return (

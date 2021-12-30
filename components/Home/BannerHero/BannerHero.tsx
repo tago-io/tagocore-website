@@ -1,6 +1,6 @@
 import ImageBanner from "../ImageBanner/ImageBanner";
 import imgHeroBanner from "../../../assets/home-page.png";
-import EarlyAccessButton from "../../EarlyAccessButton/EarlyAccessButton";
+import EarlyAccessButton from "../EarlyAccessButton/EarlyAccessButton";
 
 /**
  * Hero banner in the front page of the website.

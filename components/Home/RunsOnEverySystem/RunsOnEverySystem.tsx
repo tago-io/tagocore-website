@@ -1,4 +1,4 @@
-import BrandBox from "../../BrandBox/BrandBox";
+import BrandBox from "../BrandBox/BrandBox";
 import SVGLinux from "../../../assets/logos/linux.svg";
 import SVGWindows from "../../../assets/logos/windows.svg";
 import SVGApple from "../../../assets/logos/apple.svg";

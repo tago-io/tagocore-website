@@ -1,4 +1,4 @@
-import BrandBox from "../../BrandBox/BrandBox";
+import BrandBox from "../BrandBox/BrandBox";
 import SVGMysql from "../../../assets/logos/mysql.svg";
 import SVGPostgreSQL from "../../../assets/logos/postgresql.svg";
 import SVGMongoDB from "../../../assets/logos/mongodb.svg";

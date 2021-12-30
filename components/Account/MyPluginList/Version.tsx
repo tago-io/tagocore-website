@@ -1,5 +1,5 @@
 import { useMutation } from "@apollo/react-hooks";
-import { gql } from "apollo-boost";
+import { gql } from "@apollo/client";
 import { useCallback, useState } from "react";
 import Link from "../../Common/Link/Link";
 import PublishStatus from "../../Plugin/PublishStatus/PublishStatus";

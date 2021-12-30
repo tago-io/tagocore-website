@@ -29,8 +29,7 @@ function ProfileHeader(props: IProfileHeaderProps) {
 
           {!name.includes("MQTT") && (
             <div className="verified-container">
-              <VerifiedMark domain="tago.io" />
-              {/* <SVGVerified color="#337ab7" width="16px" /> */}
+              <VerifiedMark />
             </div>
           )}
 

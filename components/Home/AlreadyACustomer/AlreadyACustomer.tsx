@@ -1,4 +1,3 @@
-import { theme } from "../../../styles/Theme";
 import TagoCoreSquare from "./TagoCoreSquare";
 import TagoIOSquare from "./TagoIOSquare";
 import TagoRunSquare from "./TagoRunSquare";

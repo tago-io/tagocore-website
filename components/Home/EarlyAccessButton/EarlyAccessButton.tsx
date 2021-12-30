@@ -1,11 +1,11 @@
-import Button from "../Common/Button/Button";
-import SVGArrow from "../../assets/icons/arrow-right.svg";
+import Button from "../../Common/Button/Button";
+import SVGArrow from "../../../assets/icons/arrow-right.svg";
 import isEmail from "validator/lib/isEmail";
 import { KeyboardEvent, useCallback, useState } from "react";
+import { theme } from "../../../styles/Theme";
 
 /**
- * Component that shows an input and a button for someone to submit their e-mail
- * and get early access to the system.
+ * Renders an input and a button for someone to get early access to the system.
  */
 function EarlyAccessButton() {
   const [value, setValue] = useState("");
@@ -103,7 +103,7 @@ function EarlyAccessButton() {
         }
 
         .early-access-button.error input {
-          border-color: red !important;
+          border-color: ${theme.colors.error} !important;
         }
 
         .early-access-button :global(button) {

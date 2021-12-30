@@ -1,4 +1,4 @@
-import IconRadio from "../../IconRadio/IconRadio";
+import IconRadio from "../../Common/IconRadio/IconRadio";
 import SVGDesktop from "../../../assets/icons/desktop.svg";
 import { TPluginPlatformType } from "../Plugin.types";
 import SVGMultipleDesktop from "../../../assets/icons/multiple-desktop.svg";

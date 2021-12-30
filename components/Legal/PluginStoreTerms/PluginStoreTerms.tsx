@@ -3,7 +3,7 @@ import Link from "next/link";
 /**
  * Terms and conditions of publishing a plugin.
  */
-function TermsAndConditions() {
+function PluginStoreTerms() {
   /**
    * Renders a link.
    */
@@ -14,7 +14,7 @@ function TermsAndConditions() {
   );
 
   return (
-    <div className="terms-and-conditions page-max-width">
+    <div className="plugin-store-terms page-max-width">
       <h1>TagoCore Plugin Store Terms of Use</h1>
 
       <p className="last-updated">Last Updated Nov 2021</p>
@@ -273,36 +273,36 @@ function TermsAndConditions() {
       </section>
 
       <style jsx>{`
-        .terms-and-conditions {
+        .plugin-store-terms {
           display: flex;
           margin-top: 40px;
           margin-bottom: 40px;
           flex-direction: column;
         }
 
-        .terms-and-conditions .last-updated {
+        .plugin-store-terms .last-updated {
           margin-top: 10px;
           color: rgb(100, 100, 100);
         }
 
-        .terms-and-conditions p {
+        .plugin-store-terms p {
           margin: 0;
           margin-bottom: 1.5rem;
         }
 
-        .terms-and-conditions h1 {
+        .plugin-store-terms h1 {
           font-size: 1.6rem;
           display: block;
         }
 
-        .terms-and-conditions h2 {
+        .plugin-store-terms h2 {
           font-size: 1.3rem;
           display: block;
           margin-bottom: 10px;
           margin-top: 1rem;
         }
 
-        .terms-and-conditions h3 {
+        .plugin-store-terms h3 {
           font-size: 16px;
           color: rgb(100, 100, 100);
           margin-bottom: 3px;
@@ -312,4 +312,4 @@ function TermsAndConditions() {
   );
 }
 
-export default TermsAndConditions;
+export default PluginStoreTerms;

@@ -1,8 +1,9 @@
 import { useCallback, useRef } from "react";
-import formatBytes from "../../helpers/formatBytes";
-import Button from "../Common/Button/Button";
-import SVGCheckCircle from "../../assets/icons/check-circle.svg";
-import SVGTimes from "../../assets/icons/times.svg";
+import formatBytes from "../../../helpers/formatBytes";
+import Button from "../Button/Button";
+import SVGCheckCircle from "../../../assets/icons/check-circle.svg";
+import SVGTimes from "../../../assets/icons/times.svg";
+import { theme } from "../../../styles/Theme";
 
 /**
  * Props.
@@ -27,8 +28,7 @@ interface IInputUploadProps {
 }
 
 /**
- * This component contains an input and a button and its design for the user to pick
- * a local file in their filesystem and upload it to the cloud.
+ * Renders an input and a button and its designed to select a local file.
  */
 function InputUpload(props: IInputUploadProps) {
   const { value, onChange, onClear, placeholder } = props;
@@ -116,12 +116,12 @@ function InputUpload(props: IInputUploadProps) {
           right: 143px;
           top: 50%;
           transform: translate(0%, -50%);
-          fill: hsl(121, 100%, 28%);
+          fill: ${theme.colors.success};
         }
 
         .input-upload.checked input {
-          background: hsl(121, 100%, 95%);
-          border-color: hsl(121, 100%, 23%) !important;
+          background: ${theme.colors.successLighter};
+          border-color: ${theme.colors.success} !important;
         }
 
         .input-upload .file {

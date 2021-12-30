@@ -1,5 +1,5 @@
 /**
- * Theme object, contains all color and font sizes.
+ * Theme object, contains all colors and font sizes.
  */
 const theme = {
   sizes: {
@@ -8,15 +8,16 @@ const theme = {
   },
   colors: {
     error: "#d30e0e",
-    success: "green",
+    success: "hsl(121, 100%, 28%)",
+    successLighter: "hsl(121, 100%, 95%)",
     accent: "hsl(207, 76%, 48%)",
     tagoIO: "hsl(207, 56%, 48%)",
     tagoRun: "hsl(229, 100%, 23%)",
-    tagoCore: "black",
-    primary: "black",
-    secondary: "white",
-    verified: "hsl(207, 56%, 48%)",
-    link: "hsl(207, 56%, 48%)",
+    tagoCore: "hsl(0, 0%, 0%)",
+    primary: "hsl(0, 0%, 0%)",
+    secondary: "hsl(0, 100%, 100%)",
+    verified: "hsl(207, 76%, 48%)",
+    link: "hsl(207, 100%, 38%)",
   },
 };
 
