@@ -1,5 +1,5 @@
 import { GetServerSidePropsContext } from "next";
-import axios from "axios";
+import { Account } from "@tago-io/sdk";
 
 const cache = {};
 
@@ -15,10 +15,10 @@ async function getAccountServerSideProps(ctx: GetServerSidePropsContext) {
   }
 
   if (token) {
-    const response = await axios.get("https://api.tago.io/account", { headers: { token } });
-    const account = response.data.result;
-    cache[token] = account;
-    return account;
+    const account = new Account({ region: "usa-1", token });
+    const data = await account.info();
+    cache[token] = { id: data.id, name: data.name };
+    return cache[token];
   }
 
   return null;

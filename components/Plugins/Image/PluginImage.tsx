@@ -23,7 +23,7 @@ function PluginImage(props: IPluginImageProps) {
 
   return (
     <div className="plugin-image">
-      <Image alt="plugin-logo" src={src} layout="fill" objectFit="cover" />
+      <Image alt="" src={src} layout="fill" objectFit="cover" />
 
       <style jsx>{`
         .plugin-image {
@@ -37,19 +37,6 @@ function PluginImage(props: IPluginImageProps) {
           overflow: hidden;
           position: relative;
           background: white;
-
-          /* width: 150px;
-          height: 110px;
-          border-radius: 25 px;
-          background: white;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex: none;
-          border-radius: 30px;
-          box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.1);
-          margin-right: 30px;
-          position: relative; */
         }
       `}</style>
     </div>

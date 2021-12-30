@@ -1,23 +1,26 @@
 import { AccountInfo } from "@tago-io/sdk/out/modules/Account/account.types";
+import { gql } from "apollo-boost";
 import { GetServerSideProps } from "next";
 import Page from "../../../components/Page/Page";
-import PublisherPlugins from "../../../components/PublisherPluginList/PublisherPluginList";
+import MyPluginList from "../../../components/Account/MyPluginList/MyPluginList";
 import getAccountServerSideProps from "../../../helpers/getAccountServerSideProps";
+import { apolloClient } from "../../_app";
 
 /**
  * Props.
  */
-interface PublisherPluginsPage {
+interface AccountPluginsPage {
   account: AccountInfo;
+  pluginList;
 }
 
 /**
  * Page that lists all the plugins of the logged in publisher.
  */
-function PublisherPluginsPage(props: PublisherPluginsPage) {
+function AccountPluginsPage(props: AccountPluginsPage) {
   return (
     <Page title="My plugins" account={props.account}>
-      <PublisherPlugins />
+      <MyPluginList list={props.pluginList || []} />
     </Page>
   );
 }
@@ -33,7 +36,36 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     };
   }
 
-  return { props: { account } };
+  const { data } = await apolloClient.query({
+    query: gql`
+      query {
+        myPluginList {
+          publisher {
+            name
+            id
+          }
+          plugins {
+            name
+            id
+            logo_url
+            versions {
+              name
+              version
+              short_description
+              active
+              publish_error {
+                code
+                message
+              }
+            }
+          }
+        }
+      }
+    `,
+  });
+
+  const pluginList = data.myPluginList;
+  return { props: { account, pluginList } };
 };
 
-export default PublisherPluginsPage;
+export default AccountPluginsPage;

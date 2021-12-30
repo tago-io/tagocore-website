@@ -1,5 +1,5 @@
-import { useCallback, useState } from "react";
-import Button from "../../Button/Button";
+import { ChangeEvent, useCallback, useState } from "react";
+import Button from "../../Common/Button/Button";
 import InputUpload from "../../InputUpload/InputUpload";
 import OSAccordion from "./OSAccordion";
 import SVGWindows from "../../../assets/logos/windows.svg";
@@ -8,10 +8,12 @@ import SVGAlpine from "../../../assets/logos/alpine.svg";
 import SVGApple from "../../../assets/logos/apple.svg";
 import PlatformRadio from "./PlatformRadio";
 import { IPluginPublishFiles, TPluginPlatformType } from "../Plugin.types";
-import FormGroup from "../../FormGroup/FormGroup";
+import FormGroup from "../../Common/FormGroup/FormGroup";
 import CheckboxTerms from "./CheckboxTerms";
 import PublishSteps from "./PublishSteps";
 import Link from "next/link";
+import Select from "../../Common/Select/Select";
+import { ProfileListInfo } from "@tago-io/sdk/out/modules/Account/profile.types";
 
 /**
  * Props.
@@ -20,9 +22,10 @@ interface IFormProps {
   /**
    * Called when the form publishes the plugin.
    */
-  onPublish?: (files: IPluginPublishFiles) => void;
+  onPublish?: (files: IPluginPublishFiles, profileID: string) => void;
   publishing?: boolean;
   step?: number;
+  profiles: ProfileListInfo[];
 }
 
 /**
@@ -32,12 +35,13 @@ interface IFormProps {
 function Form(props: IFormProps) {
   const [platformType, setPlatformType] = useState<TPluginPlatformType>("cross-platform");
   const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const [profileID, setProfileID] = useState("");
   const [files, setFiles] = useState<IPluginPublishFiles>({});
 
-  const { publishing, step, onPublish } = props;
+  const { publishing, step, profiles, onPublish } = props;
 
   /**
-   * Clears a file.
+   * Clears a single file input.
    */
   const clearFile = useCallback(
     (name: string) => {
@@ -48,11 +52,18 @@ function Form(props: IFormProps) {
   );
 
   /**
-   * Publishes a file.
+   * Called when the profile ID changes by the user.
+   */
+  const onChangeProfileID = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
+    setProfileID(e.target.value);
+  }, []);
+
+  /**
+   * Publishes.
    */
   const publish = useCallback(() => {
-    onPublish(files);
-  }, [onPublish, files]);
+    onPublish(files, profileID);
+  }, [onPublish, profileID, files]);
 
   return (
     <div className="form">
@@ -63,9 +74,23 @@ function Form(props: IFormProps) {
           <div className="title">
             <h3>Publish Plugin</h3>
             <Link href="/">
-              <a>Learn more</a>
+              <a>Documentation</a>
             </Link>
           </div>
+
+          <FormGroup label="Publisher">
+            <Select value={profileID} onChange={onChangeProfileID}>
+              <option disabled value="">
+                Select a profile
+              </option>
+
+              {profiles.map((x) => (
+                <option key={x.id} value={x.id}>
+                  {x.name}
+                </option>
+              ))}
+            </Select>
+          </FormGroup>
 
           <FormGroup>
             <PlatformRadio value={platformType} onChange={setPlatformType} />
@@ -104,10 +129,12 @@ function Form(props: IFormProps) {
                     />
                   </FormGroup>
                 </OSAccordion>
+
                 <OSAccordion
                   checked={!!(files["linux-x64"] && files["linux-arm64"] && files["linux-armv7"])}
                   description="Upload the files that will work on Linux"
                   imgSrc={SVGLinux}
+                  imgHeight="50px"
                   title="Linux"
                 >
                   <FormGroup label="x64 File">
@@ -174,7 +201,7 @@ function Form(props: IFormProps) {
 
           <FormGroup addMarginBottom={false}>
             <Button
-              disabled={Object.keys(files).length === 0 || !acceptedTerms}
+              disabled={Object.keys(files).length === 0 || !acceptedTerms || !profileID}
               onClick={publish}
               className="publish-button"
             >

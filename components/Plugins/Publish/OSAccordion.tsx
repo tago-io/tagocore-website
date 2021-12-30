@@ -12,6 +12,10 @@ interface IOSAccordionProps {
    */
   imgSrc: any;
   /**
+   * Optional parameter to override default size.
+   */
+  imgHeight?: string;
+  /**
    * Title in the control bar of this component.
    */
   title: string;
@@ -64,7 +68,7 @@ function OSAccordion(props: IOSAccordionProps) {
   return (
     <div className={`os-accordion ${open ? "open" : ""} ${checked ? "checked" : ""}`}>
       <div className="title" onClick={toggleOpen}>
-        <props.imgSrc height="40px" width="50px" />
+        <props.imgSrc height={props.imgHeight || "40px"} width="50px" />
 
         <div className="info">
           <div className="label">

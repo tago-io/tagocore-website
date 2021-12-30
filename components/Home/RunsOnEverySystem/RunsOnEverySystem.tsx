@@ -37,7 +37,7 @@ function RunsOnEverySystem() {
 
           <div className="brands" style={{ marginLeft: "30px" }}>
             <BrandBox>
-              <SVGLinux height="40px" />
+              <SVGLinux height="50px" />
             </BrandBox>
 
             <BrandBox>

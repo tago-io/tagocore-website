@@ -23,7 +23,7 @@ interface IHomePageProps {
  */
 function HomePage(props: IHomePageProps) {
   return (
-    <Page title="TagoCore" account={props.account}>
+    <Page account={props.account}>
       <Section id="hero" useSpaceBottom>
         <BannerHero />
       </Section>

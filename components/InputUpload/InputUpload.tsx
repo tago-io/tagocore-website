@@ -1,6 +1,6 @@
 import { useCallback, useRef } from "react";
 import formatBytes from "../../helpers/formatBytes";
-import Button from "../Button/Button";
+import Button from "../Common/Button/Button";
 import SVGCheckCircle from "../SVG/SVGCheckCircle";
 import SVGTimes from "../SVG/SVGTimes";
 

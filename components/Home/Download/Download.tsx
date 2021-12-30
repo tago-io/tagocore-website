@@ -1,6 +1,6 @@
 import SVGClock from "../../SVG/SVGClock";
 import SVGDownload from "../../SVG/SVGDownload";
-import Button from "../../Button/Button";
+import Button from "../../Common/Button/Button";
 import EarlyAccessButton from "../../EarlyAccessButton/EarlyAccessButton";
 import SVGLinux from "../../../assets/logos/linux.svg";
 import SVGWindows from "../../../assets/logos/windows.svg";

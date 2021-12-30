@@ -1,83 +1,143 @@
-import { useState } from "react";
-import axios from "axios";
-import { useRouter } from "next/router";
-import FormGroup from "../FormGroup/FormGroup";
+import { useCallback, useState } from "react";
 import Banner from "./Banner/Banner";
-import Button from "../Button/Button";
-import SVGTagoIO from "../../assets/logos/tagoio-logo.svg";
-import Input from "../Input/Input";
-import Link from "../Link/Link";
+import Credentials from "./Credentials/Credentials";
+import { Account } from "@tago-io/sdk";
+import Otp from "./Otp/Otp";
+import { TOtpType } from "./Login.types";
+import OtpPicker from "./OtpPicker/OtpPicker";
+import { useRouter } from "next/router";
 
 /**
  */
 function Login() {
   const [loading, setLoading] = useState(false);
-  const [email, setEmail] = useState("matheuslopesbenachio@gmail.com");
-  const [password, setPassword] = useState("123456");
+  const [email, setEmail] = useState("benachio@tago.io");
+  const [password, setPassword] = useState("tagodev14");
+  const [content, setContent] = useState("credentials");
+  const [otpType, setOtpType] = useState<TOtpType>("authenticator");
+  const [otpPhone, setOtpPhone] = useState("");
+  const [invalidCredentials, setInvalidCredentials] = useState(false);
+  const [otpTypesEnabled, setOtpTypesEnabled] = useState<TOtpType[]>(["authenticator", "email", "sms"]);
+
   const router = useRouter();
 
   /**
-   * Tries to login with the provided credentials.
    */
-  const login = async () => {
-    try {
-      setLoading(true);
-      const accResponse = await axios.post("https://api.tago.io/account/login", { email, password });
-      const accData = accResponse.data.result;
+  const onLogin = useCallback(
+    async (pinCode?: string) => {
+      try {
+        setLoading(true);
 
-      const profile = accData.profiles[0];
-      const profileResponse = await axios.post("https://api.tago.io/account/profile/token", {
-        email,
-        expire_time: "3 months",
-        name: "Generated automatically by TagoCore",
-        password,
-        profile_id: profile.id,
-      });
+        // logs in and gets the account
+        const account = await Account.login(
+          {
+            email,
+            password,
+            otp_type: pinCode ? otpType : undefined,
+            pin_code: pinCode ? pinCode : undefined,
+          } as never,
+          "usa-1"
+        );
 
-      const token = profileResponse.data.result.token;
-      document.cookie = `tagoio-account-token=${token}; Path=/; expires=Sun, 1 Jan 2023 00:00:00 UTC; path=/`;
+        // uses the account to get a profile token
+        const tokenData = await Account.tokenCreate(
+          {
+            email,
+            password,
+            otp_type: pinCode ? otpType : undefined,
+            pin_code: pinCode ? pinCode : undefined,
+            expire_time: "3 months",
+            name: "Generated automatically by TagoCore",
+            profile_id: account.profiles[0].id,
+          } as never,
+          "usa-1"
+        );
 
-      router.push("/account/plugins");
-    } finally {
-    }
-  };
+        document.cookie = `tagoio-account-token=${tokenData.token}; Path=/; expires=Sun, 1 Jan 2023 00:00:00 UTC; path=/`;
+
+        router.push("/account/plugins");
+      } catch (ex) {
+        const error = ex.includes("otp_enabled") ? JSON.parse(ex) : {};
+
+        if (error.otp_enabled && error.otp_autosend) {
+          setOtpType(error.otp_autosend);
+          setOtpTypesEnabled(error.otp_enabled);
+          setOtpPhone(error.phone);
+          setContent("otp");
+        } else {
+          setInvalidCredentials(true);
+        }
+      } finally {
+        // setLoading(false);
+      }
+    },
+    [email, password, router, otpType]
+  );
+
+  /**
+   * Switches the OTP type to another type.
+   */
+  const switchOtpType = useCallback(
+    async (newType: TOtpType) => {
+      try {
+        setOtpType(newType);
+        setContent("otp");
+
+        if (newType !== "authenticator") {
+          await Account.requestLoginPINCode({ email, password }, newType, "usa-1");
+        }
+      } catch (ex) {
+        //
+      }
+    },
+    [email, password]
+  );
+
+  /**
+   */
+  const activateOtpPicker = useCallback(() => {
+    setContent("otp-picker");
+  }, []);
+
+  /**
+   */
+  const activateOtp = useCallback(() => {
+    setContent("otp");
+  }, []);
+
+  /**
+   */
+  const activateCredentialsContent = useCallback(() => {
+    setLoading(false);
+    setContent("credentials");
+  }, []);
 
   return (
     <div className="login page-max-width">
-      <div className="credentials">
-        <div className={`inner-credentials ${loading ? "loading" : ""}`}>
-          <div className="title-container">
-            <h3>Sign in</h3>
-            <div>
-              <span className="description">Enter your</span>
-              <Link href="https://admin.tago.io">
-                <SVGTagoIO width="55px" />
-              </Link>
-              <span className="description">credentials.</span>
-            </div>
-          </div>
-
-          <FormGroup label="Email">
-            <Input value={email} onChange={(e) => setEmail(e.target.value)} />
-          </FormGroup>
-
-          <FormGroup label="Password">
-            <Input value={password} onChange={(e) => setPassword(e.target.value)} type="password" />
-          </FormGroup>
-
-          <FormGroup>
-            <Button onClick={login}>{loading ? "Signing in..." : "Sign in"}</Button>
-          </FormGroup>
-
-          <div>
-            <span>New here? </span>
-            <Link target="_blank" href="https://admin.tago.io/signup">
-              Sign up
-            </Link>
-            <span>.</span>
-          </div>
-        </div>
-      </div>
+      {content === "credentials" ? (
+        // email and password
+        <Credentials
+          email={email}
+          invalidCredentials={invalidCredentials}
+          loading={loading}
+          onChangeEmail={setEmail}
+          onChangePassword={setPassword}
+          onLogin={onLogin}
+          password={password}
+        />
+      ) : content === "otp-picker" ? (
+        // types available of otp
+        <OtpPicker types={otpTypesEnabled} onGoBack={activateOtp} onPick={switchOtpType} />
+      ) : content === "otp" ? (
+        // currently selected otp
+        <Otp
+          type={otpType}
+          typesEnabled={otpTypesEnabled}
+          onGoToOtpTypes={activateOtpPicker}
+          onGoToCredentials={activateCredentialsContent}
+          onLogin={onLogin}
+        />
+      ) : null}
 
       <Banner animate={loading} />
 
@@ -93,46 +153,6 @@ function Login() {
           height: 500px;
           overflow: hidden;
           align-items: center;
-        }
-
-        .login .credentials {
-          flex: 1;
-          padding: 20px;
-        }
-
-        .login .credentials .inner-credentials {
-          width: 450px;
-          margin: 0 auto;
-          transition: opacity 0.15s;
-        }
-
-        .login .credentials .inner-credentials.loading {
-          opacity: 0.7;
-          pointer-events: none;
-        }
-
-        .login .title-container {
-          margin-bottom: 20px;
-        }
-
-        .login .title-container h3 {
-          margin-bottom: 3px;
-        }
-
-        .login .title-container :global(svg) {
-          position: relative;
-          top: 3.5px;
-          margin: 0px 7px;
-        }
-
-        .login :global(.form-group) {
-          width: 100%;
-        }
-
-        .login :global(button) {
-          width: 100%;
-          text-align: center;
-          justify-content: center;
         }
       `}</style>
     </div>

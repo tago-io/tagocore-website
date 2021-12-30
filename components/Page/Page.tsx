@@ -1,5 +1,5 @@
-import Footer from "../Footer/Footer";
-import Header from "../Header/Header";
+import Footer from "./Footer/Footer";
+import Header from "./Header/Header";
 import Head from "next/head";
 import { ReactNode } from "react";
 import { AccountInfo } from "@tago-io/sdk/out/modules/Account/account.types";
@@ -11,7 +11,7 @@ interface IPageProps {
   /**
    * Title of the document.
    */
-  title: string;
+  title?: string;
   /**
    * Account in case the user is logged in.
    */
@@ -34,7 +34,7 @@ function Page(props: IPageProps) {
 
       <div className="page-content">
         <Head>
-          <title>{title} | TagoCore</title>
+          <title>{title ? `${title} | TagoCore` : "TagoCore"}</title>
         </Head>
 
         {children}

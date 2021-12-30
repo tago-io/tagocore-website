@@ -1,3 +1,4 @@
+import { memo } from "react";
 import SVGPlug from "../../../assets/icons/plug.svg";
 import SVGPuzzle from "../../../assets/icons/puzzle-piece.svg";
 
@@ -53,11 +54,6 @@ function Banner(props: IBannerProps) {
           font-weight: bold;
           font-size: 1.6rem;
         }
-
-        /* .banner .text b {
-          color: #60b5ff;
-          font-size: 1.6rem;
-        } */
 
         .banner .puzzle {
           left: 50%;
@@ -189,4 +185,4 @@ function Banner(props: IBannerProps) {
   );
 }
 
-export default Banner;
+export default memo(Banner);

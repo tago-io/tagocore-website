@@ -1,7 +1,7 @@
 const nextConfig = {
   target: "serverless",
   images: {
-    domains: ["tagocore-plugins.s3.us-east-1.amazonaws.com"],
+    domains: ["tagocore-plugins.s3.us-east-1.amazonaws.com", "avatars1.githubusercontent.com"],
   },
   webpack(config) {
     config.module.rules.push({

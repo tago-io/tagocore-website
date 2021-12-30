@@ -3,7 +3,7 @@ import PluginCard from "./Card";
 import Pagination from "./Pagination";
 import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
-import Loading from "../../Loading/Loading";
+import Loading from "../../Common/Loading/Loading";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { IPlugin } from "../Plugin.types";

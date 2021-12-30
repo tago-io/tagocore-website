@@ -3,11 +3,12 @@ import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { ApolloProvider } from "@apollo/react-hooks";
 import Head from "next/head";
 import Meta from "../components/Meta/Meta";
+import PageProgressBar from "../components/Page/ProgressBar/ProgressBar";
 
 /**
  * Apollo client to use queries in components.
  */
-const apolloClient = new ApolloClient({
+export const apolloClient = new ApolloClient({
   uri: "http://localhost:4000/graphql",
   cache: new InMemoryCache(),
 });
@@ -21,6 +22,8 @@ function App({ Component, pageProps }) {
       <Head>
         <Meta />
       </Head>
+
+      <PageProgressBar />
 
       <Component {...pageProps} />
 

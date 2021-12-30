@@ -30,8 +30,7 @@ function PublishSteps(props: IPublishStepsProps) {
   return (
     <div className="publish-steps">
       <div className="icon-container">
-        <SVGPuzzlePiece width="120px" />
-        <SVGPuzzlePiece width="120px" />
+        <SVGPuzzlePiece fill="black" width="85px" />
       </div>
 
       <div className="steps">
@@ -57,26 +56,18 @@ function PublishSteps(props: IPublishStepsProps) {
         }
 
         .publish-steps .icon-container {
-          width: 120px;
-          height: 90px;
-          border-radius: 20px;
-          background: rgba(0, 0, 0, 0.12);
+          width: 200px;
+          height: 110px;
+          border-radius: 25px;
+          background: white;
           display: flex;
           justify-content: center;
           align-items: center;
-          transform: rotate(-8deg);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
         }
 
         .publish-steps .icon-container :global(svg) {
           position: absolute;
-          transform: rotate(20deg);
-        }
-
-        .publish-steps .icon-container :global(svg:nth-child(1)) {
-          margin-right: -7px;
-          margin-top: -7px;
-          fill: hsla(207, 79%, 30%, 0.4);
-          transform: rotate(18deg);
         }
 
         .publish-steps .steps {

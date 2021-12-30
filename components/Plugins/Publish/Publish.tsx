@@ -19,7 +19,7 @@ const QUERY = gql`
 /**
  * Component that handles publishing a plugin.
  */
-function Publish() {
+function Publish(props) {
   const [publishing, setPublishing] = useState(false);
   const [files, setFiles] = useState<IPluginPublishFiles>({});
   const [step, setStep] = useState(0);
@@ -83,7 +83,7 @@ function Publish() {
 
   return (
     <div className="publish page-max-width">
-      <Form publishing={publishing} step={step} onPublish={startPublishProcess} />
+      <Form profiles={props.profiles} publishing={publishing} step={step} onPublish={startPublishProcess} />
 
       <AbstractDesign />
 
