@@ -110,11 +110,11 @@ function Dropdown(props: IDropdownProps) {
           box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
           top: calc(100% + 10px);
           right: 0px;
-          width: 100%;
-          min-width: 200px;
+          width: 200px;
           background: white;
           padding: 10px 0px;
           flex-direction: column;
+          border-radius: 7px;
         }
 
         .dropdown > :global(.item) {

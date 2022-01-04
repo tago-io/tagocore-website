@@ -25,6 +25,9 @@ function AccountPluginsPage(props: AccountPluginsPage) {
   );
 }
 
+/**
+ * Populates server side props.
+ */
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const account = await getAccountServerSideProps(ctx);
   if (!account) {
@@ -53,6 +56,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
               version
               short_description
               active
+              created_at
               publish_error {
                 code
                 message
@@ -62,6 +66,11 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
         }
       }
     `,
+    context: {
+      headers: {
+        token: ctx?.req?.cookies?.["token"],
+      },
+    },
   });
 
   const pluginList = data.myPluginList;

@@ -1,6 +1,6 @@
 import { Fragment, useCallback } from "react";
 import PublisherPluginItem from "./Item/Item";
-import ProfileHeader from "./ProfileHeader";
+import ProfileHeader from "./PublisherHeader/PublisherHeader";
 import SVGPlugin from "../../../assets/icons/puzzle-piece.svg";
 import Link from "../../Common/Link/Link";
 
@@ -48,7 +48,7 @@ function MyPluginList(props: IMyPluginListProps) {
         <SVGPlugin width="70px" fill="rgba(0, 0, 0, 0.2)" />
 
         <div className="text">
-          <h3>You have no published plugins.</h3>
+          <h3>You haven&apos;t published any plugins.</h3>
           <div>
             <Link href="/pluginstore/publish" className="description">
               Why not start now?

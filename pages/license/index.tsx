@@ -1,6 +1,6 @@
 import { AccountInfo } from "@tago-io/sdk/out/modules/Account/account.types";
 import { GetServerSideProps } from "next";
-import License from "../../components/License/License";
+import SoftwareLicenseTerms from "../../components/Legal/SoftwareLicenseTerms/SoftwareLicenseTerms";
 import Page from "../../components/Page/Page";
 import getAccountServerSideProps from "../../helpers/getAccountServerSideProps";
 
@@ -17,7 +17,7 @@ interface ILicensePageProps {
 function LicensePage(props: ILicensePageProps) {
   return (
     <Page title="Software License Terms" account={props.account}>
-      <License />
+      <SoftwareLicenseTerms />
     </Page>
   );
 }

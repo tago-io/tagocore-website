@@ -24,7 +24,7 @@ function ImageBanner(props: IImageBannerProps) {
       <div className="title-side">
         <div className="data">
           <div className="title">{title}</div>
-          {description}
+          <span className="description">{description}</span>
         </div>
       </div>
 
@@ -43,6 +43,7 @@ function ImageBanner(props: IImageBannerProps) {
           height: calc(100vh - 60px);
           display: flex;
           max-height: 950px;
+          min-height: 600px;
           position: relative;
         }
 
@@ -58,6 +59,10 @@ function ImageBanner(props: IImageBannerProps) {
         .image-banner .title-side .data {
           width: 500px;
           max-width: 100%;
+        }
+
+        .image-banner .title-side .data .description {
+          color: rgba(0, 0, 0, 0.6);
         }
 
         .image-banner .title-side .title {
@@ -160,6 +165,7 @@ function ImageBanner(props: IImageBannerProps) {
             flex-direction: column !important;
             max-height: initial;
             height: auto;
+            min-height: auto;
           }
 
           .image-banner .title-side .data {
@@ -179,6 +185,15 @@ function ImageBanner(props: IImageBannerProps) {
 
           .image-banner.left .image {
             right: 0px;
+          }
+
+          .image-banner .picture-side {
+            margin: 0px -10px;
+          }
+
+          .image-banner .picture-side .image {
+            border-radius: 0px;
+            box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.25);
           }
 
           .image-banner .image :global(*) {

@@ -16,7 +16,7 @@ function Footer() {
             <div className="image">
               <SVGTagoIO width="107px" />
             </div>
-            <div>Copyright © {year} TagoIO, Inc. All rights reserved.</div>
+            <div>Copyright © {year} Tago, LLC. All rights reserved.</div>
           </div>
         </div>
 

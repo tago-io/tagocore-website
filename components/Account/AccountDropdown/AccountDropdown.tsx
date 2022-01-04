@@ -81,16 +81,24 @@ function AccountDropdown(props: IHeaderProps) {
           padding-left: 30px;
         }
 
-        .account-dropdown .data {
+        .account-dropdown > .data {
           display: flex;
           align-items: center;
+          max-width: 200px;
         }
 
-        .account-dropdown .data > span {
+        .account-dropdown > .data > span {
           margin-left: 10px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
-        .account-dropdown .data:hover {
+        .account-dropdown > .data > :global(svg) {
+          flex: none;
+        }
+
+        .account-dropdown > .data:hover {
           text-decoration: underline;
           cursor: pointer;
         }

@@ -3,6 +3,7 @@ import { gql } from "@apollo/client";
 import { useCallback, useState } from "react";
 import Link from "../../Common/Link/Link";
 import PublishStatus from "../../Plugin/PublishStatus/PublishStatus";
+import SVGTrash from "../../../assets/icons/trash-alt.svg";
 
 /**
  * Query to fetch the categories and plugins.
@@ -48,17 +49,21 @@ function Version(props: IVersionProps) {
   return (
     <tr className={loading ? "loading" : ""}>
       <td className="created_at">
-        <span>2020-01-01T15:00:00Z</span>
+        <span>{data.created_at}</span>
       </td>
 
       <td className="name">
-        <Link target="_blank" href="#">
-          {data.name}
-        </Link>
+        {data.name === "Unknown" || data.publish_error ? (
+          data.name
+        ) : (
+          <Link target="_blank" href="#">
+            {data.name}
+          </Link>
+        )}
       </td>
 
       <td className="version">
-        <span>{data.version}</span>
+        <span>{data.version || "Unknown"}</span>
       </td>
 
       <td className="error">
@@ -70,6 +75,10 @@ function Version(props: IVersionProps) {
           <input disabled={loading || data.publish_error} type="checkbox" checked={active} onChange={toggleActive} />
           <span>Visible in Store</span>
         </label>
+      </td>
+
+      <td style={{ textAlign: "center", cursor: "pointer" }}>
+        <SVGTrash width="12px" />
       </td>
 
       <style jsx>{`
@@ -84,16 +93,22 @@ function Version(props: IVersionProps) {
         }
 
         tr .created_at {
-          width: 200px;
+          width: 230px;
         }
 
         tr .name {
-          width: 25%;
-          max-width: 25%;
+          width: 20%;
+          max-width: 20%;
           white-space: nowrap;
           text-overflow: ellipsis;
           overflow: hidden;
         }
+
+        tr .error {
+          width: 450px;
+        }
+
+        /* #tagoio-hello-world-123454646843243541156465 */
 
         tr .name :global(a) {
           width: 100%;
@@ -106,8 +121,8 @@ function Version(props: IVersionProps) {
         }
 
         tr .active {
-          width: 250px;
-          min-width: 250px;
+          width: 160px;
+          min-width: 160px;
         }
 
         .active label {

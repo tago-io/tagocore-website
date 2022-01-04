@@ -11,7 +11,7 @@ import SVGOracle from "../../../assets/logos/oracle.svg";
  */
 function DatabaseSupport() {
   return (
-    <div className="database-support">
+    <div className="database-support page-max-width">
       <div className="title">
         <h2>Out-of-the-box&nbsp;</h2>
         <h2 className="accent">Database Support</h2>
@@ -101,22 +101,23 @@ function DatabaseSupport() {
 
         @media screen and (max-width: 992px) {
           .database-support .row :global(.brand-box) {
-            width: calc(33.3333% - 40px);
+            width: calc(33.3333% - 20px);
           }
           .database-support .your-own {
-            width: 730px;
+            width: 100%;
+            max-width: calc(100% - 20px);
           }
         }
 
         @media screen and (max-width: 768px) {
           .database-support .row :global(.brand-box) {
-            width: calc(50% - 30px);
+            width: calc(50% - 20px);
           }
         }
 
         @media screen and (max-width: 576px) {
           .database-support .row :global(.brand-box) {
-            width: calc(100% - 40px);
+            width: calc(100% - 20px);
             height: 80px !important;
           }
         }

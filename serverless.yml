@@ -3,3 +3,6 @@ tagocore-website:
   inputs:
     domain: "tagocore.com"
     bucketRegion: "us-east-1"
+    description: "Next.js Handler for tagocore.com"
+    bucketName: tagocore-website
+

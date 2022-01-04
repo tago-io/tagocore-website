@@ -88,7 +88,7 @@ const globalCss = css.global`
     }
 
     h2 {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
     }
   }
 

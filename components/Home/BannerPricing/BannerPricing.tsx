@@ -14,10 +14,7 @@ function BannerPricing() {
       <>
         <div>
           <div>
-            <h2>Looking for usage prices?</h2>
-          </div>
-          <div>
-            <h2>There aren&apos;t any.</h2>
+            <h2>No usage prices.</h2>
           </div>
           <div>
             <h2 className="accent">It&apos;s free and open source.</h2>

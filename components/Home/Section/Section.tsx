@@ -27,7 +27,6 @@ function Section(props: ISectionProps) {
   return (
     <section className={className} style={{ backgroundColor }}>
       {id && <div id={id}></div>}
-
       {useSpaceTop && <div className="space" />}
       {children}
       {useSpaceBottom && <div className="space" />}
@@ -49,6 +48,12 @@ function Section(props: ISectionProps) {
 
         .home-section .space {
           height: 80px;
+        }
+
+        @media screen and (max-width: 768px) {
+          .home-section .space {
+            height: 50px;
+          }
         }
       `}</style>
     </section>

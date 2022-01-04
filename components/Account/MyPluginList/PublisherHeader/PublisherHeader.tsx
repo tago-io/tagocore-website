@@ -1,6 +1,5 @@
-import SVGShare from "../../../assets/icons/share-alt.svg";
-import PluginImage from "../../Plugins/Image/PluginImage";
-import VerifiedMark from "../../Plugin/VerifiedMark/VerifiedMark";
+import SVGShare from "../../../../assets/icons/share-alt.svg";
+import VerifiedMark from "../../../Plugin/VerifiedMark/VerifiedMark";
 
 /**
  * Props.
@@ -15,19 +14,15 @@ interface IProfileHeaderProps {
 /**
  */
 function ProfileHeader(props: IProfileHeaderProps) {
-  const { name, shared, pluginAmount } = props;
+  const { name, shared, domain, pluginAmount } = props;
 
   return (
     <div className="profile-header">
-      <div className="image">
-        <PluginImage width={30} src={"https://avatars1.githubusercontent.com/u/8632624?s=200&v=3"} />
-      </div>
-
       <div className="data">
         <div className="title">
           <h3>{name}</h3>
 
-          {!name.includes("MQTT") && (
+          {domain && (
             <div className="verified-container">
               <VerifiedMark />
             </div>

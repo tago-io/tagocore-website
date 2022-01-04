@@ -25,6 +25,7 @@ function TagoRunSquare() {
         .tagorun-square {
           display: flex;
           flex-direction: column;
+          position: relative;
         }
 
         .tagorun-square .icon {
@@ -38,6 +39,7 @@ function TagoRunSquare() {
         .tagorun-square .icon .users {
           display: flex;
           margin-top: 25px;
+          height: 100px;
         }
 
         .tagorun-square .icon .users :global(svg) {

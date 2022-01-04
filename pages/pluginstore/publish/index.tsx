@@ -1,4 +1,4 @@
-import Publish from "../../../components/Plugins/Publish/Publish";
+import Publish from "../../../components/Plugin/Publish/Publish";
 import { GetServerSideProps } from "next";
 import Page from "../../../components/Page/Page";
 import { AccountInfo } from "@tago-io/sdk/out/modules/Account/account.types";

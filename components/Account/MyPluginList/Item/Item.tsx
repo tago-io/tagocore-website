@@ -1,8 +1,9 @@
 import { useCallback, useState } from "react";
-import PluginImage from "../../../Plugins/Image/PluginImage";
+import PluginImage from "../../../Plugin/Image/PluginImage";
 import SVGCaretDown from "../../../../assets/icons/caret-down.svg";
 import Version from "../Version";
 import PublishStatus from "../../../Plugin/PublishStatus/PublishStatus";
+import SVGTimesCircle from "../../../../assets/icons/times-circle.svg";
 
 /**
  */
@@ -32,21 +33,30 @@ function PublisherPluginItem(props: IPublisherPluginItemProps) {
     [data.id]
   );
 
-  const highest = data.versions[0];
-  const errorVersion = data.versions.find((x) => x.publish_error);
+  const versions = data.versions.map((x) => ({ ...x, version: x.name === "Unknown" ? "" : x.version }));
+  const highest = versions[0];
+  const errorVersion = versions.find((x) => x.publish_error);
 
   return (
     <div className={`publisher-plugin-item item ${open ? "open" : ""}`}>
       <div onClick={toggleOpen} className="accordion-title">
         <div className="img-container">
-          <PluginImage width={70} src={data.logo_url} />
+          {data.name !== "Unknown" ? (
+            <PluginImage width={70} src={data.logo_url} />
+          ) : (
+            <div
+              style={{ width: "70px", height: "48px", display: "flex", alignItems: "center", justifyContent: "center" }}
+            >
+              <SVGTimesCircle width="50px" fill="rgba(0, 0, 0, 0.3)" />
+            </div>
+          )}
         </div>
 
         <div className="data">
           <h5 className="title">{highest.name}</h5>
 
           <span className="description">
-            v{highest.version} • {highest.short_description}
+            {highest.version ? `${highest.version} • ` : ""} {highest.short_description || "No description."}
           </span>
 
           {errorVersion && (
@@ -71,9 +81,10 @@ function PublisherPluginItem(props: IPublisherPluginItemProps) {
                 <th>Version</th>
                 <th>Status</th>
                 <th>Visible</th>
+                <th>Delete</th>
               </tr>
 
-              {data.versions.map(renderVersion)}
+              {versions.map(renderVersion)}
             </table>
           </div>
         </div>

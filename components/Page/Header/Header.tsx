@@ -39,7 +39,7 @@ function Header(props: IHeaderProps) {
 
   return (
     <>
-      <header className={`header ${shadow ? "shadow" : ""}`}>
+      <header className={`header ${shadow ? "shadow" : ""} ${account ? "logged-in" : ""}`}>
         <div className="page-max-width">
           <div className="left">
             <Link className="logo-container" href="/">
@@ -47,23 +47,29 @@ function Header(props: IHeaderProps) {
             </Link>
           </div>
 
-          {account ? (
-            <AccountDropdown account={account} />
-          ) : (
-            <div className="right">
-              <Link className="item color-primary-hover" href="/#plugin">
-                Plugins
-              </Link>
+          <div className="right">
+            <Link className="item color-primary-hover" href="/#plugin">
+              Plugins
+            </Link>
 
-              <Link className="item color-primary-hover" href="/#pricing">
-                Pricing
-              </Link>
+            <Link className="item color-primary-hover" href="/#pricing">
+              Pricing
+            </Link>
 
-              <Link className="item color-primary-hover" href="/#download">
-                Download
-              </Link>
-            </div>
-          )}
+            <Link className="item color-primary-hover" href="/#download">
+              Download
+            </Link>
+
+            {account && (
+              <>
+                <Link className="item color-primary-hover" href="/docs">
+                  Docs
+                </Link>
+
+                <AccountDropdown account={account} />
+              </>
+            )}
+          </div>
         </div>
 
         <style jsx>{`
@@ -90,8 +96,8 @@ function Header(props: IHeaderProps) {
             box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.15);
           }
 
-          .header .logo {
-            height: 30px;
+          .header :global(.logo) {
+            height: 2px;
             width: auto;
           }
 
@@ -100,21 +106,22 @@ function Header(props: IHeaderProps) {
             flex: 1;
           }
 
-          .header .logo-container {
+          .header :global(.logo-container) {
             display: flex;
           }
 
           .header .right {
             display: flex;
+            align-items: center;
             flex: none;
           }
 
-          .header .right :global(.item) {
+          .header .right > :global(.item) {
             padding: 10px 25px;
             cursor: pointer;
           }
 
-          .header .right :global(.item):last-child {
+          .header .right > :global(.item):last-child {
             margin-right: -25px;
           }
 
@@ -122,16 +129,11 @@ function Header(props: IHeaderProps) {
             color: ${theme.colors.primary};
           }
 
-          .header .right :global(svg) {
-            opacity: 0.3;
-            pointer-events: none;
-          }
-
-          @media screen and (max-width: 768px) {
-            .header .right :global(.item) {
+          @media screen and (max-width: 992px) {
+            .header .right > :global(.item) {
               display: none;
             }
-            .header .left {
+            .header:not(.logged-in) .left {
               justify-content: center;
             }
           }

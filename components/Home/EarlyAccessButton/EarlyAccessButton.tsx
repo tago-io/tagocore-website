@@ -86,6 +86,7 @@ function EarlyAccessButton() {
           display: inline-flex;
           max-width: 100%;
           width: 100%;
+          align-items: center;
         }
 
         .early-access-button input {
@@ -118,6 +119,7 @@ function EarlyAccessButton() {
           .early-access-button {
             flex-direction: column;
             width: 300px;
+            align-items: initial;
           }
 
           .early-access-button input {

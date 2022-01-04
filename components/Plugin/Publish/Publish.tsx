@@ -1,10 +1,9 @@
-import { useQuery, gql } from "@apollo/client";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { gql } from "@apollo/client";
+import { useCallback, useRef, useState } from "react";
 import { IPluginPublishFiles } from "../Plugin.types";
 import AbstractDesign from "./AbstractDesign";
 import Form from "./Form";
 import cookie from "cookie";
-
 import axios from "axios";
 import JSZip from "jszip";
 import PublishProgress from "./PublishProgress";

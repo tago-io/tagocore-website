@@ -7,19 +7,18 @@ import TagoRunSquare from "./TagoRunSquare";
  */
 function AlreadyACustomer() {
   return (
-    <div className="sync-tagoio">
+    <div className="sync-tagoio page-max-width">
       <div className="title">
         <h2>Already a&nbsp;</h2>
-        <h2 className="accent">TagoIO Customer</h2>
-        <h2>?</h2>
+        <h2 className="accent">TagoIO Customer?</h2>
       </div>
 
       <div className="description">
         <span>
           TagoCore enables you to synchronize the data between the <b>TagoIO IoT cloud platform</b> and <b>TagoCore</b>.
+          <br />
+          Everything you see on your TagoCore is also safely stored on the cloud!
         </span>
-        <br />
-        <span>This means everything you see on your TagoCore is also safely stored on the cloud!</span>
       </div>
 
       <div className="data">
@@ -104,7 +103,7 @@ function AlreadyACustomer() {
           .sync-tagoio .data .connection > div {
             border-right: 5px dashed rgb(210, 210, 210);
             width: 0px;
-            height: 150px;
+            height: 100px;
           }
 
           .sync-tagoio .data {
