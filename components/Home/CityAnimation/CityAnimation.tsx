@@ -1,6 +1,5 @@
 import { theme } from "../../../styles/Theme";
 import SVGBuilding from "../../../assets/icons/building.svg";
-import SVGBolt from "../../../assets/icons/bolt.svg";
 import SVGCar from "../../../assets/icons/car-side.svg";
 import SVGCity from "../../../assets/icons/city.svg";
 import SVGTree from "../../../assets/icons/tree.svg";
@@ -102,6 +101,18 @@ function CityAnimation() {
           <DataPoint delay={0.35} data={{ x1: 125, y1: 50, x2: 75, y2: -65 }} />
           <DataPoint delay={0.55} data={{ x1: 75, y1: 60, x2: 75, y2: -65 }} />
         </div>
+
+        <div className="vehicle truck">
+          <SVGTruck width="50px" />
+          <SVGTagoCoreIcon className="logo bounce" width="50px" />
+          <DataPoint delay={0.01} data={{ x1: 25, y1: 50, x2: 25, y2: -35 }} />
+        </div>
+
+        <div className="vehicle car">
+          <SVGCar width="40px" />
+          <SVGTagoCoreIcon className="logo bounce" width="50px" />
+          <DataPoint delay={0.01} data={{ x1: 20, y1: 50, x2: 20, y2: -35 }} />
+        </div>
       </div>
 
       <div className="floor" />
@@ -122,7 +133,7 @@ function CityAnimation() {
         .city-animation {
           display: flex;
           flex-direction: column;
-          height: ${`calc(100vh - ${theme.sizes.headerHeight}px - 20px)`};
+          height: ${`calc(100vh - ${theme.sizes.headerHeight}px - 20px + 100px)`};
           overflow: hidden;
           max-height: 900px;
         }
@@ -278,6 +289,59 @@ function CityAnimation() {
           top: -105px;
         }
 
+        @keyframes vehicle-animation {
+          0% {
+            transform: translateX(0px);
+            opacity: 0;
+          }
+          1% {
+            opacity: 1;
+          }
+          95% {
+            opacity: 1;
+          }
+          100% {
+            transform: translateX(1200px);
+            opacity: 0;
+          }
+        }
+
+        .city-animation .content .vehicle.car {
+          bottom: -7px;
+          animation-duration: 7s;
+          animation-delay: 0.4s;
+        }
+
+        .city-animation .content .vehicle.truck {
+          bottom: -2px;
+        }
+
+        .city-animation .content .vehicle {
+          display: flex;
+          position: absolute;
+          transform: translateX(0px);
+          animation: vehicle-animation 10s linear infinite;
+          opacity: 0;
+        }
+
+        .city-animation .content .vehicle :global(.logo) {
+          position: absolute;
+          background: white;
+          border-radius: 19%;
+          left: 50%;
+          top: -75px;
+        }
+
+        .city-animation .content .vehicle :global(:first-child) {
+          font-size: 18px;
+          paint-order: stroke;
+          stroke: white;
+          stroke-width: 80px;
+          stroke-linecap: butt;
+          stroke-linejoin: miter;
+          font-weight: 800;
+        }
+
         .city-animation .content .mountains {
           z-index: -1;
           opacity: 0.55;
@@ -306,7 +370,7 @@ function CityAnimation() {
         }
 
         .city-animation .floor {
-          height: 80px;
+          height: 180px;
           width: 100%;
           background: black;
           z-index: 1111;
@@ -314,6 +378,8 @@ function CityAnimation() {
           border-radius: 20px;
           max-width: 1248px;
           margin: 0 auto;
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: 0;
         }
       `}</style>
     </div>
