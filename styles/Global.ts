@@ -39,7 +39,7 @@ const globalCss = css.global`
   .page-max-width {
     width: 100%;
     margin: 0 auto;
-    max-width: 1340px;
+    max-width: 1248px;
   }
 
   h1,
@@ -72,16 +72,16 @@ const globalCss = css.global`
     font-size: 1.1rem;
   }
 
-  @media screen and (max-width: 1400px) {
-    .page-max-width {
-      max-width: calc(100% - 60px);
-    }
-  }
+  // @media screen and (max-width: 1400px) {
+  //   .page-max-width {
+  //     max-width: calc(100% - 60px);
+  //   }
+  // }
 
   @media screen and (max-width: 992px) {
-    .page-max-width {
-      max-width: calc(100% - 20px);
-    }
+    // .page-max-width {
+    //   max-width: calc(100% - 20px);
+    // }
 
     h1 {
       font-size: 2.3rem;
