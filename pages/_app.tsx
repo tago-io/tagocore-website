@@ -20,7 +20,7 @@ const defaultOptions = {
  * Apollo client to use queries in components.
  */
 export const apolloClient = new ApolloClient({
-  uri: "https://tt5jz1ev3a.execute-api.us-east-1.amazonaws.com/prod/graphql",
+  uri: "http://localhost:4000",
   cache: new InMemoryCache(),
   defaultOptions: defaultOptions as never,
 });

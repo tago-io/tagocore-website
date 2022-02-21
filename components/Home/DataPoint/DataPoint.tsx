@@ -29,8 +29,9 @@ function DataPoint(props) {
           border-radius: 50%;
           z-index: -1;
           transform: ${`translate(calc(${left1} - 9px), calc(${top1} - 9px))`};
-          animation: data-point-${className} 1s infinite;
+          animation: data-point-${className} 1.5s infinite;
           animation-delay: ${props.delay}s;
+          will-change: transform;
         }
       `}</style>
     </div>

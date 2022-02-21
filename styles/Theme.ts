@@ -14,7 +14,7 @@ const theme = {
     tagoIO: "hsl(207, 56%, 48%)",
     tagoRun: "hsl(229, 100%, 23%)",
     tagoCore: "hsl(0, 0%, 0%)",
-    primary: "hsl(0, 0%, 0%)",
+    primary: "#000",
     secondary: "hsl(0, 100%, 100%)",
     verified: "hsl(207, 76%, 48%)",
     link: "hsl(207, 100%, 38%)",

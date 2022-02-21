@@ -20,7 +20,7 @@ function Console(props: IConsoleProps) {
           <div className="green" />
         </div>
 
-        <span>{props.title}</span>
+        <span>&nbsp;{props.title}&nbsp;</span>
       </div>
 
       <div className="content">{props.children}</div>
@@ -87,10 +87,11 @@ function Console(props: IConsoleProps) {
         }
 
         .console .content :global(*) {
-          font-family: Monospace;
+          font-family: Courier New;
+          font-weight: 700;
           font-size: 0.88rem;
           line-height: 20px;
-          white-space: pre;
+          white-space: pre-wrap;
         }
 
         .console .content :global(.arrow) {
@@ -102,6 +103,15 @@ function Console(props: IConsoleProps) {
           color: #3fb950;
           margin-right: 10px;
           font-weight: 600;
+        }
+
+        .console .content :global(.console-color-success) {
+          color: #3fb950;
+          font-weight: 600;
+        }
+
+        .console .content :global(.console-color-description) {
+          color: rgba(255, 255, 255, 0.6);
         }
       `}</style>
     </div>

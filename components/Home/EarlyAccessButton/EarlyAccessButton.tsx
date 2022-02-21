@@ -1,13 +1,19 @@
 import Button from "../../Common/Button/Button";
-import SVGArrow from "../../../assets/icons/arrow-right.svg";
+import SVGDownload from "../../../assets/icons/download.svg";
 import isEmail from "validator/lib/isEmail";
 import { KeyboardEvent, useCallback, useState } from "react";
 import { theme } from "../../../styles/Theme";
 
 /**
+ */
+interface IEarlyAccessButtonProps {
+  autoFocus?: boolean;
+}
+
+/**
  * Renders an input and a button for someone to get early access to the system.
  */
-function EarlyAccessButton() {
+function EarlyAccessButton(props: IEarlyAccessButtonProps) {
   const [value, setValue] = useState("");
   const [error, setError] = useState(false);
 
@@ -74,11 +80,12 @@ function EarlyAccessButton() {
         onChange={(e) => setValue(e.target.value)}
         type="email"
         placeholder="Email"
+        autoFocus={props?.autoFocus}
       />
 
       <Button onClick={submit}>
-        <span>Get Early Access&nbsp;</span>
-        <SVGArrow width="12px" height="12px" />
+        <SVGDownload width="12px" height="12px" />
+        <span>&nbsp;Download TagoCore</span>
       </Button>
 
       <style jsx>{`
@@ -121,7 +128,7 @@ function EarlyAccessButton() {
         @media screen and (max-width: 576px) {
           .early-access-button {
             flex-direction: column;
-            width: 300px;
+            width: 100%;
             align-items: initial;
           }
 
