@@ -52,16 +52,16 @@ function Header(props: IHeaderProps) {
               Pricing
             </Link>
 
+            <Link className="item color-primary-hover" href="/docs">
+              Docs
+            </Link>
+
             <Link className="item color-primary-hover" href="/#download">
               Download
             </Link>
 
             {account && (
               <>
-                <Link className="item color-primary-hover" href="/docs">
-                  Docs
-                </Link>
-
                 <AccountDropdown account={account} />
               </>
             )}
