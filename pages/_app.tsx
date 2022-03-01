@@ -20,7 +20,7 @@ const defaultOptions = {
  * Apollo client to use queries in components.
  */
 export const apolloClient = new ApolloClient({
-  uri: "http://localhost:4000",
+  uri: "https://api.tagocore.com/graphql",
   cache: new InMemoryCache(),
   defaultOptions: defaultOptions as never,
 });

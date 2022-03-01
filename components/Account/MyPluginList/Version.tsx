@@ -1,9 +1,9 @@
 import { useMutation } from "@apollo/react-hooks";
 import { gql } from "@apollo/client";
 import { useCallback, useState } from "react";
-import Link from "../../Common/Link/Link";
 import PublishStatus from "../../Plugin/PublishStatus/PublishStatus";
 import SVGTrash from "../../../assets/icons/trash-alt.svg";
+import cookie from "cookie";
 
 /**
  * Query to fetch the categories and plugins.
@@ -30,7 +30,9 @@ function Version(props: IVersionProps) {
   const { data, pluginID } = props;
   const [active, setActive] = useState<boolean>(data.active);
   const [loading, setLoading] = useState(false);
-  const [setVersionActive] = useMutation(SET_PLUGIN_ACTIVE_MUTATION);
+  const [setVersionActive] = useMutation(SET_PLUGIN_ACTIVE_MUTATION, {
+    context: { headers: { token: cookie.parse(document.cookie)?.token } },
+  });
 
   /**
    * Toggles the `active` property of a version and makes the request to the server.
@@ -52,27 +54,19 @@ function Version(props: IVersionProps) {
         <span>{data.created_at}</span>
       </td>
 
-      <td className="name">
-        {data.name === "Unknown" || data.publish_error ? (
-          data.name
-        ) : (
-          <Link target="_blank" href="#">
-            {data.name}
-          </Link>
-        )}
-      </td>
+      <td className="name">{data.name}</td>
 
       <td className="version">
         <span>{data.version || "Unknown"}</span>
       </td>
 
       <td className="error">
-        <PublishStatus publishError={data.publish_error} />
+        <PublishStatus publishError={data.error_code /* TODO */} />
       </td>
 
       <td className="active">
         <label>
-          <input disabled={loading || data.publish_error} type="checkbox" checked={active} onChange={toggleActive} />
+          <input disabled={loading || data.error_code} type="checkbox" checked={active} onChange={toggleActive} />
           <span>Visible in Store</span>
         </label>
       </td>

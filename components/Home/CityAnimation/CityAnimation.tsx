@@ -436,10 +436,10 @@ function CityAnimation() {
 
         @media screen and (max-width: 768px) {
           .title {
-            padding: 30px 10px;
+            padding: 20px 10px;
             background: rgba(255, 255, 255, 1);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             top: 0px !important;
+            box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.1);
           }
           .city-animation {
             transform: scale(0.8);

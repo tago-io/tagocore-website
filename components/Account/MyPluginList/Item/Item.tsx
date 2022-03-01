@@ -35,7 +35,7 @@ function PublisherPluginItem(props: IPublisherPluginItemProps) {
 
   const versions = data.versions.map((x) => ({ ...x, version: x.name === "Unknown" ? "" : x.version }));
   const highest = versions[0];
-  const errorVersion = versions.find((x) => x.publish_error);
+  const errorVersion = versions.find((x) => x.error_code);
 
   return (
     <div className={`publisher-plugin-item item ${open ? "open" : ""}`}>
@@ -61,7 +61,7 @@ function PublisherPluginItem(props: IPublisherPluginItemProps) {
 
           {errorVersion && (
             <div className="error">
-              <PublishStatus version={errorVersion.version} publishError={errorVersion.publish_error} />
+              <PublishStatus version={errorVersion.version} publishError={errorVersion.error_code} />
             </div>
           )}
         </div>
@@ -102,7 +102,7 @@ function PublisherPluginItem(props: IPublisherPluginItemProps) {
           align-items: center;
           cursor: pointer;
           display: flex;
-          padding: 20px;
+          padding: 15px 20px;
           transition: opacity 0.2s;
         }
 

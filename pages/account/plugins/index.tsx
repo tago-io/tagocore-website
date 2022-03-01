@@ -39,7 +39,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     };
   }
 
-  const { data } = await apolloClient.query({
+  const r = await apolloClient.query({
     query: gql`
       query {
         myPluginList {
@@ -57,10 +57,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
               short_description
               active
               created_at
-              publish_error {
-                code
-                message
-              }
+              error_code
             }
           }
         }
@@ -73,7 +70,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     },
   });
 
-  const pluginList = data.myPluginList;
+  const pluginList = r.data.myPluginList;
   return { props: { account, pluginList } };
 };
 

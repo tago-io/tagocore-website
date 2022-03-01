@@ -48,15 +48,15 @@ function Header(props: IHeaderProps) {
           </div>
 
           <div className="right">
-            <Link className="item color-primary-hover" href="/#pricing">
+            <Link className="pricing item color-primary-hover" href="/#pricing">
               Pricing
             </Link>
 
-            <Link className="item color-primary-hover" href="/docs">
+            <Link className="docs item color-primary-hover" href="/docs">
               Docs
             </Link>
 
-            <Link className="item color-primary-hover" href="/#download">
+            <Link className="download item color-primary-hover" href="/#download">
               Download
             </Link>
 
@@ -126,11 +126,8 @@ function Header(props: IHeaderProps) {
           }
 
           @media only screen and (max-width: 992px) {
-            .header .right > :global(.item) {
+            .header .right > :global(.item:not(.docs)) {
               display: none;
-            }
-            .header:not(.logged-in) .left {
-              justify-content: center;
             }
           }
 
