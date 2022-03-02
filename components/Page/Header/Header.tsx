@@ -43,7 +43,7 @@ function Header(props: IHeaderProps) {
         <div className="page-max-width">
           <div className="left">
             <Link className="logo-container" href="/">
-              <SVGTagoCoreBlack width="147px" />
+              <SVGTagoCoreBlack width="147px" height="29.85px" />
             </Link>
           </div>
 

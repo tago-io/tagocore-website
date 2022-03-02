@@ -26,7 +26,7 @@ function DatabaseSupport() {
         <div>
           <span className="arrow">→</span>
           <span className="user">~/</span>
-          <span>$ tagocore list-plugins -c database{"\n\n"}</span>
+          <span>$ tagocore plugin-search database{"\n\n"}</span>
         </div>
 
         <div className="console-color-description">
@@ -46,7 +46,7 @@ function DatabaseSupport() {
         <div>{"- ...and many others\n\n"}</div>
 
         <div>To install a database, run the command:</div>
-        <div className="user">{"> tagocore install-plugin <name>"}</div>
+        <div className="user">{"> tagocore plugin-install <name>"}</div>
       </Console>
 
       <div className="visual-list">

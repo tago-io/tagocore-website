@@ -101,6 +101,7 @@ function EarlyAccessButton(props: IEarlyAccessButtonProps) {
           border: 1px solid rgba(0, 0, 0, 0.3);
           border-radius: 3px;
           padding: 0px 10px;
+          margin: 0;
           margin-right: -1px;
           outline: 0;
           min-width: 0;
@@ -123,6 +124,8 @@ function EarlyAccessButton(props: IEarlyAccessButtonProps) {
           justify-content: center;
           border-top-left-radius: 0;
           border-bottom-left-radius: 0;
+          margin: 0;
+          margin-left: -1px;
         }
 
         @media screen and (max-width: 576px) {
@@ -132,10 +135,20 @@ function EarlyAccessButton(props: IEarlyAccessButtonProps) {
             align-items: initial;
           }
 
+          .early-access-button :global(button) {
+            border-radius: 3px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            margin: 0;
+          }
+
           .early-access-button input {
             flex: none;
-            margin-right: 0;
-            margin-bottom: 5px;
+            margin: 0;
+            border-radius: 3px;
+            margin-bottom: -1px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
             text-align: center;
             width: 100%;
             max-width: 100%;

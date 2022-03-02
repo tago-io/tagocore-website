@@ -39,7 +39,7 @@ const globalCss = css.global`
   .page-max-width {
     width: 100%;
     margin: 0 auto;
-    max-width: 1280px;
+    max-width: 1360px;
     padding: 0px 10px;
   }
 

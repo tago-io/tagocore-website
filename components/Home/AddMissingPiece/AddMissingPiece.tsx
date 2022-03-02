@@ -31,7 +31,7 @@ function AddMissingPiece() {
             <div>
               <span className="arrow">→</span>
               <span className="user">~/plugin</span>
-              <span>$ tagocore init-plugin{"\n\n"}</span>
+              <span>$ tagocore plugin-template {"\n\n"}</span>
             </div>
 
             <div className="console-color-description">

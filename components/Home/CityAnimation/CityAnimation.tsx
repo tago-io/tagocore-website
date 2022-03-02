@@ -384,7 +384,6 @@ function CityAnimation() {
           stroke: white;
           stroke-width: 80px;
           stroke-linecap: butt;
-          stroke-linejoin: miter;
           font-weight: 800;
         }
 
@@ -422,13 +421,13 @@ function CityAnimation() {
           z-index: 1111;
           position: relative;
           border-radius: 20px;
-          max-width: 1280px;
+          max-width: 1360px;
           margin: 0 auto;
           border-bottom-right-radius: 0;
           border-bottom-left-radius: 0;
         }
 
-        @media screen and (max-width: 1280px) {
+        @media screen and (max-width: 1360px) {
           .city-animation .floor {
             border-radius: 0;
           }
