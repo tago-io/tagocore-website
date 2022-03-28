@@ -39,6 +39,12 @@ function Footer() {
           .page-footer .copyright div {
             color: rgba(0, 0, 0, 0.6);
           }
+
+          @media only screen and (max-width: 768px) {
+            .page-footer .page-max-width {
+              padding: 0px 10px;
+            }
+          }
         `}</style>
       </footer>
 

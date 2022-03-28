@@ -43,24 +43,20 @@ function Header(props: IHeaderProps) {
         <div className="page-max-width">
           <div className="left">
             <Link className="logo-container" href="/">
-              <SVGTagoCoreBlack width="147px" />
+              <SVGTagoCoreBlack width="147px" height="29.85px" />
             </Link>
           </div>
 
           <div className="right">
-            <Link className="item color-primary-hover" href="/#plugin">
-              Plugins
-            </Link>
-
-            <Link className="item color-primary-hover" href="/#pricing">
+            <Link className="pricing item color-primary-hover" href="/#pricing">
               Pricing
             </Link>
 
-            <Link className="item color-primary-hover" href="/docs">
+            <Link className="docs item color-primary-hover" href="/docs">
               Docs
             </Link>
 
-            <Link className="item color-primary-hover" href="/#download">
+            <Link className="download item color-primary-hover" href="/#download">
               Download
             </Link>
 
@@ -129,12 +125,15 @@ function Header(props: IHeaderProps) {
             color: ${theme.colors.primary};
           }
 
-          @media screen and (max-width: 992px) {
-            .header .right > :global(.item) {
+          @media only screen and (max-width: 992px) {
+            .header .right > :global(.item:not(.docs)) {
               display: none;
             }
-            .header:not(.logged-in) .left {
-              justify-content: center;
+          }
+
+          @media only screen and (max-width: 768px) {
+            .header .page-max-width {
+              padding: 0px 10px;
             }
           }
         `}</style>

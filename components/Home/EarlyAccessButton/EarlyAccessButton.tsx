@@ -1,13 +1,19 @@
 import Button from "../../Common/Button/Button";
-import SVGArrow from "../../../assets/icons/arrow-right.svg";
+import SVGDownload from "../../../assets/icons/download.svg";
 import isEmail from "validator/lib/isEmail";
 import { KeyboardEvent, useCallback, useState } from "react";
 import { theme } from "../../../styles/Theme";
 
 /**
+ */
+interface IEarlyAccessButtonProps {
+  autoFocus?: boolean;
+}
+
+/**
  * Renders an input and a button for someone to get early access to the system.
  */
-function EarlyAccessButton() {
+function EarlyAccessButton(props: IEarlyAccessButtonProps) {
   const [value, setValue] = useState("");
   const [error, setError] = useState(false);
 
@@ -74,11 +80,12 @@ function EarlyAccessButton() {
         onChange={(e) => setValue(e.target.value)}
         type="email"
         placeholder="Email"
+        autoFocus={props?.autoFocus}
       />
 
       <Button onClick={submit}>
-        <span>Get Early Access&nbsp;</span>
-        <SVGArrow width="12px" height="12px" />
+        <SVGDownload width="12px" height="12px" />
+        <span>&nbsp;Download TagoCore</span>
       </Button>
 
       <style jsx>{`
@@ -94,13 +101,15 @@ function EarlyAccessButton() {
           border: 1px solid rgba(0, 0, 0, 0.3);
           border-radius: 3px;
           padding: 0px 10px;
-          margin-right: 8px;
+          margin: 0;
+          margin-right: -1px;
           outline: 0;
           min-width: 0;
-          max-width: 300px;
           display: inline-block;
           flex: 1;
           height: 40px;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
         }
 
         .early-access-button.error input {
@@ -113,19 +122,33 @@ function EarlyAccessButton() {
           white-space: nowrap;
           text-align: center;
           justify-content: center;
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+          margin: 0;
+          margin-left: -1px;
         }
 
         @media screen and (max-width: 576px) {
           .early-access-button {
             flex-direction: column;
-            width: 300px;
+            width: 100%;
             align-items: initial;
+          }
+
+          .early-access-button :global(button) {
+            border-radius: 3px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            margin: 0;
           }
 
           .early-access-button input {
             flex: none;
-            margin-right: 0;
-            margin-bottom: 5px;
+            margin: 0;
+            border-radius: 3px;
+            margin-bottom: -1px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
             text-align: center;
             width: 100%;
             max-width: 100%;

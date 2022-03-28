@@ -2,7 +2,7 @@ import { AccountInfo } from "@tago-io/sdk/out/modules/Account/account.types";
 import { gql } from "@apollo/client";
 import { GetServerSideProps } from "next";
 import Page from "../../../components/Page/Page";
-import MyPluginList from "../../../components/Account/MyPluginList/MyPluginList";
+import MyPluginList from "../../../components/Account/Plugins/Plugins";
 import getAccountServerSideProps from "../../../helpers/getAccountServerSideProps";
 import { apolloClient } from "../../_app";
 
@@ -39,28 +39,28 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     };
   }
 
-  const { data } = await apolloClient.query({
+  const r = await apolloClient.query({
     query: gql`
       query {
         myPluginList {
           publisher {
             name
             id
+            domain
           }
           plugins {
             name
             id
             logo_url
+            slug
             versions {
               name
               version
+              resource_id
               short_description
               active
               created_at
-              publish_error {
-                code
-                message
-              }
+              error_code
             }
           }
         }
@@ -73,7 +73,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     },
   });
 
-  const pluginList = data.myPluginList;
+  const pluginList = r.data.myPluginList;
   return { props: { account, pluginList } };
 };
 

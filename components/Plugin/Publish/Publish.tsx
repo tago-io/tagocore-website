@@ -15,8 +15,8 @@ import { apolloClient } from "../../../pages/_app";
  * Query to fetch the url to upload plugins.
  */
 const QUERY = gql`
-  query ($profileID: String!) {
-    pluginUpload(profileID: $profileID)
+  query ($profileID: String!, $active: Boolean) {
+    pluginUpload(profileID: $profileID, active: $active)
   }
 `;
 
@@ -87,10 +87,10 @@ function Publish(props: IPublishProps) {
   /**
    * Fetches the upload URL from the server.
    */
-  const fetchUploadURL = useCallback(async (profileID: string) => {
+  const fetchUploadURL = useCallback(async (profileID: string, visible: boolean) => {
     const { data } = await apolloClient.query({
       query: QUERY,
-      variables: { profileID },
+      variables: { profileID, active: visible },
       context: { headers: { token: cookie.parse(document.cookie)?.token } },
     });
 
@@ -128,13 +128,13 @@ function Publish(props: IPublishProps) {
    * Publishes the plugin version.
    */
   const publish = useCallback(
-    async (files: IPluginPublishFiles, profileID: string) => {
+    async (files: IPluginPublishFiles, profileID: string, visible: boolean) => {
       setPublishing(true);
       setProfileID(profileID);
 
       abortController.current = new AbortController();
 
-      const url = await fetchUploadURL(profileID);
+      const url = await fetchUploadURL(profileID, visible);
       const blob = await generateZip(files);
 
       await upload(url, blob);

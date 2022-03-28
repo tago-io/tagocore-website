@@ -1,15 +1,13 @@
-import BannerAddPlugin from "../components/Home/BannerAddPlugin/BannerAddPlugin";
-import BannerHero from "../components/Home/BannerHero/BannerHero";
-import BannerPricing from "../components/Home/BannerPricing/BannerPricing";
-import DatabaseSupport from "../components/Home/DatabaseSupport/DatabaseSupport";
-import Download from "../components/Home/Download/Download";
-import RunsOnEverySystem from "../components/Home/RunsOnEverySystem/RunsOnEverySystem";
-import Section from "../components/Home/Section/Section";
-import AlreadyACustomer from "../components/Home/AlreadyACustomer/AlreadyACustomer";
 import getAccountServerSideProps from "../helpers/getAccountServerSideProps";
 import { GetServerSideProps } from "next";
 import Page from "../components/Page/Page";
 import { AccountInfo } from "@tago-io/sdk/out/modules/Account/account.types";
+import CityAnimation from "../components/Home/CityAnimation/CityAnimation";
+import DatabaseSupport from "../components/Home/DatabaseSupport/DatabaseSupport";
+import AddMissingPiece from "../components/Home/AddMissingPiece/AddMissingPiece";
+import OpenSourceBanner from "../components/Home/OpenSourceBanner/OpenSourceBanner";
+import RunsAnywhere from "../components/Home/RunsAnywhere/RunsAnywhere";
+import Download from "../components/Home/Download/Download";
 
 /**
  * Props.
@@ -19,38 +17,25 @@ interface IHomePageProps {
 }
 
 /**
- * `/` (Home) page.
  */
 function HomePage(props: IHomePageProps) {
   return (
     <Page account={props.account}>
-      <Section id="hero" useSpaceBottom>
-        <BannerHero />
-      </Section>
+      <CityAnimation />
 
-      <Section id="db-support" useSpaceTop useSpaceBottom>
-        <DatabaseSupport />
-      </Section>
+      <DatabaseSupport />
 
-      <Section id="plugin" useSpaceTop useSpaceBottom>
-        <BannerAddPlugin />
-      </Section>
+      <AddMissingPiece />
 
-      <Section id="pricing" useSpaceTop useSpaceBottom>
-        <BannerPricing />
-      </Section>
+      <OpenSourceBanner />
 
-      <Section id="sync-tagoio" useSpaceTop useSpaceBottom backgroundColor="rgb(250, 250, 250)">
-        <AlreadyACustomer />
-      </Section>
+      <div id="pricing" style={{ height: "100px" }} />
 
-      <Section id="runs-on-every-system" useSpaceTop useSpaceBottom>
-        <RunsOnEverySystem />
-      </Section>
+      <RunsAnywhere />
 
-      <Section id="download" useBorderTop useSpaceTop useSpaceBottom>
-        <Download />
-      </Section>
+      <div id="download" style={{ height: "100px" }} />
+
+      <Download />
     </Page>
   );
 }
