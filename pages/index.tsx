@@ -5,8 +5,8 @@ import { AccountInfo } from "@tago-io/sdk/out/modules/Account/account.types";
 import CityAnimation from "../components/Home/CityAnimation/CityAnimation";
 import DatabaseSupport from "../components/Home/DatabaseSupport/DatabaseSupport";
 import AddMissingPiece from "../components/Home/AddMissingPiece/AddMissingPiece";
-import OpenSourceBanner from "../components/Home/OpenSourceBanner/BannerPricing";
-import RunsAnywhere from "../components/Home/RunsAnywhere/RunsOnEverySystem";
+import OpenSourceBanner from "../components/Home/OpenSourceBanner/OpenSourceBanner";
+import RunsAnywhere from "../components/Home/RunsAnywhere/RunsAnywhere";
 import Download from "../components/Home/Download/Download";
 
 /**
@@ -25,25 +25,17 @@ function HomePage(props: IHomePageProps) {
 
       <DatabaseSupport />
 
-      {/* <div style={{ height: "250px" }} /> */}
-
       <AddMissingPiece />
-
-      {/* <div style={{ height: "100px" }} /> */}
 
       <OpenSourceBanner />
 
-      <div style={{ height: "100px" }} />
-
-      {/* <AlreadyACustomer /> */}
+      <div id="pricing" style={{ height: "100px" }} />
 
       <RunsAnywhere />
 
-      <div style={{ height: "100px" }} />
+      <div id="download" style={{ height: "100px" }} />
 
       <Download />
-
-      <div style={{ height: "100px" }} />
     </Page>
   );
 }

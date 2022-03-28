@@ -39,7 +39,8 @@ const globalCss = css.global`
   .page-max-width {
     width: 100%;
     margin: 0 auto;
-    max-width: 1248px;
+    max-width: 1360px;
+    padding: 0px 10px;
   }
 
   h1,
@@ -72,16 +73,10 @@ const globalCss = css.global`
     font-size: 1.1rem;
   }
 
-  // @media screen and (max-width: 1400px) {
-  //   .page-max-width {
-  //     max-width: calc(100% - 60px);
-  //   }
-  // }
-
-  @media screen and (max-width: 992px) {
-    // .page-max-width {
-    //   max-width: calc(100% - 20px);
-    // }
+  @media screen and (max-width: 768px) {
+    .page-max-width {
+      padding: 0;
+    }
 
     h1 {
       font-size: 2.3rem;

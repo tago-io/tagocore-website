@@ -1,109 +1,155 @@
+import Link from "next/link";
+import { theme } from "../../../styles/Theme";
 import Console from "../Console/Console";
 
 /**
- * Banner with an image to explain plugins and how to build them.
  */
 function AddMissingPiece() {
   return (
-    <div className="a page-max-width">
-      <div className="cc">
-        <div />
-      </div>
-
-      <div className="title">
-        <h1>Add the missing piece.</h1>
-        <div className="description">
-          With TagoCore SDK, you can build your very own <b>plugins</b>.
-        </div>
-
-        <span>
-          <br />
-          Plugins allow you to perform any kind of task in the system, such as adding different types of parsers,
-          options, and screens.
-        </span>
-      </div>
-
-      <div className="bb">
-        <Console title="Create a Plugin">
-          <div>
-            <span className="arrow">→</span>
-            <span className="user">~/tagocore-user/my-plugin</span>
-            <span>$ tagocore init-plugin</span>
+    <div className="add-missing-piece page-max-width">
+      <div className="inner">
+        <div className="text">
+          <div className="title">
+            <span className="ball" />
+            <h2>Add the missing piece</h2>
           </div>
 
-          <br />
+          <div className="description">
+            <span>
+              You can build your very own plugins that are able to perform any kind of task in the system, such as
+              adding different types of parsers, options, and screens.&nbsp;
+            </span>
+            <a href="https://tagocore.com/docs">Learn how to build plugins</a>
+            <span>.</span>
+          </div>
 
-          <div>This utility will walk you through creating a TagoCore plugin.</div>
-          <div>First we will start by creating a plugin manifest.</div>
+          <div></div>
+        </div>
 
-          <br />
+        <div className="console-container">
+          <Console title="Create your own Plugin">
+            <div>
+              <span className="arrow">→</span>
+              <span className="user">~/plugin</span>
+              <span>$ tagocore plugin-template {"\n\n"}</span>
+            </div>
 
-          <div>See `tagocore plugin-help-init` for a guide.</div>
+            <div className="console-color-description">
+              <div>This utility will walk you through creating a TagoCore plugin.{"\n\n"}</div>
+            </div>
 
-          <br />
-
-          <div>Press ^C at any time to quit.</div>
-
-          <br />
-
-          <div>Name: my-plugin</div>
-          <div>Version: 1.0.0</div>
-          <div>Description: This is my first plugin</div>
-          <div>License: ISC</div>
-          <div>Author: John Doe</div>
-
-          <br />
-
-          <div>Done. Happy editing!</div>
-        </Console>
+            <div>
+              <span className="user">Name:</span>
+              <span>my-plugin</span>
+            </div>
+            <div>
+              <span className="user">Version:</span>
+              <span>1.0.0</span>
+            </div>
+            <div>
+              <span className="user">Description:</span>
+              <span>This is my first plugin</span>
+            </div>
+            <div>
+              <span className="user">License:</span>
+              <span>ISC</span>
+            </div>
+            <div>
+              <span className="user">Author:</span>
+              <span>John Doe</span>
+            </div>
+            <br />
+            <div>
+              <span className="user">✔ Done</span>
+              <span>- Happy editing!</span>
+            </div>
+          </Console>
+        </div>
       </div>
 
       <style jsx>{`
-        .a {
+        .add-missing-piece .inner {
           display: flex;
           position: relative;
-          padding-top: 250px;
+          padding-top: 100px;
           padding-bottom: 100px;
+          border-left: 5px dashed rgba(0, 0, 0, 0.2);
+          margin-left: 40px;
         }
 
-        .a .description,
-        .a .description * {
-          font-size: 1.3rem;
-          color: rgba(0, 0, 0, 0.7);
-        }
-
-        .a .title span {
+        .add-missing-piece .text .description {
+          margin-top: 10px;
           color: rgba(0, 0, 0, 0.6);
         }
 
-        .a .cc {
-          border: 2px solid rgba(0, 0, 0, 0.2);
-          position: absolute;
-          height: 100%;
-          z-index: -1;
-          margin-left: 20px;
-          top: 0px;
+        .add-missing-piece .text .description * {
+          font-size: 1.1rem;
         }
 
-        .a .cc > div {
-          position: absolute;
+        .add-missing-piece .text :global(a) {
+          color: ${theme.colors.link} !important;
+        }
+
+        .add-missing-piece .text .title {
+          position: relative;
+          display: flex;
+          align-items: center;
+        }
+
+        .add-missing-piece .inner .text .ball {
           background: black;
           padding: 5px;
+          width: 5px;
+          height: 5px;
+          flex: none;
+          position: absolute;
+          left: calc(-50px);
+          transform: translate(0%, 0%);
           border-radius: 50%;
-          border: 3px solid black;
-          top: 270px;
-          left: 50%;
-          transform: translate(-50%, 0);
+          box-sizing: content-box;
+          border: 10px solid white;
         }
 
-        .a .title {
+        .add-missing-piece .text {
           flex: 1;
-          margin-left: 50px;
+          margin-left: 30px;
+          margin-right: 40px;
         }
 
-        .a .bb {
-          flex: 1.2;
-          margin-left: 40px;
+        .add-missing-piece .console-container {
+          flex: 1;
+        }
+
+        @media only screen and (max-width: 992px) {
+          .add-missing-piece .inner .text .ball {
+            left: calc(-50px + 10px);
+          }
+
+          .add-missing-piece .text {
+            flex: 1;
+            margin-left: 20px;
+          }
+
+          .add-missing-piece .inner {
+            display: flex;
+            flex-direction: column;
+          }
+
+          .add-missing-piece .console-container {
+            margin-top: 20px;
+            width: calc(100% + 25px);
+            margin-left: -35px;
+          }
+        }
+
+        @media only screen and (max-width: 768px) {
+          .add-missing-piece .inner .text .ball {
+            left: calc(-50px + 11px);
+          }
+
+          .add-missing-piece .inner {
+            border-left: 2px dashed rgba(0, 0, 0, 0.2);
+          }
         }
       `}</style>
     </div>

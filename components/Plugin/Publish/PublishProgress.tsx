@@ -41,9 +41,15 @@ function PublishProgress(props: IPublishProgress) {
     <div className={`publish-progress ${done ? "done" : ""} ${error ? "error" : ""}`}>
       <div className="title">
         <h3>Publisher: {profile.name}</h3>
-        <Link href="#" onClick={cancel}>
-          {done || error ? "Go Back" : "Cancel publish"}
-        </Link>
+        {done || error ? (
+          <Link href={error ? "/pluginstore/publish" : "/account/plugins"}>
+            {error ? "Try again" : "View my plugins"}
+          </Link>
+        ) : (
+          <Link href="#" onClick={cancel}>
+            Cancel publish
+          </Link>
+        )}
       </div>
 
       <div className="data">

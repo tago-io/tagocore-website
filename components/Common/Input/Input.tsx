@@ -15,11 +15,11 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
  * Simple input element.
  */
 function Input(props: IInputProps, ref: MutableRefObject<HTMLInputElement>) {
-  const { error } = props;
+  const { error, ...rest } = props;
   const className = [props.className, error ? "error" : ""].filter((x) => x).join();
   return (
     <>
-      <input {...props} ref={ref} className={className} />
+      <input {...rest} ref={ref} className={className} />
       <style jsx>{`
         input {
           width: 100%;

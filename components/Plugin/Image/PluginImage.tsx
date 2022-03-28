@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SVGTimesCircle from "../../../assets/icons/times-circle.svg";
 
 /**
  * Props.
@@ -23,11 +24,14 @@ function PluginImage(props: IPluginImageProps) {
 
   return (
     <div className="plugin-image">
-      <Image alt="" src={src} layout="fill" objectFit="contain" />
+      {src ? (
+        <Image alt="" src={src} layout="fill" objectFit="contain" />
+      ) : (
+        <SVGTimesCircle width="30px" fill="rgba(0, 0, 0, 0.3)" />
+      )}
 
       <style jsx>{`
         .plugin-image {
-          border-radius: 20%;
           width: ${width}px;
           height: ${height}px;
           display: flex;

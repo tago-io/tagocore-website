@@ -1,10 +1,6 @@
-import SVGClock from "../../../assets/icons/clock.svg";
 import SVGDownload from "../../../assets/icons/download.svg";
 import Button from "../../Common/Button/Button";
 import EarlyAccessButton from "../EarlyAccessButton/EarlyAccessButton";
-import SVGLinux from "../../../assets/logos/linux.svg";
-import SVGWindows from "../../../assets/logos/windows.svg";
-import SVGApple from "../../../assets/logos/apple.svg";
 
 /**
  * Download section of the home page.
@@ -12,39 +8,60 @@ import SVGApple from "../../../assets/logos/apple.svg";
 function Download() {
   return (
     <div className="download page-max-width">
-      <div className="title">
-        <h1>Download TagoCore</h1>
-        <span className="description">Downloads coming soon for Linux, Windows, MacOS and ARM.</span>
-      </div>
+      <div className="inner">
+        <div className="title">
+          <SVGDownload width="35px" fill="white" style={{ marginRight: "15px" }} />
+          <h2>Download TagoCore</h2>
+        </div>
 
-      <div style={{ width: "570px", background: "white", padding: "5px", borderRadius: "5px" }}>
-        <EarlyAccessButton />
+        <span className="description">Available for Alpine, Linux, MacOS and Windows.</span>
+
+        <div className="early-access">
+          <EarlyAccessButton />
+        </div>
       </div>
 
       <style jsx>{`
-        .download {
+        .download .inner {
           display: flex;
           position: relative;
           background: black;
-          padding: 50px;
+          padding: 100px 0px;
           border-radius: 20px;
           overflow: hidden;
           color: white;
           display: flex;
           flex-direction: column;
           align-items: center;
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: 0;
+          flex: 1;
         }
 
-        .download .title {
+        .download .inner .title {
           display: flex;
-          flex-direction: column;
           align-items: center;
+        }
+
+        .download .early-access {
+          border: 5px solid white;
+          padding: 5px;
+          max-width: 500px;
+          border-radius: 5px;
+          width: calc(100% - 20px);
+        }
+
+        .download .inner .description {
+          font-size: 1.1rem;
+          opacity: 0.75;
+          margin-top: 10px;
           margin-bottom: 50px;
         }
 
-        .download .description {
-          font-size: 1.3rem;
-          opacity: 0.75;
+        @media only screen and (max-width: 768px) {
+          .download .inner {
+            border-radius: 0;
+          }
         }
       `}</style>
     </div>
