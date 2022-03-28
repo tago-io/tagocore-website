@@ -1,43 +1,40 @@
-import SVGShare from "../../../../assets/icons/share-alt.svg";
-import VerifiedMark from "../../../Plugin/VerifiedMark/VerifiedMark";
+import Button from "../../../Common/Button/Button";
+import SVGPlus from "../../../../assets/icons/plus-circle.svg";
+import Link from "../../../Common/Link/Link";
 
 /**
  * Props.
  */
 interface IProfileHeaderProps {
   name: string;
-  shared?: boolean;
-  domain?: string;
+  id: string;
   pluginAmount: number;
 }
 
 /**
  */
 function ProfileHeader(props: IProfileHeaderProps) {
-  const { name, shared, domain, pluginAmount } = props;
+  const { id, name, pluginAmount } = props;
 
   return (
     <div className="profile-header">
       <div className="data">
         <div className="title">
           <h3>{name}</h3>
-
-          {domain && (
-            <div className="verified-container">
-              <VerifiedMark />
-            </div>
-          )}
-
-          {shared && (
-            <div className="share-container">
-              <SVGShare width="12px" />
-            </div>
-          )}
         </div>
       </div>
 
       <div className="description">
         {pluginAmount} {pluginAmount === 1 ? "Plugin" : "Plugins"}
+      </div>
+
+      <div className="publish">
+        <Link href={`/pluginstore/publish?publisher=${id}`}>
+          <Button>
+            <SVGPlus width="12px" height="12px" />
+            <span>&nbsp;&nbsp;Publish Plugin</span>
+          </Button>
+        </Link>
       </div>
 
       <style jsx>{`
@@ -75,10 +72,18 @@ function ProfileHeader(props: IProfileHeaderProps) {
           margin-left: 5px;
         }
 
+        .profile-header .publish :global(button) {
+          padding: 7px 20px;
+          margin-left: 20px;
+        }
+
+        .profile-header .publish :global(a) {
+          text-decoration: none;
+        }
+
         .profile-header > .description {
           font-weight: normal;
           opacity: 0.6;
-          margin-top: 3px;
         }
       `}</style>
     </div>

@@ -1,4 +1,4 @@
-import { ChangeEvent, useCallback, useState } from "react";
+import { ChangeEvent, useCallback, useEffect, useState } from "react";
 import Button from "../../Common/Button/Button";
 import InputUpload from "../../Common/InputUpload/InputUpload";
 import OSAccordion from "./OSAccordion";
@@ -12,6 +12,8 @@ import FormGroup from "../../Common/FormGroup/FormGroup";
 import CheckboxTerms from "./CheckboxTerms";
 import Select from "../../Common/Select/Select";
 import { ProfileListInfo } from "@tago-io/sdk/out/modules/Account/profile.types";
+import CheckboxVisible from "./CheckboxVisible";
+import { useRouter } from "next/router";
 
 /**
  * Props.
@@ -20,7 +22,7 @@ interface IFormProps {
   /**
    * Called when the form publishes the plugin.
    */
-  onPublish?: (files: IPluginPublishFiles, profileID: string) => void;
+  onPublish?: (files: IPluginPublishFiles, profileID: string, visible: boolean) => void;
   /**
    * List of profiles in the current account.
    */
@@ -32,9 +34,11 @@ interface IFormProps {
  * It contains all the information that we need to ask the developer before submitting a plugin.
  */
 function Form(props: IFormProps) {
+  const router = useRouter();
   const [platformType, setPlatformType] = useState<TPluginPlatformType>("cross-platform");
   const [acceptedTerms, setAcceptedTerms] = useState(false);
-  const [profileID, setProfileID] = useState("");
+  const [visible, setVisible] = useState(true);
+  const [profileID, setProfileID] = useState(() => String(router?.query?.publisher || ""));
   const [files, setFiles] = useState<IPluginPublishFiles>({});
 
   const { profiles, onPublish } = props;
@@ -61,8 +65,17 @@ function Form(props: IFormProps) {
    * Publishes.
    */
   const publish = useCallback(() => {
-    onPublish(files, profileID);
-  }, [onPublish, profileID, files]);
+    onPublish(files, profileID, visible);
+  }, [onPublish, profileID, visible, files]);
+
+  /**
+   * Validates the profile id.
+   */
+  useEffect(() => {
+    if (profileID && !profiles.some((x) => x.id === profileID)) {
+      setProfileID("");
+    }
+  }, [profileID, profiles]);
 
   return (
     <div className="form">
@@ -186,6 +199,10 @@ function Form(props: IFormProps) {
           </FormGroup>
         </>
       )}
+
+      <div style={{ borderBottom: "1px solid rgba(0, 0, 0, 0.15)", marginBottom: "1rem", paddingBottom: "1rem" }}>
+        <CheckboxVisible checked={visible} onChange={setVisible} />
+      </div>
 
       <FormGroup>
         <CheckboxTerms checked={acceptedTerms} onChange={setAcceptedTerms} />

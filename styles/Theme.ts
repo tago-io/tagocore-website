@@ -7,7 +7,8 @@ const theme = {
     footerHeight: 150,
   },
   colors: {
-    error: "#d30e0e",
+    error: "hsl(0, 88%, 44%)",
+    errorDarker: "hsl(0, 88%, 34%)",
     success: "hsl(121, 100%, 28%)",
     successLighter: "hsl(121, 100%, 95%)",
     accent: "hsl(207, 76%, 48%)",
