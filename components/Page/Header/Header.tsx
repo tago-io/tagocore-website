@@ -60,10 +60,14 @@ function Header(props: IHeaderProps) {
               Download
             </Link>
 
-            {account && (
+            {account ? (
               <>
                 <AccountDropdown account={account} />
               </>
+            ) : (
+              <Link className="download item color-primary-hover" href="/auth/login">
+                Sign in
+              </Link>
             )}
           </div>
         </div>

@@ -42,11 +42,6 @@ function Login() {
           await new Promise((resolve) => setTimeout(resolve, 1000));
         }
 
-        if (!String(email).includes("@tago.io")) {
-          // temporary block
-          throw new Error("Invalid credentials");
-        }
-
         // logs in and gets the account
         const account = await Account.login(
           {

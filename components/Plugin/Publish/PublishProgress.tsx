@@ -68,9 +68,7 @@ function PublishProgress(props: IPublishProgress) {
               <span> &nbsp;{error}</span>
             </div>
           ) : done ? (
-            <div>
-              Success! We&apos;ll send an e-mail to <b>{account.email}</b> with more details.
-            </div>
+            <div>Success! Your Plugin will be published soon.</div>
           ) : (
             <span>Please wait...</span>
           )}
