@@ -7,12 +7,12 @@ import SVGOracle from "../../../assets/logos/oracle.svg";
 import SVGBoxOpen from "../../../assets/icons/box-open.svg";
 import Console from "../Console/Console";
 
-/**
- */
 function DatabaseSupport() {
   return (
     <div className="database-support page-max-width">
-      <div className="line" />
+      <div className="line">
+        <div className="inner-line" />
+      </div>
 
       <div className="title">
         <SVGBoxOpen width="30px" fill="white" />
@@ -74,15 +74,19 @@ function DatabaseSupport() {
         .database-support {
           position: relative;
           z-index: 1000000;
-          margin-top: -10px;
         }
 
         .database-support .line {
-          margin: 0 auto;
-          width: calc(100% - 50px);
-          opacity: 0.15;
-          background: white;
+          background: black;
+          padding-top: 60px;
+          padding-bottom: 30px;
+        }
+
+        .database-support .line .inner-line {
           height: 1px;
+          background: white;
+          opacity: 0.2;
+          margin: 0px 20px;
         }
 
         .database-support .title :global(svg) {
@@ -120,7 +124,7 @@ function DatabaseSupport() {
           width: 580px;
           position: absolute;
           right: 20px;
-          top: 145px;
+          top: 235px;
           display: flex;
           flex-wrap: wrap;
           justify-content: flex-end;

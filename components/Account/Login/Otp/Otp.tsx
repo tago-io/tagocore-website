@@ -19,8 +19,6 @@ interface IOtpProps {
   onLogin: (pinCode?: string) => void;
 }
 
-/**
- */
 function Otp(props: IOtpProps) {
   const [pinCode, setPinCode] = useState("");
   const { type, invalidCredentials, loading, typesEnabled, onGoToCredentials, onLogin, onGoToOtpTypes, phone } = props;

@@ -2,8 +2,6 @@ import { useState } from "react";
 
 let sequence = 0;
 
-/**
- */
 function DataPoint(props) {
   const [className] = useState(() => ++sequence);
   const left1 = `${props.data.x1}px`;

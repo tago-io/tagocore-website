@@ -2,8 +2,6 @@ import { useCallback, useState } from "react";
 import { IPluginListItemPluginVersion } from "../Plugins.types";
 import PluginVersion from "../Version/Version";
 
-/**
- */
 interface IPluginVersions {
   versions: IPluginListItemPluginVersion[];
   pluginID: string;
@@ -23,8 +21,6 @@ interface IPluginVersions {
 //   [versions]
 // );
 
-/**
- */
 function PluginVersions(props: IPluginVersions) {
   const { versions, onDeleteVersion, pluginID } = props;
 

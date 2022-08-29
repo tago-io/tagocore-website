@@ -2,8 +2,6 @@ import Link from "next/link";
 import { theme } from "../../../styles/Theme";
 import Console from "../Console/Console";
 
-/**
- */
 function AddMissingPiece() {
   return (
     <div className="add-missing-piece page-max-width">

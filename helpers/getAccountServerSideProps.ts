@@ -3,8 +3,6 @@ import { Account } from "@tago-io/sdk";
 
 const cache = {};
 
-/**
- */
 async function getAccountServerSideProps(ctx: GetServerSidePropsContext) {
   const token = ctx?.req?.cookies?.["token"];
 
