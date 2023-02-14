@@ -1,11 +1,7 @@
 import SVGCertificate from "../../../assets/icons/certificate.svg";
 import SVGCheck from "../../../assets/icons/check.svg";
 
-/**
- */
 function VerifiedMark() {
-  // const { domain } = props;
-
   return (
     <div className="verified-mark">
       <SVGCertificate className="certificate" width="15px" />

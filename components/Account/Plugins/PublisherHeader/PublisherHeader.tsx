@@ -11,8 +11,6 @@ interface IProfileHeaderProps {
   pluginAmount: number;
 }
 
-/**
- */
 function ProfileHeader(props: IProfileHeaderProps) {
   const { id, name, pluginAmount } = props;
 

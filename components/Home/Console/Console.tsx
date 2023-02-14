@@ -8,8 +8,6 @@ interface IConsoleProps {
   children: ReactNode;
 }
 
-/**
- */
 function Console(props: IConsoleProps) {
   return (
     <div className="console">

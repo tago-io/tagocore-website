@@ -44,6 +44,7 @@ function Header(props: IHeaderProps) {
           <div className="left">
             <Link className="logo-container" href="/">
               <SVGTagoCoreBlack width="147px" height="29.85px" />
+              <span>Home page</span>
             </Link>
           </div>
 
@@ -108,6 +109,12 @@ function Header(props: IHeaderProps) {
 
           .header :global(.logo-container) {
             display: flex;
+          }
+
+          .header :global(.logo-container) span {
+            opacity: 0;
+            position: absolute;
+            pointer-events: none;
           }
 
           .header .right {

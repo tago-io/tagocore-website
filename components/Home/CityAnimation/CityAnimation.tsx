@@ -11,10 +11,8 @@ import SVGCloud from "../../../assets/icons/cloud.svg";
 import SVGTruck from "../../../assets/icons/truck.svg";
 import SVGTagoIO from "../../../assets/logos/tagoio-logo-white.svg";
 import DataPoint from "../DataPoint/DataPoint";
-import EarlyAccessButton from "../EarlyAccessButton/EarlyAccessButton";
+import DownloadButton from "../DownloadButton/DownloadButton";
 
-/**
- */
 function CityAnimation() {
   return (
     <div className="page-max-width">
@@ -24,7 +22,7 @@ function CityAnimation() {
           TagoCore is a <b>free</b>, <b>fast</b>, and <b>open-source</b> IoT platform for edge computing
         </span>
         <div className="early-access">
-          <EarlyAccessButton autoFocus />
+          <DownloadButton localLink />
         </div>
       </div>
 
@@ -166,10 +164,6 @@ function CityAnimation() {
           margin: 0 auto;
           margin-top: 30px;
           width: 100%;
-        }
-
-        .page-max-width .title .early-access :global(button) {
-          height: 40px;
         }
 
         .city-animation {
@@ -415,7 +409,7 @@ function CityAnimation() {
         }
 
         .city-animation .floor {
-          height: 150px;
+          height: 100px;
           width: 100%;
           background: black;
           z-index: 1111;
@@ -437,8 +431,6 @@ function CityAnimation() {
           .title {
             padding: 20px 10px;
             background: rgba(255, 255, 255, 1);
-            top: 0px !important;
-            box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.1);
           }
           .city-animation {
             transform: scale(0.8);

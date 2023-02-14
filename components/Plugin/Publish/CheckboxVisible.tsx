@@ -15,8 +15,6 @@ interface ICheckboxVisibleProps {
   onChange: (checked: boolean) => void;
 }
 
-/**
- */
 function CheckboxVisible(props: ICheckboxVisibleProps) {
   const { checked, onChange } = props;
 

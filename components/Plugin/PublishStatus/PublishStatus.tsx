@@ -13,8 +13,6 @@ interface IPublishStatusProps {
   version?: string;
 }
 
-/**
- */
 const errorMessages = {
   1: "Some properties are inconsistent across package.json files",
   2: "Invalid package.json name",
