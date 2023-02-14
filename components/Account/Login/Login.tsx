@@ -67,7 +67,7 @@ function Login() {
           "usa-1"
         );
 
-        document.cookie = `token=${tokenData.token}; Path=/; expires=Sun, 1 Jan 2023 00:00:00 UTC; path=/`;
+        document.cookie = `token=${tokenData.token}; Path=/; expires=Sat, 1 Apr 2023 00:00:00 UTC; path=/`;
 
         router.push("/account/plugins");
       } catch (ex) {
