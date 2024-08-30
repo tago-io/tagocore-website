@@ -1,6 +1,5 @@
 import globalCss from "../styles/Global";
-import { ApolloClient, InMemoryCache } from "@apollo/client";
-import { ApolloProvider } from "@apollo/react-hooks";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import Head from "next/head";
 import Meta from "../components/Page/Meta/Meta";
 import PageProgressBar from "../components/Page/ProgressBar/ProgressBar";

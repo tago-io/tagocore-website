@@ -20,8 +20,8 @@ function EarlyAccessButton(props: IEarlyAccessButtonProps) {
   /**
    * Opens a new tab for the survey.
    */
-  const openSurvey = useCallback(() => {
-    window.open(`https://survey.zohopublic.com/zs/5JB3f2?email=${value}`, "_blank");
+  const openDownloads = useCallback(() => {
+    window.open("https://downloads.tagocore.com/");
   }, [value]);
 
   /**
@@ -69,7 +69,7 @@ function EarlyAccessButton(props: IEarlyAccessButtonProps) {
     }
 
     postEmail();
-    openSurvey();
+    openDownloads();
   };
 
   return (
