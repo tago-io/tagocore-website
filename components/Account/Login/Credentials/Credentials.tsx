@@ -18,8 +18,6 @@ interface ICredentialsProps {
   password: string;
 }
 
-/**
- */
 function Credentials(props: ICredentialsProps) {
   const { email, password, invalidCredentials, loading, onLogin, onChangeEmail, onChangePassword } = props;
   const passwordRef = useRef(null);

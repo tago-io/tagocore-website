@@ -9,8 +9,6 @@ interface IBannerProps {
   animate?: boolean;
 }
 
-/**
- */
 function Banner(props: IBannerProps) {
   const { animate } = props;
 

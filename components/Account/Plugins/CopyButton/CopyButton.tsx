@@ -3,16 +3,12 @@ import CopySVG from "../../../../assets/logos/copy.svg";
 import CheckSVG from "../../../../assets/icons/check.svg";
 import copyToClipboard from "../../../../helpers/copyToClipboard";
 
-/**
- */
 interface ICopyButtonProps {
   children: ReactNode;
   tooltip: string;
   tooltipData: string;
 }
 
-/**
- */
 function CopyButton(props: ICopyButtonProps) {
   const [copied, setCopied] = useState(false);
   const { children, tooltipData, tooltip } = props;

@@ -16,8 +16,6 @@ interface IOtpPickerProps {
   onGoBack: () => void;
 }
 
-/**
- */
 function OtpPicker(props: IOtpPickerProps) {
   const { types, onPick, onGoBack } = props;
 

@@ -31,16 +31,12 @@ const DELETE_RESOURCE_MUTATION = gql`
   }
 `;
 
-/**
- */
 interface IPluginVersion {
   data: IPluginListItemPluginVersion;
   pluginID: string;
   onDelete: () => void;
 }
 
-/**
- */
 function PluginVersion(props: IPluginVersion) {
   const { data, onDelete, pluginID } = props;
   const [active, setActive] = useState<boolean>(data.active);

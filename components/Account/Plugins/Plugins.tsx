@@ -14,8 +14,6 @@ interface IAccountPluginsProps {
   list: IPluginListItem[];
 }
 
-/**
- */
 function AccountPlugins(props: IAccountPluginsProps) {
   const [list, setList] = useState(() => props.list);
   const [search, setSearch] = useState("");

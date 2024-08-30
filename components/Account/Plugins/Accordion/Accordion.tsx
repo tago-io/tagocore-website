@@ -7,15 +7,11 @@ import { IPluginListItemPlugin, IPluginListItemPluginVersion } from "../Plugins.
 import CopySVG from "../../../../assets/logos/copy.svg";
 import CopyButton from "../CopyButton/CopyButton";
 
-/**
- */
 interface IPluginAccordionProps {
   data: IPluginListItemPlugin;
   onDeleteVersion: (version: IPluginListItemPluginVersion) => void;
 }
 
-/**
- */
 function PluginAccordion(props: IPluginAccordionProps) {
   const { data, onDeleteVersion } = props;
   const [open, setOpen] = useState(false);

@@ -1,21 +1,21 @@
 import Button from "../../Common/Button/Button";
-import SVGDownload from "../../../assets/icons/download.svg";
+import SVGEnvelope from "../../../assets/icons/envelope-circle-check.svg";
 import isEmail from "validator/lib/isEmail";
 import { KeyboardEvent, useCallback, useState } from "react";
 import { theme } from "../../../styles/Theme";
 
 /**
+ * Props.
  */
-interface IEarlyAccessButtonProps {
+interface INewsletterButtonProps {
   autoFocus?: boolean;
 }
 
-/**
- * Renders an input and a button for someone to get early access to the system.
- */
-function EarlyAccessButton(props: IEarlyAccessButtonProps) {
+function NewsletterButton(props: INewsletterButtonProps) {
   const [value, setValue] = useState("");
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   /**
    * Opens a new tab for the survey.
@@ -29,6 +29,8 @@ function EarlyAccessButton(props: IEarlyAccessButtonProps) {
    */
   const postEmail = useCallback(async () => {
     try {
+      setLoading(true);
+
       const headers = {
         "Content-Type": "application/json",
       };
@@ -43,8 +45,13 @@ function EarlyAccessButton(props: IEarlyAccessButtonProps) {
         headers,
         body: JSON.stringify(body),
       }).then((r) => r.json());
+
+      setSuccess(true);
+      setLoading(false);
     } catch (ex) {
-      console.error("Could not subscribe to mail list", ex.message || ex);
+      setLoading(false);
+      setError(true);
+      alert("Could not subscribe to mail list");
     }
   }, [value]);
 
@@ -73,30 +80,43 @@ function EarlyAccessButton(props: IEarlyAccessButtonProps) {
   };
 
   return (
-    <div className={`early-access-button ${error ? "error" : ""}`}>
-      <input
-        value={value}
-        onKeyDown={onInputKeyDown}
-        onChange={(e) => setValue(e.target.value)}
-        type="email"
-        placeholder="Email"
-        autoFocus={props?.autoFocus}
-      />
+    <div className={`newsletter ${error ? "error" : ""} ${loading ? "loading" : ""}`}>
+      {success ? (
+        <b>Thank you for joining!</b>
+      ) : (
+        <>
+          <input
+            value={value}
+            onKeyDown={onInputKeyDown}
+            onChange={(e) => setValue(e.target.value)}
+            type="email"
+            placeholder="Email"
+            autoFocus={props?.autoFocus}
+          />
 
-      <Button onClick={submit}>
-        <SVGDownload width="12px" height="12px" />
-        <span>&nbsp;Download TagoCore</span>
-      </Button>
+          <Button onClick={submit}>
+            <SVGEnvelope width="20px" height="20px" />
+            <span>&nbsp;Join newsletter</span>
+          </Button>
+        </>
+      )}
 
       <style jsx>{`
-        .early-access-button {
+        .newsletter {
           display: inline-flex;
           max-width: 100%;
           width: 100%;
           align-items: center;
+          text-align: center;
+          justify-content: center;
         }
 
-        .early-access-button input {
+        .newsletter.loading {
+          opacity: 0.5;
+          pointer-events: none;
+        }
+
+        .newsletter input {
           height: 40px;
           border: 1px solid rgba(0, 0, 0, 0.3);
           border-radius: 3px;
@@ -112,11 +132,11 @@ function EarlyAccessButton(props: IEarlyAccessButtonProps) {
           border-bottom-right-radius: 0;
         }
 
-        .early-access-button.error input {
+        .newsletter.error input {
           border-color: ${theme.colors.error} !important;
         }
 
-        .early-access-button :global(button) {
+        .newsletter :global(button) {
           padding-left: 15px;
           padding-right: 15px;
           white-space: nowrap;
@@ -129,20 +149,20 @@ function EarlyAccessButton(props: IEarlyAccessButtonProps) {
         }
 
         @media screen and (max-width: 576px) {
-          .early-access-button {
+          .newsletter {
             flex-direction: column;
             width: 100%;
             align-items: initial;
           }
 
-          .early-access-button :global(button) {
+          .newsletter :global(button) {
             border-radius: 3px;
             border-top-left-radius: 0;
             border-top-right-radius: 0;
             margin: 0;
           }
 
-          .early-access-button input {
+          .newsletter input {
             flex: none;
             margin: 0;
             border-radius: 3px;
@@ -159,4 +179,4 @@ function EarlyAccessButton(props: IEarlyAccessButtonProps) {
   );
 }
 
-export default EarlyAccessButton;
+export default NewsletterButton;

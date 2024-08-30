@@ -42,8 +42,6 @@ interface IDropdownProps {
   onClose: () => void;
 }
 
-/**
- */
 function Dropdown(props: IDropdownProps) {
   const { open, items, onClose } = props;
 

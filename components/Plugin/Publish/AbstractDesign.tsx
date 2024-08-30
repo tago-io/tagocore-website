@@ -26,13 +26,15 @@ function AbstractDesign() {
         <h3>Build. Test. Publish.</h3>
 
         <ul>
-          <li className="description">Looking to build a Plugin? Check out our {renderLink("/", "documentation")}.</li>
-          <li className="description" style={{ marginTop: "15px" }}>
-            Looking to test your Plugin? Read about our {renderLink("/", "best practices")}.
+          <li className="description">
+            Looking to build a Plugin? Check out our {renderLink("https://tagocore.com/docs", "documentation")}.
           </li>
           <li className="description" style={{ marginTop: "15px" }}>
-            Looking to publish your Plugin? Fill the form on the left side or {renderLink("/", "learn more")} about
-            publishing Plugins.
+            Looking to test your Plugin? Read about our {renderLink("https://tagocore.com/docs", "best practices")}.
+          </li>
+          <li className="description" style={{ marginTop: "15px" }}>
+            Looking to publish your Plugin? Fill the form on the left side or{" "}
+            {renderLink("https://tagocore.com/docs", "learn more")} about publishing Plugins.
           </li>
         </ul>
       </h3>
