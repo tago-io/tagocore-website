@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "astro": "^4.16.4",
-    "astro-icon": "^1.1.1",
     "validator": "^13.7.0"
   },
   "devDependencies": {
