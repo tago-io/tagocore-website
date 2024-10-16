@@ -1,0 +1,251 @@
+---
+import MySQLLogo from '../icons/logos/mysql.svg?raw';
+import MongoDBLogo from '../icons/logos/mongodb.svg?raw';
+import PostgreSQLLogo from '../icons/logos/postgresql.svg?raw';
+import SQLiteLogo from '../icons/logos/sqlite.svg?raw';
+import MariaDBLogo from '../icons/logos/mariadb.svg?raw';
+import OracleLogo from '../icons/logos/oracle.svg?raw';
+
+import BoxOpen from '../icons/box-open.svg?raw';
+
+import Console from "./console.astro";
+---
+
+<div class="database-support page-max-width">
+  <div class="line">
+    <div class="inner-line" />
+  </div>
+
+  <div class="title">
+    <Fragment set:html={BoxOpen} />
+    <div class="text">
+      <h2>Database Support</h2>
+      <span class="description">TagoCore supports more than 10 different databases through plugins.</span>
+    </div>
+  </div>
+
+  <Console>
+    <div>
+      <span class="arrow">→</span>
+      <span class="user">~/</span>
+      <span>$ tagocore plugin-search database</span>
+    </div>
+
+    <div class="console-color-description">
+      <span>* TagoCore supports a variety of databases,</span>
+      <span>* yet some are still in active development.</span>
+    </div>
+
+    <div>- SQLite (installed)</div>
+    <div>- MySQL</div>
+    <div>- PostgreSQL</div>
+    <div>- MongoDB</div>
+    <div>- MariaDB</div>
+    <div>- SQL Server</div>
+    <div>- Amazon Redshift</div>
+    <div>- Amazon RDS</div>
+    <div>- Oracle</div>
+    <div>- ...and many others</div>
+
+    <br />
+    <div>To install a database, run the command:</div>
+    <div class="user">&gt; tagocore plugin-install &lt;name&gt;</div>
+  </Console>
+
+  <div class="visual-list">
+    <div class="brand-box mysql">
+      <Fragment set:html={MySQLLogo} />
+    </div>
+    <div class="brand-box postgresql">
+      <Fragment set:html={PostgreSQLLogo} />
+    </div>
+    <div class="brand-box mongodb">
+      <Fragment set:html={MongoDBLogo} />
+    </div>
+    <div class="brand-box sqlite">
+      <Fragment set:html={SQLiteLogo} />
+    </div>
+    <div class="brand-box mariadb">
+      <Fragment set:html={MariaDBLogo} />
+    </div>
+    <div class="brand-box oracle">
+      <Fragment set:html={OracleLogo} />
+    </div>
+  </div>
+</div>
+
+<style>
+  .database-support {
+    position: relative;
+    z-index: 10;
+  }
+
+  .database-support .line {
+    background: black;
+    padding-top: 60px;
+    padding-bottom: 30px;
+  }
+
+  .database-support .line .inner-line {
+    height: 1px;
+    background: white;
+    opacity: 0.2;
+    margin: 0px 20px;
+  }
+
+  .database-support .title :global(svg) {
+    flex: none;
+    width: 30px;
+    fill: white;
+  }
+
+  .database-support .title {
+    padding: 20px;
+    display: flex;
+    background: black;
+    color: white;
+  }
+
+  .database-support .title .text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+  }
+
+  .database-support .title .description {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .brand-box {
+    align-items: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    padding: 30px 15px;
+    position: relative;
+  }
+
+  .visual-list {
+    width: 580px;
+    position: absolute;
+    right: 20px;
+    top: 235px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .visual-list > :global(div) {
+    width: calc(50% - 10px);
+    margin: 5px;
+    background: rgba(0, 0, 0, 0.3);
+    height: 110px;
+  }
+
+  .visual-list .mysql :global(svg),
+  .visual-list .sqlite :global(svg),
+  .visual-list .mongodb :global(svg) {
+    height: 70px;
+  }
+
+  .visual-list .postgresql svg {
+    width: 200px;
+  }
+
+  .visual-list .mariadb :global(svg) {
+    width: 170px;
+
+  }
+
+  .visual-list .oracle :global(svg) {
+    width: 160px;
+  }
+
+  .visual-list :global(svg *) {
+    fill: white !important;
+  }
+
+  .database-support :global(.console) {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  @media only screen and (max-width: 992px) {
+    .visual-list .mysql :global(svg),
+    .visual-list .sqlite :global(svg),
+    .visual-list .mongodb :global(svg) {
+      height: 50px;
+    }
+
+    .visual-list .postgresql :global(svg) {
+      width: 140px;
+    }
+
+    .visual-list .mariadb :global(svg) {
+      width: 120px;
+    }
+
+    .visual-list .oracle :global(svg) {
+      width: 110px;
+    }
+
+    .visual-list {
+      width: 360px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .database-support :global(.console) {
+      border-radius: 0;
+    }
+
+    .database-support :global(.content) {
+      padding-bottom: 200px !important;
+    }
+
+    .visual-list .mysql :global(svg),
+    .visual-list .sqlite :global(svg),
+    .visual-list .mongodb :global(svg) {
+      height: 40px;
+    }
+
+    .visual-list .postgresql :global(svg) {
+      width: 130px;
+    }
+
+    .visual-list .mariadb :global(svg) {
+      width: 90px;
+    }
+
+    .visual-list .oracle :global(svg) {
+      width: 80px;
+    }
+
+    .visual-list {
+      width: 100%;
+      right: 0px;
+      top: calc(100% - 195px);
+      padding: 10px;
+    }
+
+    .visual-list > :global(div) {
+      height: 80px;
+      margin: 0px;
+      width: calc(33.333% - 4px);
+      margin: 2px;
+      border-radius: 5px;
+      background: rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .console-color-description {
+    display: flex;
+    flex-direction: column;
+    padding: 1.2rem 0px;
+
+    span {
+      display: block;
+    }
+  }
+</style>

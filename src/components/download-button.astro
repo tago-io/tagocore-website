@@ -1,0 +1,49 @@
+---
+import Button from "./ui/Button.astro";
+
+import DownloadIcon from "../icons/download.svg?raw";
+import ExternalLinkIcon from "../icons/external-link-alt.svg?raw";
+
+const { localLink } = Astro.props;
+---
+
+<div class="download-button">
+  {localLink ? (
+    <a href="#download">
+      <Button>
+        <Fragment set:html={DownloadIcon} />
+        <span>Download TagoCore</span>
+      </Button>
+    </a>
+  ) : (
+    <a href="https://downloads.tagocore.com" target="_blank" rel="noreferrer">
+      <Button>
+        <Fragment set:html={ExternalLinkIcon} />
+        <span>Go to Downloads page</span>
+      </Button>
+    </a>
+  )}
+
+  <style>
+    .download-button a {
+      text-decoration: none !important;
+    }
+
+    .download-button :global(button) {
+      padding: 25px 40px;
+      height: 40px;
+      color: black;
+
+      svg {
+        width: 16px;
+        height: 16px;
+        margin-right: 5px;
+      }
+    }
+
+    .download-button :global(button) span {
+      font-size: 18px;
+      margin-left: 5px;
+    }
+  </style>
+</div>

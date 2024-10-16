@@ -1,0 +1,52 @@
+---
+const { classNames } = Astro.props;
+---
+
+<button class={classNames}>
+  <slot />
+</button>
+
+<style>
+  button {
+    padding: 10px 30px;
+    border-radius: 3px;
+    background: transparent;
+    cursor: pointer;
+    background: var(--secondary-color);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    outline: 0;
+    border: 1px solid black;
+  }
+
+  button:hover,
+  button:active,
+  button:focus {
+    background: var(--primary-color);
+    color: var(--secondary-color) !important;
+    fill: var(--secondary-color) !important;
+  }
+
+  button:hover *,
+  button:focus *,
+  button:active * {
+    background: var(--primary-color);
+    color: var(--secondary-color) !important;
+    fill: var(--secondary-color) !important;
+  }
+
+  button:disabled {
+    opacity: 0.5;
+    border-color: transparent;
+    background: rgba(0, 0, 0, 0.15);
+    pointer-events: none;
+    fill: rgba(0, 0, 0, 0.8) !important;
+    color: rgba(0, 0, 0, 0.8) !important;
+  }
+
+  button:disabled :global(*) {
+    fill: rgba(0, 0, 0, 0.8) !important;
+    color: rgba(0, 0, 0, 0.8) !important;
+  }
+</style>

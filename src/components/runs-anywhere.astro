@@ -1,0 +1,341 @@
+---
+import { Image } from 'astro:assets';
+
+import RaspberryPiLogo from "../icons/logos/raspberrypi.svg?raw";
+import RockPiLogo from "../icons/logos/rockpi.svg?raw";
+import AWSLogo from "../icons/logos/aws.svg?raw";
+import GoogleCloudLogo from "../icons/logos/googlecloud.svg?raw";
+import AzureLogo from "../icons/logos/azure.svg?raw";
+import WindowsLogo from "../icons/logos/windows.svg?raw";
+import LinuxLogo from "../icons/logos/linux.svg?raw";
+import AppleLogo from "../icons/logos/apple.svg?raw";
+import DockerLogo from "../icons/logos/docker.svg?raw";
+
+import HDDIcon from "../icons/hdd.svg?raw";
+import CircleNodesIcon from "../icons/circle-nodes.svg?raw";
+import WindowRestoreIcon from "../icons/window-restore.svg?raw";
+import ExternalLinkIcon from "../icons/external-link-alt.svg?raw";
+
+import AaeonLogo from "../assets/logos/aaeon.png";
+import DraginoLogo from "../assets/logos/dragino.png";
+import SiemensLogo from "../assets/logos/siemens.png";
+---
+
+<div class="runs-anywhere page-max-width">
+  <div class="title">
+    <h2>And it runs anywhere!</h2>
+  </div>
+
+  <div class="items">
+    <div class="item">
+      <div class="a">
+        <div class="brand-box" data-icon="raspberry-pi">
+          <Fragment set:html={RaspberryPiLogo} />
+        </div>
+        <div class="brand-box" data-icon="hdd">
+          <Fragment set:html={HDDIcon} />
+        </div>
+        <div class="brand-box" data-icon="rock-pi">
+          <Fragment set:html={RockPiLogo} />
+        </div>
+      </div>
+
+      <div class="b">
+        <h3>On the edge</h3>
+        <span style={{ marginTop: "10px", opacity: 0.7, maxWidth: "700px" }}>
+          Deploy a TagoCore instance and compute data on the edge with a <b>Raspberry Pi</b>, <b>Rock Pi</b>, or
+          many <b>others</b>, such as one of these gateways from ours partners:
+        </span>
+      </div>
+
+      <div class="sub-items">
+        <div class="inner-box">
+          <Image
+            alt="siemens"
+            src={SiemensLogo}
+            layout="fixed"
+            width={300 / 2.5}
+            height={401 / 2.5}
+            objectFit="contain"
+          />
+        </div>
+
+        <div class="inner-box">
+          <Image
+            alt="aaeon"
+            src={AaeonLogo}
+            layout="fixed"
+            width={300 / 2.5}
+            height={350 / 2.5}
+            objectFit="contain"
+          />
+        </div>
+
+        <div class="inner-box">
+          <Image
+            alt="dragino"
+            src={DraginoLogo}
+            layout="fixed"
+            width={300 / 2.5}
+            height={350 / 2.5}
+            objectFit="contain"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="a">
+        <div class="brand-box" data-icon="aws">
+          <Fragment set:html={AWSLogo} />
+        </div>
+        <div class="brand-box" data-icon="googlecloud">
+          <Fragment set:html={GoogleCloudLogo} />
+        </div>
+        <div class="brand-box" data-icon="azure">
+          <Fragment set:html={AzureLogo} />
+        </div>
+      </div>
+
+      <div class="b">
+        <h3>On the cloud</h3>
+        <span style={{ marginTop: "10px", opacity: 0.7, maxWidth: "700px" }}>
+          Set up TagoCore on cloud providers such as <b>AWS</b>, <b>Google Cloud</b>, <b>Azure</b>, and others!
+          Deploy an instance and operate from far away.
+        </span>
+      </div>
+
+      <div class="sub-items">
+        <div class="inner-box" data-icon="circle-nodes">
+          <Fragment set:html={CircleNodesIcon} />
+          <span>
+            TagoCore includes a <b>work-in-all-providers</b> cluster mode by allowing TagoIO to manage the instances
+          </span>
+        </div>
+
+        <div class="inner-box" data-icon="window-restore">
+          <Fragment set:html={WindowRestoreIcon} />
+          <span>You can easily set-up TagoCore inside docker containers to build a containerized application</span>
+        </div>
+
+        <a href="https://hub.docker.com/r/tagoio/tagocore" target="_blank" class="inner-box" data-icon="docker" rel="noreferrer">
+          <Fragment set:html={DockerLogo} />
+          <div>
+            <div data-icon="external-link">
+              <Fragment set:html={ExternalLinkIcon} />
+            </div>
+            <span>Visit the official TagoCore image</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="a">
+        <div class="brand-box" data-icon="windows">
+          <Fragment set:html={WindowsLogo} />
+        </div>
+        <div class="brand-box" data-icon="linux">
+          <Fragment set:html={LinuxLogo} />
+        </div>
+        <div class="brand-box" data-icon="apple">
+          <Fragment set:html={AppleLogo} />
+        </div>
+      </div>
+
+      <div class="b">
+        <h3>Operating systems</h3>
+        <span style={{ marginTop: "10px", opacity: 0.7, maxWidth: "700px" }}>
+          Run it on all major operating systems available today. <b>Windows</b>, <b>Linux</b>, or <b>macOS</b>: it
+          doesn't matter, we've got you covered.
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .sub-items {
+      padding: 30px 25px;
+      padding-top: 0px;
+      justify-content: center;
+      display: flex;
+    }
+
+    .sub-items a {
+      cursor: pointer;
+    }
+
+    .sub-items .inner-box {
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 33%;
+      text-decoration: none;
+      color: black;
+      margin: 0px 5px;
+    }
+
+    .sub-items a:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    .sub-items .inner-box :global(img) {
+      filter: grayscale(1) !important;
+      margin-bottom: 10px;
+    }
+
+    .sub-items .inner-box > :global(svg) {
+      margin-bottom: 10px;
+    }
+
+    .runs-anywhere {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .runs-anywhere .title {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .runs-anywhere .description {
+      color: rgba(0, 0, 0, 0.7);
+    }
+
+    .runs-anywhere .item {
+      flex: 1;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .runs-anywhere .items {
+      display: flex;
+      flex-direction: column;
+      margin-top: 30px;
+      width: 100%;
+    }
+
+    .runs-anywhere .items .a {
+      display: flex;
+      width: 100%;
+      height: 70px;
+      background: rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+    }
+
+    .runs-anywhere .items :global(.brand-box) {
+      padding: 10px 0px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      position: relative;
+    }
+
+    [data-icon="aws"],
+    [data-icon="azure"] {
+      svg {
+        height: 30px;
+      }
+    }
+
+    [data-icon="hdd"],
+    [data-icon="rock-pi"],
+    [data-icon="raspberry-pi"],
+    [data-icon="apple"],
+    [data-icon="windows"] {
+      svg {
+        height: 35px;
+      }
+    }
+
+    [data-icon="googlecloud"] {
+      svg {
+        height: 40px;
+      }
+    }
+
+    [data-icon="linux"] :global(svg) {
+      height: 50px;
+    }
+
+    [data-icon="external-link"] {
+      display: inline-block;
+      margin-right: 5px;
+
+      svg {
+        height: 12px;
+      }
+    }
+
+    [data-icon="circle-nodes"],
+    [data-icon="docker"],
+    [data-icon="window-restore"] {
+      > svg {
+        height: 50px;
+      }
+    }
+
+    .runs-anywhere .a :global(svg *) {
+      fill: black !important;
+    }
+
+    .runs-anywhere .a :global(svg) {
+      opacity: 0.2;
+    }
+
+    .runs-anywhere :global(.b) {
+      display: flex;
+      overflow: hidden;
+      padding: 20px;
+      position: relative;
+      flex: 1;
+      flex-direction: column;
+      z-index: 1;
+      align-items: center;
+    }
+
+    .runs-anywhere .item:nth-child(2) {
+      margin: 50px 0px;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .sub-items {
+        flex-direction: column;
+        padding: 5px 20px;
+      }
+
+      .sub-items .inner-box {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 10px;
+      }
+
+      .runs-anywhere .items {
+        flex-direction: column;
+        padding: 0px 10px;
+      }
+
+      .runs-anywhere :global(.brand-box):nth-child(2) {
+        margin: 0px;
+      }
+
+      .runs-anywhere .item:nth-child(2) {
+        margin: 20px 0px !important;
+      }
+    }
+  </style>
+</div>
