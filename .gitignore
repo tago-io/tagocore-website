@@ -4,6 +4,9 @@
 # astro
 .astro/
 
+# build
+dist/
+
 # debug
 npm-debug.log*
 
