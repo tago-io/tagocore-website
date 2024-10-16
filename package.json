@@ -1,7 +1,8 @@
 {
-  "name": "tcore-website",
+  "name": "tagocore-website",
   "version": "0.3.0",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
