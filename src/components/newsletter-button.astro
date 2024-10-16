@@ -18,12 +18,10 @@ import EnvelopeIcon from "../icons/envelope-circle-check.svg?raw";
 </div>
 
 <script>
-  import { isEmail } from "validator";
-
   const newsletterSection = document.getElementById("newsletter-section")!;
+  const successAlert = document.getElementById("success-alert")!;
   const submitButton = newsletterSection.querySelector("button")!;
   const emailInput = newsletterSection.querySelector("input")!;
-  const successAlert = document.getElementById("#success-alert")!;
 
   async function sendEmail() {
     try {
@@ -56,7 +54,8 @@ import EnvelopeIcon from "../icons/envelope-circle-check.svg?raw";
 
   async function handleSubmit() {
     newsletterSection.classList.remove("loading");
-    if (!isEmail(emailInput.value)) {
+    const isValid = emailInput.reportValidity();
+    if (!isValid) {
       newsletterSection.classList.add("error");
       return;
     } else {
