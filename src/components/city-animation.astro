@@ -72,7 +72,6 @@ import TagoIOWhiteLogo from "../icons/logos/tagoio-white.svg?raw";
 
       <div class="building">
         <Fragment set:html={BuildingIcon} />
-        <!--  FIXME: missing logo bounce class -->
         <Fragment set:html={TagoCoreBlackLogo} />
 
         <div class="tago-cloud cloud bounce">
@@ -91,7 +90,6 @@ import TagoIOWhiteLogo from "../icons/logos/tagoio-white.svg?raw";
       <div class="industry">
         <Fragment set:html={IndustryIcon} />
         <Fragment set:html={IndustryIcon} />
-        <!--  FIXME: missing logo bounce class -->
         <Fragment set:html={TagoCoreBlackLogo} />
 
         <DataPoint delay={0.01} data={{ x1: 20, y1: 0, x2: 135, y2: -175 }} />
@@ -102,7 +100,6 @@ import TagoIOWhiteLogo from "../icons/logos/tagoio-white.svg?raw";
 
       <div class="hospital">
         <Fragment set:html={HospitalIcon} />
-        <!--  FIXME: missing logo bounce class -->
         <Fragment set:html={TagoCoreBlackLogo} />
 
         <DataPoint delay={0.01} data={{ x1: 25, y1: 50, x2: 75, y2: -65 }} />
@@ -111,15 +108,15 @@ import TagoIOWhiteLogo from "../icons/logos/tagoio-white.svg?raw";
 
       <div class="vehicle truck">
         <Fragment set:html={TruckIcon} />
-        <!--  FIXME: missing logo bounce class -->
         <Fragment set:html={TagoCoreBlackLogo} />
+
         <DataPoint delay={0.01} data={{ x1: 25, y1: 50, x2: 25, y2: -35 }} />
       </div>
 
       <div class="vehicle car">
         <Fragment set:html={CarIcon} />
-        <!--  FIXME: missing logo bounce class -->
         <Fragment set:html={TagoCoreBlackLogo} />
+
         <DataPoint delay={0.01} data={{ x1: 20, y1: 50, x2: 20, y2: -35 }} />
       </div>
     </div>
@@ -307,6 +304,7 @@ import TagoIOWhiteLogo from "../icons/logos/tagoio-white.svg?raw";
       border-radius: 19%;
       left: 50%;
       top: -115px;
+      transform: translate(-50%, 0);
     }
 
     > .tago-cloud {
@@ -318,7 +316,7 @@ import TagoIOWhiteLogo from "../icons/logos/tagoio-white.svg?raw";
         width: 80px;
       }
 
-      > svg:nth-child(1) {
+      > svg:nth-child(2) {
         width: 55px;
       }
     }
@@ -347,6 +345,7 @@ import TagoIOWhiteLogo from "../icons/logos/tagoio-white.svg?raw";
       border-radius: 19%;
       left: 50%;
       top: -85px;
+      transform: translate(-50%, 0);
     }
   }
 
@@ -367,6 +366,7 @@ import TagoIOWhiteLogo from "../icons/logos/tagoio-white.svg?raw";
       left: 50%;
       top: -105px;
       width: 60px;
+      transform: translate(-50%, 0);
     }
   }
 
@@ -404,6 +404,7 @@ import TagoIOWhiteLogo from "../icons/logos/tagoio-white.svg?raw";
       border-radius: 19%;
       left: 50%;
       top: -75px;
+      transform: translate(-50%, 0);
     }
   }
 
@@ -422,6 +423,7 @@ import TagoIOWhiteLogo from "../icons/logos/tagoio-white.svg?raw";
       border-radius: 19%;
       left: 50%;
       top: -75px;
+      transform: translate(-50%, 0);
     }
   }
 

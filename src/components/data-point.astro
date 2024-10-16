@@ -1,5 +1,43 @@
 ---
-//  FIXME: data point component
+interface Props {
+  data: {
+    x1: number;
+    y1: number;
+    x2: number;
+    y2: number;
+  };
+  delay: number;
+}
+
+const { data: coords, delay } = Astro.props;
+
+const left1 = `${coords.x1}px`;
+const top1 = `${coords.y1}px`;
+const left2 = `${coords.x2}px`;
+const top2 = `${coords.y2}px`;
 ---
 
-<div></div>
+<div class="data-point"></div>
+
+<style define:vars={{ left1, top1, left2, top2, delay: `${delay}s` }}>
+  @keyframes data-point-move {
+    100% {
+      transform: translate(calc(var(--left2) - 9px), calc(var(--top2) - 9px));
+    }
+  }
+
+  .data-point {
+    position: absolute;
+    background: #d33939;
+    border: 2px solid white;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    z-index: -1;
+    transform: translate(calc(var(--left1) - 9px), calc(var(--top1) - 9px));
+    animation: data-point-move 1.5s infinite;
+    animation-delay: var(--delay);
+    will-change: transform;
+  }
+</style>
+
