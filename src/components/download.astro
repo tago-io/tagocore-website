@@ -1,0 +1,106 @@
+---
+import DownloadButton from "./download-button.astro";
+import NewsletterButton from "./newsletter-button.astro";
+
+import EnvelopeIcon from "../icons/envelope-circle-check.svg?raw";
+import DownloadIcon from "../icons/download.svg?raw";
+---
+
+<section class="download page-max-width">
+  <div class="inner">
+    <div class="title">
+      <Fragment set:html={DownloadIcon} />
+      <h2>Download TagoCore</h2>
+    </div>
+
+    <span class="description">Available for Linux, MacOS and Windows.</span>
+
+    <div class="early-access">
+      <DownloadButton />
+    </div>
+
+    <div class="newsletter">
+      <span>
+        <Fragment set:html={EnvelopeIcon} />
+        Join our newsletter to receive tips and updates about TagoCore!
+      </span>
+      <NewsletterButton />
+    </div>
+  </div>
+</section>
+
+<style>
+  .download .inner {
+    display: flex;
+    position: relative;
+    background: black;
+    padding: 100px 0px;
+    border-radius: 20px;
+    overflow: hidden;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    box-shadow: 0 10px 20px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  .download .inner .title {
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-right: 15px;
+      height: 35px;
+      fill: white;
+    }
+  }
+
+  .download .early-access :global(button):hover {
+    border-color: white;
+  }
+
+  .download .newsletter {
+    margin-top: 50px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    width: 550px;
+    text-align: center;
+  }
+
+  .download .newsletter span {
+    margin-bottom: 15px;
+    display: flex;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      margin-right: 5px;
+      width: 20px;
+      fill: white;
+    }
+  }
+
+  .download .inner .description {
+    font-size: 1.1rem;
+    opacity: 0.75;
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .download .inner {
+      border-radius: 0;
+      padding-left: 20px;
+      padding-right: 20px;
+      text-align: center;
+    }
+
+    .newsletter {
+      display: none;
+    }
+  }
+</style>

@@ -1,14 +1,8 @@
-## Tagocore website
+# TagoCore Website
 
-Tagocore website available on https://tagocore.com/
+## Development
 
-### Dev
-
-- npm run dev 
-- open 0.0.0.0:3000
-
-### Deploy
-
-- Tagocore aws account
-- npm run deploy
-
+```sh
+npm i
+npm run dev
+```

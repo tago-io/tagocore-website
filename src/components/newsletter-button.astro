@@ -1,0 +1,151 @@
+---
+import Button from "./ui/button.astro";
+
+import EnvelopeIcon from "../icons/envelope-circle-check.svg?raw";
+---
+
+<div id="newsletter-section" class="newsletter">
+  <div id="success-alert" style="display: none;">
+    <b>Thank you for joining!</b>
+  </div>
+
+  <input type="email" placeholder="Email" />
+
+  <Button>
+    <Fragment set:html={EnvelopeIcon} />
+    <span>Join newsletter</span>
+  </Button>
+</div>
+
+<script>
+  const newsletterSection = document.getElementById("newsletter-section")!;
+  const successAlert = document.getElementById("success-alert")!;
+  const submitButton = newsletterSection.querySelector("button")!;
+  const emailInput = newsletterSection.querySelector("input")!;
+
+  async function sendEmail() {
+    try {
+      newsletterSection.classList.add("loading");
+
+      await fetch(
+        "https://wkd7y6x1xi.execute-api.us-east-1.amazonaws.com/prod/mail-list/subscribe",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: emailInput.value,
+            mail_list: ["core_news"],
+          }),
+        },
+      );
+
+      emailInput.style.display = "none";
+      submitButton.style.display = "none";
+      successAlert.style.display = "block";
+    } catch (_) {
+      newsletterSection.classList.add("error");
+      alert("Could not subscribe to mailing list");
+    } finally {
+      newsletterSection.classList.remove("loading");
+    }
+  }
+
+  async function handleSubmit() {
+    newsletterSection.classList.remove("loading");
+    const isValid = emailInput.reportValidity();
+    if (!isValid) {
+      newsletterSection.classList.add("error");
+      return;
+    } else {
+      newsletterSection.classList.remove("error");
+    }
+
+    await sendEmail();
+    window.open("https://downloads.tagocore.com");
+  }
+
+  submitButton.addEventListener("click", handleSubmit);
+</script>
+
+<style>
+  .newsletter {
+    display: inline-flex;
+    max-width: 100%;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .newsletter.loading {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .newsletter input {
+    height: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    padding: 0px 10px;
+    margin: 0;
+    margin-right: -1px;
+    outline: 0;
+    min-width: 0;
+    display: inline-block;
+    flex: 1;
+    height: 40px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .newsletter.error input {
+    border-color: var(--error-color) !important;
+  }
+
+  .newsletter :global(button) {
+    padding-left: 15px;
+    padding-right: 15px;
+    white-space: nowrap;
+    text-align: center;
+    justify-content: center;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin: 0;
+    margin-left: -1px;
+
+    svg {
+      height: 20px;
+      width: 20px;
+      margin-right: 5px;
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    .newsletter {
+      flex-direction: column;
+      width: 100%;
+      align-items: initial;
+    }
+
+    .newsletter :global(button) {
+      border-radius: 3px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      margin: 0;
+    }
+
+    .newsletter input {
+      flex: none;
+      margin: 0;
+      border-radius: 3px;
+      margin-bottom: -1px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      text-align: center;
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+</style>

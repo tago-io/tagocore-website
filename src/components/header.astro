@@ -1,0 +1,131 @@
+---
+import TagoCoreBlackLogo from "../icons/logos/tagocore-black.svg?raw";
+---
+
+<header id="page-header" class="header">
+  <div class="page-max-width">
+    <div class="left">
+      <a href="/" class="logo-container">
+        <Fragment set:html={TagoCoreBlackLogo} />
+        <span>Home page</span>
+      </a>
+    </div>
+
+    <div class="right">
+      <a href="/#pricing" class="pricing item color-primary-hover"> Pricing </a>
+
+      <a href="https://tagocore.com/docs" class="docs item color-primary-hover">
+        Docs
+      </a>
+
+      <a href="/#download" class="download item color-primary-hover">
+        Download
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="invisible-header"></div>
+
+<script>
+  const headerElement = document.querySelector("#page-header");
+
+  document.addEventListener("scroll", () => {
+    if (headerElement && document?.scrollingElement) {
+      if (document.scrollingElement.scrollTop > 0) {
+        headerElement.classList.add("shadow");
+      } else {
+        headerElement.classList.remove("shadow");
+      }
+    }
+  });
+</script>
+
+<style>
+  .header {
+    align-items: center;
+    display: flex;
+    height: var(--header-height);
+    justify-content: space-between;
+    position: fixed;
+    top: 0px;
+    transition: box-shadow 0.3s;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .header .page-max-width {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+
+  .header.shadow {
+    background: white;
+    box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.15);
+  }
+
+  .header :global(.logo) {
+    height: 2px;
+    width: auto;
+  }
+
+  .header .left {
+    display: flex;
+    flex: 1;
+  }
+
+  header {
+    .logo-container {
+      svg {
+        width: 147px;
+        height: 29.85px;
+      }
+    }
+  }
+
+  .header :global(.logo-container) {
+    display: flex;
+  }
+
+  .header :global(.logo-container) span {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .header .right {
+    display: flex;
+    align-items: center;
+    flex: none;
+  }
+
+  .header .right > :global(.item) {
+    padding: 10px 25px;
+    cursor: pointer;
+  }
+
+  .header .right > :global(.item):last-child {
+    margin-right: -25px;
+  }
+
+  .header .right :global(a) {
+    color: var(--color-primary);
+  }
+
+  @media only screen and (max-width: 992px) {
+    .header .right > :global(.item:not(.docs)) {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .header .page-max-width {
+      padding: 0px 10px;
+    }
+  }
+
+  .invisible-header {
+    height: var(--header-height);
+  }
+</style>

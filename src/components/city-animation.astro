@@ -1,0 +1,579 @@
+---
+import DownloadButton from "./download-button.astro";
+import DataPoint from "./data-point.astro";
+
+import CloudIcon from "../icons/animation/cloud.svg?raw";
+import BuildingIcon from "../icons/animation/building.svg?raw";
+import IndustryIcon from "../icons/animation/industry.svg?raw";
+import HospitalIcon from "../icons/animation/hospital.svg?raw";
+import TruckIcon from "../icons/animation/truck.svg?raw";
+import CarIcon from "../icons/animation/car-side.svg?raw";
+import TreeIcon from "../icons/animation/tree.svg?raw";
+import MountainIcon from "../icons/animation/mountain.svg?raw";
+import CityIcon from "../icons/animation/city.svg?raw";
+import TagoCoreBlackLogo from "../icons/animation/tagocore-black.svg?raw";
+
+import TagoIOWhiteLogo from "../icons/logos/tagoio-white.svg?raw";
+---
+
+<div class="page-max-width">
+  <div class="title">
+    <h2>Blazing fast Edge Computing</h2>
+    <span class="description">
+      TagoCore is a <b>free</b>, <b>fast</b>, and <b>open-source</b> IoT platform
+      for edge computing
+    </span>
+    <div class="early-access">
+      <DownloadButton localLink />
+    </div>
+  </div>
+
+  <div class="city-animation">
+    <div class="content">
+      <div class="sun"></div>
+
+      <div class="clouds">
+        <Fragment set:html={CloudIcon} />
+        <Fragment set:html={CloudIcon} />
+        <Fragment set:html={CloudIcon} />
+        <Fragment set:html={CloudIcon} />
+        <Fragment set:html={CloudIcon} />
+        <Fragment set:html={CloudIcon} />
+      </div>
+
+      <div class="trees-1">
+        <Fragment set:html={TreeIcon} />
+        <Fragment set:html={TreeIcon} />
+      </div>
+
+      <div class="bg mountains">
+        <Fragment set:html={MountainIcon} />
+        <Fragment set:html={MountainIcon} />
+      </div>
+
+      <div class="bg trees-2">
+        <Fragment set:html={TreeIcon} />
+        <Fragment set:html={TreeIcon} />
+        <Fragment set:html={TreeIcon} />
+        <Fragment set:html={TreeIcon} />
+      </div>
+
+      <div class="bg bg-building">
+        <Fragment set:html={TreeIcon} />
+        <Fragment set:html={TreeIcon} />
+        <Fragment set:html={CityIcon} />
+        <Fragment set:html={BuildingIcon} />
+      </div>
+
+      <div class="bg trees-3">
+        <Fragment set:html={TreeIcon} />
+        <Fragment set:html={TreeIcon} />
+      </div>
+
+      <div class="building">
+        <Fragment set:html={BuildingIcon} />
+        <Fragment set:html={TagoCoreBlackLogo} />
+
+        <div class="tago-cloud cloud bounce">
+          <Fragment set:html={CloudIcon} />
+          <Fragment set:html={TagoIOWhiteLogo} />
+        </div>
+
+        <DataPoint delay={0.01} data={{ x1: 75, y1: -75, x2: 75, y2: -185 }} />
+        <DataPoint delay={0.01} data={{ x1: 75, y1: 20, x2: 75, y2: -75 }} />
+        <DataPoint delay={0.35} data={{ x1: 75, y1: 20, x2: 75, y2: -75 }} />
+        <DataPoint delay={0.95} data={{ x1: 30, y1: 20, x2: 75, y2: -75 }} />
+        <DataPoint delay={0.15} data={{ x1: 120, y1: 20, x2: 75, y2: -75 }} />
+        <DataPoint delay={0.55} data={{ x1: 75, y1: 20, x2: 75, y2: -75 }} />
+      </div>
+
+      <div class="industry">
+        <Fragment set:html={IndustryIcon} />
+        <Fragment set:html={IndustryIcon} />
+        <Fragment set:html={TagoCoreBlackLogo} />
+
+        <DataPoint delay={0.01} data={{ x1: 20, y1: 0, x2: 135, y2: -175 }} />
+        <DataPoint delay={0.75} data={{ x1: 40, y1: 0, x2: 135, y2: -175 }} />
+        <DataPoint delay={0.35} data={{ x1: 250, y1: 0, x2: 135, y2: -175 }} />
+        <DataPoint delay={0.05} data={{ x1: 210, y1: 0, x2: 135, y2: -175 }} />
+      </div>
+
+      <div class="hospital">
+        <Fragment set:html={HospitalIcon} />
+        <Fragment set:html={TagoCoreBlackLogo} />
+
+        <DataPoint delay={0.01} data={{ x1: 25, y1: 50, x2: 75, y2: -65 }} />
+        <DataPoint delay={0.35} data={{ x1: 125, y1: 50, x2: 75, y2: -65 }} />
+      </div>
+
+      <div class="vehicle truck">
+        <Fragment set:html={TruckIcon} />
+        <Fragment set:html={TagoCoreBlackLogo} />
+
+        <DataPoint delay={0.01} data={{ x1: 25, y1: 50, x2: 25, y2: -35 }} />
+      </div>
+
+      <div class="vehicle car">
+        <Fragment set:html={CarIcon} />
+        <Fragment set:html={TagoCoreBlackLogo} />
+
+        <DataPoint delay={0.01} data={{ x1: 20, y1: 50, x2: 20, y2: -35 }} />
+      </div>
+    </div>
+
+    <div class="floor"></div>
+  </div>
+</div>
+
+<style>
+  @keyframes bounce {
+    0% {
+      transform: translate(-50%, 0%) scale(1);
+    }
+    25% {
+      transform: translate(-50%, 0%) scale(1.05);
+    }
+    100% {
+      transform: translate(-50%, 0%) scale(1);
+    }
+  }
+
+  .page-max-width {
+    position: relative;
+  }
+
+  .page-max-width .title {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    top: 10%;
+    z-index: 100;
+    width: 100%;
+    max-width: 1340px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page-max-width .title .description {
+    margin-top: 5px;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .page-max-width .title .early-access {
+    max-width: 580px;
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 100%;
+  }
+
+  .city-animation {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - var(--header-height) + 50px);
+    overflow: hidden;
+    max-height: 980px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .city-animation .clouds {
+    opacity: 0.4;
+  }
+
+  .city-animation .clouds :global(:nth-child(1)) {
+    position: absolute;
+    top: 20%;
+    left: 50px;
+    opacity: 0.45;
+    width: 60px;
+  }
+
+  .city-animation .clouds :global(:nth-child(2)) {
+    position: absolute;
+    top: 30%;
+    left: 75px;
+    opacity: 0.3;
+    width: 100px;
+  }
+
+  .city-animation .clouds :global(:nth-child(3)) {
+    position: absolute;
+    top: 10%;
+    left: 150px;
+    opacity: 0.3;
+    width: 160px;
+  }
+
+  .city-animation .clouds :global(:nth-child(4)) {
+    position: absolute;
+    top: 20%;
+    left: 75%;
+    opacity: 0.4;
+    width: 60px;
+  }
+
+  .city-animation .clouds :global(:nth-child(5)) {
+    position: absolute;
+    top: 30%;
+    left: 84%;
+    opacity: 0.3;
+    width: 100px;
+  }
+
+  .city-animation .clouds :global(:nth-child(6)) {
+    position: absolute;
+    top: 10%;
+    left: 82%;
+    opacity: 0.4;
+    width: 120px;
+  }
+
+  .city-animation .sun {
+    background: black;
+    width: 1100px;
+    height: 1100px;
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    opacity: 0.03;
+    top: calc(100% + 80px);
+  }
+
+  .city-animation .content {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    width: 1260px;
+  }
+
+  .city-animation .content .bg {
+    fill: rgba(195, 195, 195);
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .city-animation .content :global(.bounce) {
+    transform: translate(-50%, 0);
+  }
+
+  .city-animation .content :global(.cloud) {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .city-animation .content :global(.cloud :nth-child(2)) {
+    position: absolute;
+    top: 35px;
+  }
+
+  .city-animation .content .trees-1 {
+    position: absolute;
+    transform: translateX(20px);
+    bottom: -5px;
+    display: flex;
+    align-items: flex-end;
+
+    svg {
+      width: 50px;
+    }
+  }
+
+  .city-animation .content .building {
+    display: flex;
+    position: absolute;
+    transform: translateX(140px);
+    bottom: -1px;
+
+    > svg:nth-child(1) {
+      width: 150px;
+      height: 171px;
+    }
+
+    > svg:nth-child(2) {
+      width: 60px;
+      position: absolute;
+      background: white;
+      border-radius: 19%;
+      left: 50%;
+      top: -115px;
+      transform: translate(-50%, 0);
+    }
+
+    > .tago-cloud {
+      left: 50%;
+      top: -230px;
+
+      > svg:nth-child(1) {
+        fill: #337ab7;
+        width: 80px;
+      }
+
+      > svg:nth-child(2) {
+        width: 55px;
+      }
+    }
+  }
+
+  .city-animation .content .industry {
+    display: flex;
+    position: absolute;
+    bottom: -15px;
+    align-items: flex-end;
+    transform: translateX(720px);
+
+    svg:nth-child(1) {
+      height: 120px;
+    }
+
+    svg:nth-child(2) {
+      height: 150px;
+      transform: translateX(10px);
+    }
+
+    svg:nth-child(3) {
+      height: 60px;
+      position: absolute;
+      background: white;
+      border-radius: 19%;
+      left: 50%;
+      top: -85px;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  .city-animation .content .hospital {
+    display: flex;
+    position: absolute;
+    transform: translateX(1050px);
+
+    > svg:nth-child(1) {
+      width: 150px;
+      height: 171px;
+    }
+
+    > svg:nth-child(2) {
+      position: absolute;
+      background: white;
+      border-radius: 19%;
+      left: 50%;
+      top: -105px;
+      width: 60px;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  @keyframes vehicle-animation {
+    0% {
+      transform: translateX(0px);
+      opacity: 0;
+    }
+    1% {
+      opacity: 1;
+    }
+    95% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(1200px);
+      opacity: 0;
+    }
+  }
+
+  .city-animation .content .vehicle.car {
+    bottom: -7px;
+    animation-duration: 7s;
+    animation-delay: 0.4s;
+
+    > svg:nth-child(1) {
+      width: 40px;
+      height: 30px;
+    }
+
+    > svg:nth-child(2) {
+      width: 50px;
+      position: absolute;
+      background: white;
+      border-radius: 19%;
+      left: 50%;
+      top: -75px;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  .city-animation .content .vehicle.truck {
+    bottom: -2px;
+
+    > svg:nth-child(1) {
+      width: 50px;
+      height: 36px;
+    }
+
+    > svg:nth-child(2) {
+      width: 50px;
+      position: absolute;
+      background: white;
+      border-radius: 19%;
+      left: 50%;
+      top: -75px;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  .city-animation .content .vehicle {
+    display: flex;
+    position: absolute;
+    transform: translateX(0px);
+    animation: vehicle-animation 10s linear infinite;
+    opacity: 0;
+  }
+
+  .city-animation .content .vehicle :global(:first-child) {
+    font-size: 18px;
+    paint-order: stroke;
+    stroke: white;
+    stroke-width: 80px;
+    stroke-linecap: butt;
+    font-weight: 800;
+  }
+
+  .city-animation .content .mountains {
+    z-index: -1;
+    opacity: 0.55;
+    bottom: -20px;
+    transform: translateX(100px);
+
+    svg:nth-child(1) {
+      width: 350px;
+    }
+
+    svg:nth-child(2) {
+      width: 250px;
+      transform: translateX(-100px);
+      opacity: 0.55;
+    }
+  }
+
+  .city-animation .content .trees-2 {
+    transform: translateX(250px);
+    bottom: -10px;
+
+    svg:not(:last-child) {
+      width: 40px;
+    }
+
+    svg:last-child {
+      width: 30px;
+    }
+  }
+
+  .city-animation .content .trees-3 {
+    transform: translateX(920px);
+    bottom: -10px;
+
+    svg:nth-child(1) {
+      width: 80px;
+    }
+
+    svg:nth-child(2) {
+      width: 60px;
+    }
+  }
+
+  .city-animation .content .bg-building {
+    transform: translateX(450px);
+    bottom: -10px;
+
+    svg:nth-child(1),
+    svg:nth-child(2) {
+      width: 30px;
+    }
+
+    svg:nth-child(3),
+    svg:nth-child(4) {
+      width: 120px;
+    }
+  }
+
+  .city-animation .floor {
+    height: 100px;
+    width: 100%;
+    background: black;
+    z-index: 1111;
+    position: relative;
+    border-radius: 20px;
+    max-width: 1360px;
+    margin: 0 auto;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  /*  FIXME: adjust svg sizes for mobile */
+  @media screen and (max-width: 1360px) {
+    .city-animation .floor {
+      border-radius: 0;
+    }
+  }
+
+  /*  FIXME: adjust svg sizes for mobile */
+  @media screen and (max-width: 768px) {
+    .title {
+      padding: 20px 10px;
+      background: rgba(255, 255, 255, 1);
+    }
+    .city-animation {
+      transform: scale(0.8);
+      height: calc(100vh - 100px);
+      overflow: visible;
+      transform-origin: bottom;
+    }
+    .city-animation .content .building {
+      transform: translateX(380px);
+    }
+    .city-animation .content .industry {
+      transform: translateX(630px);
+    }
+    .city-animation .floor {
+      border-radius: 0;
+      max-width: 1900px;
+      left: -200px;
+      width: 1900px;
+    }
+
+    .city-animation .clouds :global(:nth-child(1)) {
+      left: 350px;
+    }
+
+    .city-animation .clouds :global(:nth-child(2)) {
+      top: 0%;
+      left: 325px;
+    }
+
+    .city-animation .clouds :global(:nth-child(3)) {
+      top: 0%;
+      left: 450px;
+    }
+
+    .city-animation .clouds :global(:nth-child(4)) {
+      top: 0%;
+      left: 55%;
+    }
+
+    .city-animation .clouds :global(:nth-child(5)) {
+      top: 20%;
+      left: 64%;
+    }
+
+    .city-animation .clouds :global(:nth-child(6)) {
+      top: 0%;
+      left: 62%;
+    }
+  }
+</style>

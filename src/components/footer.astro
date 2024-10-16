@@ -1,0 +1,55 @@
+---
+import SVGTagoIO from "../icons/logos/tagoio.svg?raw";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="page-footer">
+  <div class="page-max-width">
+    <div class="copyright">
+      <div class="image">
+        <Fragment set:html={SVGTagoIO} style="width: 107px;" />
+      </div>
+      <div>Copyright © {year} TagoIO Inc. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<div class="invisible-footer"></div>
+
+<style>
+  .page-footer {
+    background: rgb(245, 245, 245);
+    z-index: 100;
+    width: 100%;
+    height: var(--footer-height);
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0px;
+  }
+
+  .page-footer .copyright {
+    .image {
+      margin-bottom: 5px;
+
+      svg {
+        width: 107px;
+      }
+    }
+
+    div {
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .page-footer .page-max-width {
+      padding: 0px 10px;
+    }
+  }
+
+  .invisible-footer {
+    height: var(--footer-height);
+  }
+</style>
