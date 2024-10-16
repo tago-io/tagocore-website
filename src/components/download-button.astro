@@ -8,21 +8,23 @@ const { localLink } = Astro.props;
 ---
 
 <div class="download-button">
-  {localLink ? (
-    <a href="#download">
-      <Button>
-        <Fragment set:html={DownloadIcon} />
-        <span>Download TagoCore</span>
-      </Button>
-    </a>
-  ) : (
-    <a href="https://downloads.tagocore.com" target="_blank" rel="noreferrer">
-      <Button>
-        <Fragment set:html={ExternalLinkIcon} />
-        <span>Go to Downloads page</span>
-      </Button>
-    </a>
-  )}
+  {
+    localLink ? (
+      <a href="#download">
+        <Button>
+          <Fragment set:html={DownloadIcon} />
+          <span>Download TagoCore</span>
+        </Button>
+      </a>
+    ) : (
+      <a href="https://downloads.tagocore.com" target="_blank" rel="noreferrer">
+        <Button>
+          <Fragment set:html={ExternalLinkIcon} />
+          <span>Go to Downloads page</span>
+        </Button>
+      </a>
+    )
+  }
 
   <style>
     .download-button a {

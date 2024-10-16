@@ -1,26 +1,28 @@
 ---
-import MySQLLogo from '../icons/logos/mysql.svg?raw';
-import MongoDBLogo from '../icons/logos/mongodb.svg?raw';
-import PostgreSQLLogo from '../icons/logos/postgresql.svg?raw';
-import SQLiteLogo from '../icons/logos/sqlite.svg?raw';
-import MariaDBLogo from '../icons/logos/mariadb.svg?raw';
-import OracleLogo from '../icons/logos/oracle.svg?raw';
+import MySQLLogo from "../icons/logos/mysql.svg?raw";
+import MongoDBLogo from "../icons/logos/mongodb.svg?raw";
+import PostgreSQLLogo from "../icons/logos/postgresql.svg?raw";
+import SQLiteLogo from "../icons/logos/sqlite.svg?raw";
+import MariaDBLogo from "../icons/logos/mariadb.svg?raw";
+import OracleLogo from "../icons/logos/oracle.svg?raw";
 
-import BoxOpen from '../icons/box-open.svg?raw';
+import BoxOpen from "../icons/box-open.svg?raw";
 
 import Console from "./console.astro";
 ---
 
 <div class="database-support page-max-width">
   <div class="line">
-    <div class="inner-line" />
+    <div class="inner-line"></div>
   </div>
 
   <div class="title">
     <Fragment set:html={BoxOpen} />
     <div class="text">
       <h2>Database Support</h2>
-      <span class="description">TagoCore supports more than 10 different databases through plugins.</span>
+      <span class="description"
+        >TagoCore supports more than 10 different databases through plugins.</span
+      >
     </div>
   </div>
 
@@ -155,7 +157,6 @@ import Console from "./console.astro";
 
   .visual-list .mariadb :global(svg) {
     width: 170px;
-
   }
 
   .visual-list .oracle :global(svg) {

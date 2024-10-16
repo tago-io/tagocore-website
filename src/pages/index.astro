@@ -1,24 +1,24 @@
 ---
-import MainLayout from '../layouts/main-layout.astro';
+import MainLayout from "../layouts/main-layout.astro";
 
-import CityAnimation from '../components/city-animation.astro';
-import DatabaseSupport from '../components/database-support.astro';
-import AddMissingPiece from '../components/add-missing-piece.astro';
-import OpenSourceBanner from '../components/open-source-banner.astro';
-import RunsAnywhere from '../components/runs-anywhere.astro';
-import Download from '../components/download.astro';
+import CityAnimation from "../components/city-animation.astro";
+import DatabaseSupport from "../components/database-support.astro";
+import AddMissingPiece from "../components/add-missing-piece.astro";
+import OpenSourceBanner from "../components/open-source-banner.astro";
+import RunsAnywhere from "../components/runs-anywhere.astro";
+import Download from "../components/download.astro";
 ---
 
 <MainLayout title="TagoCore">
   <CityAnimation />
   <DatabaseSupport />
   <AddMissingPiece />
-  <div id="pricing" />
+  <div id="pricing"></div>
   <OpenSourceBanner />
   <RunsAnywhere />
-  <div class="spacer" />
+  <div class="spacer"></div>
   <Download />
-  <div class="spacer" />
+  <div class="spacer"></div>
 </MainLayout>
 
 <style>
@@ -29,6 +29,6 @@ import Download from '../components/download.astro';
   }
 
   .spacer {
-    height: 100px
+    height: 100px;
   }
 </style>

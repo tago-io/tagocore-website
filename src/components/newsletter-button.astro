@@ -9,10 +9,7 @@ import EnvelopeIcon from "../icons/envelope-circle-check.svg?raw";
     <b>Thank you for joining!</b>
   </div>
 
-  <input
-    type="email"
-    placeholder="Email"
-  />
+  <input type="email" placeholder="Email" />
 
   <Button>
     <Fragment set:html={EnvelopeIcon} />
@@ -32,16 +29,19 @@ import EnvelopeIcon from "../icons/envelope-circle-check.svg?raw";
     try {
       newsletterSection.classList.add("loading");
 
-      await fetch("https://wkd7y6x1xi.execute-api.us-east-1.amazonaws.com/prod/mail-list/subscribe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      await fetch(
+        "https://wkd7y6x1xi.execute-api.us-east-1.amazonaws.com/prod/mail-list/subscribe",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: emailInput.value,
+            mail_list: ["core_news"],
+          }),
         },
-        body: JSON.stringify({
-          email: emailInput.value,
-          mail_list: ["core_news"],
-        }),
-      });
+      );
 
       emailInput.style.display = "none";
       submitButton.style.display = "none";
